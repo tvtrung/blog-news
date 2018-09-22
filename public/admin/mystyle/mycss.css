@@ -1,0 +1,9 @@
+.error-text-popup{
+	margin: 0;
+	color: red;
+	margin-bottom: 5px;
+	font-size: 13px;
+}
+.require-field{
+	color: red;
+}
