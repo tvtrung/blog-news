@@ -19,13 +19,31 @@ class Categories extends Model
         return $row;
     }
     public static function detail($id) {
-    	$product = self::find($id);
-    	return $product;
+    	$row = self::find($id);
+    	return $row;
     }
     public static function update_order($id, $order){
-        $product = self::find($id);
-        $product->order = $order;
-        $product->save();
-        return $product;
+        $row = self::find($id);
+        $row->order = $order;
+        $row->save();
+        return $row;
+    }
+    public static function create_data($input){
+    	$row = new Categories();
+    	$row->parent = $input['parent'];
+    	$row->title = $input['title'];
+    	$row->slug = $input['slug'];
+    	$row->order = $input['order'];
+    	$row->status = $input['status'];
+    	$row->save();
+    }
+    public static function update_data($input, $id){
+    	$row = self::find($id);
+    	$row->parent = $input['parent'];
+    	$row->title = $input['title'];
+    	$row->slug = $input['slug'];
+    	$row->order = $input['order'];
+    	$row->status = $input['status'];
+    	$row->save();
     }
 }

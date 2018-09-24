@@ -74,12 +74,23 @@ Route::prefix('admink')->group(function() {
 			Route::prefix('{id}')->group(function() {
 				Route::get('edit','CategoriesController@edit')->name('admin.cats.edit');
 				Route::post('edit','CategoriesController@update')->name('admin.cats.update');
-				Route::get('delete','CategoriesController@destroy')->name('admin.cats.delete');
+				Route::get('delete','CategoriesController@delete')->name('admin.cats.delete');
 				Route::get('ajax-status','CategoriesController@ajax_switch')->name('admin.cats.ajax_switch');
+				Route::get('ajax-order','CategoriesController@ajax_order')->name('admin.cats.ajax_order');
+				Route::get('ajax-view','CategoriesController@ajax_view')->name('admin.cats.ajax_view');
 			});
 		});
-		Route::get('/','PostsController@index')->name('admin.post.index');
-		Route::get('create','PostsController@crete')->name('admin.post.create');
+		Route::get('/','PostsController@index')->name('admin.posts.index');
+		Route::get('create','PostsController@create')->name('admin.posts.create');
+		Route::post('create','PostsController@store')->name('admin.posts.store');
+		Route::prefix('{id}')->group(function() {
+			Route::get('edit','PostsController@edit')->name('admin.posts.edit');
+			Route::post('edit','PostsController@update')->name('admin.posts.update');
+			Route::get('delete','PostsController@delete')->name('admin.posts.delete');
+			Route::get('ajax-status','PostsController@ajax_switch')->name('admin.posts.ajax_switch');
+			Route::get('ajax-order','PostsController@ajax_order')->name('admin.posts.ajax_order');
+			Route::get('ajax-view','PostsController@ajax_view')->name('admin.posts.ajax_view');
+		});
 	});
 	
 	//product
