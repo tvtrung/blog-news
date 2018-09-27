@@ -172,14 +172,14 @@
                         </a>
                     </li>
                     <li class="nav-item start {{ isActive('admin.faq.index', 'active open') }}">
-                        <a href="{{route('admin.faq.index')}}" class="nav-link ">
+                        <a href="{{route('admin.posts.index')}}" class="nav-link ">
                             <i class="fa fa-list"></i>
                             <span class="title">Tất cả bài viết</span>
                             <span class="selected"></span>
                         </a>
                     </li>
                     <li class="nav-item start {{ setActive('*/faq/create*', 'active open') }}">
-                        <a href="{{route('admin.faq.create')}}" class="nav-link ">
+                        <a href="{{route('admin.posts.create')}}" class="nav-link ">
                             <i class="fa fa-list"></i>
                             <span class="title">Thêm bài viết</span>
                             <span class="selected"></span>

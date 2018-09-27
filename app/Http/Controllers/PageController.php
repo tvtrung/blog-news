@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Validator;
 use App\Newletter;
 use App\Faq;
+use App\Posts;
+use App\Categories;
 
 class PageController extends Controller
 {
@@ -85,4 +87,20 @@ class PageController extends Controller
         Faq::create($input);
         return redirect()->route('page.faq')->with('success','Cảm ơn bạn đã đặt câu hỏi, chúng tôi sẽ trả lời bạn trong thời gian sớm nhất.');
     }
+    // public function posts(Request $request, $cat, $post){
+    //     $row_cat = Categories::where('slug',$cat)->firstOrFail();
+    //     $row_post = Posts::where('slug',$post)->firstOrFail();
+    //     if($row_cat->id == $row_post->cat_id){
+    //         echo $row_post->title;
+    //     }
+    //     else{
+    //         abort(404);
+    //     }
+    //     if(($request->cookie("post-" . $post)) == null){
+    //         Posts::view_plus($post);
+    //         $response = new Response();
+    //         $response->withCookie("post-" . $post,"1", 3);
+    //         return $response;
+    //     }
+    // }
 }

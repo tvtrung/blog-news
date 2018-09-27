@@ -15,39 +15,78 @@
 @section('content')
 	<div class="page-content-wrapper">
 	    <div class="page-content">
-	        <h3 class="page-title">Danh mục bài viết</h3>
+	        <h3 class="page-title">Bài viết</h3>
 	        <div class="row">
             	<div class="col-md-12">
-            		@if(session('success'))
-						<div class="alert alert-success update-alert">   
-						<li>{{ session('success') }}</li>
-						</div>
-					@endif
-					@if(session('fail'))
-						<div class="alert alert-danger update-alert">   
-						<li>{{ session('fail') }}</li>
-						</div>
-					@endif
+            		<div class="col-md-12">
+	            		@if(session('success'))
+							<div class="alert alert-success update-alert">   
+							<li>{{ session('success') }}</li>
+							</div>
+						@endif
+						@if(session('fail'))
+							<div class="alert alert-danger update-alert">   
+							<li>{{ session('fail') }}</li>
+							</div>
+						@endif
+	            	</div>
+					@if (count($errors) > 0)
+				        <div class="alert alert-danger">
+				            <ul>
+				                @foreach ($errors->all() as $error)
+				                <li>{{ $error }}</li>
+				                @endforeach
+				            </ul>
+				        </div>
+				    @endif
             	</div>
 	        	<div class="col-md-12">
+                    <form action="" method="get">
 	        		<div class="form-actions right">
-                        <a href="{{route('admin.cats.create')}}"><button type="" class="btn green">Thêm Danh mục</button></a>
+                        <a href="{{route('admin.posts.create')}}"><button type="" class="btn green">Thêm bài viết</button></a>
+                        <select name="cat" class="bs-select form-control list-cats-id" style="width: 250px;float: right;" onchange="this.form.submit()">
+                            <option value="0">Tất cả</option>
+                            {!! $html_option !!}
+                        </select>
                     </div>
+                    </form>
 	        		<div class="portlet-body">
                         <div class="table-scrollable">
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th style="width: 50px;"> STT </th>
-                                        <th> Tên danh mục </th>
+                                        <th> Tên bài viết </th>
+                                        <th style="width: 50px;" class="text-center"> Thuộc danh mục </th>
+                                        <th style="width: 50px;" class="text-center"> Lượt xem </th>
                                         <th style="width: 50px;" class="text-center"> Trạng thái </th>
+                                        <th style="width: 150px;" class="text-center"> Thời gian tạo </th>
                                         <th style="width: 120px;">  </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {!!$html!!}
+                                    @foreach($data as $item)
+                                    <tr>
+                                        <td>{!!$item->title!!}</td>
+                                    	<td>Tin tức</td>
+                                    	<td class="text-center">{{$item->view}}</td>
+                                    	<td class="text-center"><input type="checkbox" class="ajax-switch" data-link="{{route('admin.posts.ajax_switch',['id'=>$item->id])}}" @if($item->status == 1) checked="checked" @endif></td>
+                                    	<td>{{$item->created_at}}</td>
+                                    	<td class="text-center">
+                                    		<a href="#" class="click-to-view" data-link="{{route('admin.posts.ajax_view',['id'=>$item->id])}}"><span class="label label-sm label-success"><i class="fa fa-eye"></i></span></a>&nbsp;
+                                    		<a href="{{route('admin.posts.edit',['id'=>$item->id])}}"><span class="label label-sm label-warning"><i class="fa fa-edit"></i></span></a>&nbsp;
+                                    		<a href="#" class="click-to-delete" data-link="{{route('admin.posts.delete',['id'=>$item->id])}}"><span class="label label-sm label-danger"><i class="fa fa-trash"></i></span></a>
+                                    	</td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="text-right">
+                        @if(isset($_GET['cat']) && $_GET['cat'] != 0 && $_GET['cat'] != null)
+                        {!!$data->appends(['cat' => $_GET['cat']])->links()!!}
+                        @else
+                        {!!$data->links()!!}
+                        @endif
                         </div>
                     </div>
                 </div>
@@ -88,6 +127,14 @@
 </div>
 @endsection
 @section('script')
+<script type="text/javascript">
+    @if(isset($_GET['cat']) && $_GET['cat'] != '')
+    cat_id = {{$_GET['cat']}};
+    @else
+    cat_id = 0;
+    @endif
+    $('.list-cats-id option[value='+cat_id+']').attr('selected','selected');
+</script>
 <script type="text/javascript">
 	{{--Ajax Status --}}
 	$(document).ready(function() {

@@ -4,6 +4,7 @@
 /public/uploads/configs
 /public/uploads/images
 /public/uploads/www
+/public/uploads
 /storage/*.key
 /vendor
 /.idea

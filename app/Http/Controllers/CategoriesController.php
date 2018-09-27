@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CategoriesRequest;
 use Illuminate\Support\Facades\DB;
 use App\Categories;
+use App\Posts;
 
 class CategoriesController extends Controller
 {
@@ -74,10 +75,20 @@ class CategoriesController extends Controller
     }
     public function delete($id){
         $row = Categories::findOrFail($id);
-        if($row->delete()){
-            return redirect()->route('admin.cats.index')->with('success','Xóa dữ liệu thành công');
-        }else{
-            return redirect()->route('admin.cats.index')->with('fail','Lỗi xóa dữ liệu');
+        $count_sub = Categories::where('parent',$id)->count();
+        $count_posts = Posts::where('cat_id',$id)->count();
+        if($count_sub == 0){
+            if($count_posts == 0){
+                if($row->delete())
+                    return redirect()->route('admin.cats.index')->with('success','Xóa dữ liệu thành công');
+                else
+                    return redirect()->route('admin.cats.index')->with('fail','Lỗi xóa dữ liệu');
+            }
+            else
+                return redirect()->route('admin.cats.index')->with('fail','Không thể xóa vì có bài viết trong danh mục này. Có ' . $count_posts . ' bài viết');
+        }
+        else{
+            return redirect()->route('admin.cats.index')->with('fail','Không thể xóa khi còn danh mục con');
         }
     }
     public function showCategories($categories, $parent_id = 0, $char = ''){
