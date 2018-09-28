@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class CategoriesRequest extends FormRequest
 {
@@ -21,11 +22,11 @@ class CategoriesRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
-            'title' => 'bail|required|unique:categories,title',
-            'slug' => 'bail|required|unique:categories,slug',
+            'title' => 'bail|required|unique:categories,title,' . $request->get('id'),
+            'slug' => 'bail|required|unique:categories,slug,' . $request->get('id'),
             'order' => 'bail|required',
         ];
     }

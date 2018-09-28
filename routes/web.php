@@ -23,7 +23,7 @@ Route::get('huong-dan','PageController@guide')->name('page.guide');
 Route::get('hoi-dap','PageController@faq')->name('page.faq');
 Route::get('lien-he','PageController@contact')->name('page.contact');
 Route::get('noscript','PageController@no_script')->name('page.noscript');
-Route::get('{cat}/{post}','PageController@posts')->name('page.contact');
+Route::get('post/{slug?}','PageController@posts')->name('page.posts')->where('slug', '.+');
 // END-PAGE
 
 

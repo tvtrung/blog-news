@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(FaqsPage::class);
         // $this->call(ContactPage::class);
         // $this->call(HomePage::class);
-        // $this->call(User::class);
+        $this->call(User::class);
         $this->call(Categories::class);
         $this->call(Posts::class);
     }

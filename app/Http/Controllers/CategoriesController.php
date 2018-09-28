@@ -24,6 +24,23 @@ class CategoriesController extends Controller
     	return view('admin.page.categories.create',['html'=>$html,'max_order'=>$max_order]);
     }
     public function store(CategoriesRequest $request){
+        $parent = $request->get('parent');
+        $row_parent = Categories::where('id',$parent)->first();
+        $array_parent = array();
+        if($row_parent != null){
+            $serialize_parent = $row_parent->array_parent;
+            if($serialize_parent == null){
+                $serialize_parent = array(0);
+            }
+            else{
+                $array_parent = unserialize($serialize_parent);
+            }
+            array_push($array_parent,intval($parent));
+            $serialize_parent = serialize($array_parent);
+        }
+        else{
+            $serialize_parent = serialize(array(0));
+        }
     	if($request->get('status') == 'on'){
             $status = 1;
         }else{
@@ -31,6 +48,7 @@ class CategoriesController extends Controller
         }
         $input = [
             'parent' => $request->get('parent'),
+            'array_parent' => $serialize_parent,
             'title' => $request->get('title'),
             'slug' => $request->get('slug'),
             'order' => $request->get('order'),
@@ -46,7 +64,40 @@ class CategoriesController extends Controller
     	return view('admin.page.categories.edit',['row'=>$row,'html'=>$html]);
     }
     public function update(CategoriesRequest $request, $id){
-    	$row = Categories::findOrFail($id);
+        $parent = $request->get('parent');
+        $row_parent = Categories::where('id',$parent)->first();
+        $array_parent = array();
+        if($row_parent != null){
+            $serialize_parent = $row_parent->array_parent;
+            if($serialize_parent == null){
+                $serialize_parent = array(0);
+            }
+            else{
+                $array_parent = unserialize($serialize_parent);
+            }
+            array_push($array_parent,intval($parent));
+            $serialize_parent = serialize($array_parent);
+        }
+        else{
+            $serialize_parent = serialize(array(0));
+        }
+        //$row = DB::table('categories')->where('id', $parent)->first();
+        // if($row != null && ($row->parent == $id)) {
+        //     DB::table('categories')->where('id', $parent)->update(['parent' => 0]);
+        // }
+        $i = $parent;
+        $result = false;
+        while ($i != $parent) {
+            $row = DB::table('categories')->where('id',$i)->first();
+            $i = $row->parent;
+            if($i == $parent){
+                $result = true;
+            }
+        }
+        var_dump($result);
+
+        
+        die;
     	if($request->get('status') == 'on'){
             $status = 1;
         }else{
@@ -54,6 +105,7 @@ class CategoriesController extends Controller
         }
         $input = [
             'parent' => $request->get('parent'),
+            'array_parent' => $serialize_parent,
             'title' => $request->get('title'),
             'slug' => $request->get('slug'),
             'order' => $request->get('order'),

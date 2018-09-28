@@ -30,7 +30,8 @@ class Categories extends Model
     }
     public static function create_data($input){
     	$row = new Categories();
-    	$row->parent = $input['parent'];
+        $row->parent = $input['parent'];
+    	$row->array_parent = $input['array_parent'];
     	$row->title = $input['title'];
     	$row->slug = $input['slug'];
     	$row->order = $input['order'];
@@ -40,6 +41,7 @@ class Categories extends Model
     public static function update_data($input, $id){
     	$row = self::find($id);
     	$row->parent = $input['parent'];
+        $row->array_parent = $input['array_parent'];
     	$row->title = $input['title'];
     	$row->slug = $input['slug'];
     	$row->order = $input['order'];

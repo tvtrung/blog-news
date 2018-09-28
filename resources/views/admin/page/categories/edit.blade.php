@@ -82,6 +82,7 @@
 				        	</div>
 				        </div>
 				        <input type="hidden" value="{{ csrf_token() }}" name="_token">
+				        <input type="hidden" name="id" value="{{$row->id}}">
 			    	</form>
                 </div>
                 <!-- END BORDERED TABLE PORTLET-->
