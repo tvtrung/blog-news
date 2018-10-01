@@ -65,6 +65,22 @@ class CategoriesController extends Controller
     }
     public function update(CategoriesRequest $request, $id){
         $parent = $request->get('parent');
+        $i_parent = $parent;
+        while(true){
+            $row = DB::table('categories')->where('id',$i_parent)->first();
+            $i_row_parent = $row->parent;
+            if($row->id == $id){
+                $i_row_parent = $parent;
+            }
+            $i_parent = $i_row_parent;
+            if($i_parent == $parent){
+                return redirect()->route('admin.cats.edit',['id'=>$id])->with('fail','Lỗi: Không thể chọn danh mục con là danh mục cha');
+                break;
+            }
+            if($i_parent == 0){
+                break;
+            }
+        }
         $row_parent = Categories::where('id',$parent)->first();
         $array_parent = array();
         if($row_parent != null){
@@ -81,23 +97,6 @@ class CategoriesController extends Controller
         else{
             $serialize_parent = serialize(array(0));
         }
-        //$row = DB::table('categories')->where('id', $parent)->first();
-        // if($row != null && ($row->parent == $id)) {
-        //     DB::table('categories')->where('id', $parent)->update(['parent' => 0]);
-        // }
-        $i = $parent;
-        $result = false;
-        while ($i != $parent) {
-            $row = DB::table('categories')->where('id',$i)->first();
-            $i = $row->parent;
-            if($i == $parent){
-                $result = true;
-            }
-        }
-        var_dump($result);
-
-        
-        die;
     	if($request->get('status') == 'on'){
             $status = 1;
         }else{

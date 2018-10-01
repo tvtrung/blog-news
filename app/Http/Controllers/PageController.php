@@ -116,44 +116,41 @@ class PageController extends Controller
             else{
                 abort(404);
             }
-        }
-        else{
-            $row_cat = Categories::where('slug',$end_slug)->firstOrFail();
-            $cat_id = $row_cat->id;
-            $array_parent = unserialize($row_cat->array_parent);
-            unset($array_parent[0]);
-            array_push($array_parent,$cat_id);
-            $get_all = Categories::all();
-            foreach ($get_all as $value) {
-                if(in_array($array_parent, unserialize($value->array_parent))){
-                    var_dump($value->array_parent);
-                }
+            if(($request->cookie("post-" . $end_slug)) == null){
+                Posts::view_plus($end_slug);
+                $response = new Response();
+                $response->withCookie("post-" . $end_slug,"1", 3);
+                return $response;
             }
         }
-        
-
-
-        
-
-
-
-
-
-
-        die;
-        $row_cat = Categories::where('slug',$cat)->firstOrFail();
-        $row_post = Posts::where('slug',$post)->firstOrFail();
-        if($row_cat->id == $row_post->cat_id){
-            echo $row_post->title;
-        }
         else{
-            abort(404);
+            $row_cat = Categories::where('slug',$end_slug)->first();
+            $id_row_cat = $row_cat->id;
+            $array_parent_1 = unserialize($row_cat->array_parent);
+            unset($array_parent_1[0]);
+            while(true){
+                $get_sub_cat = Categories::where('parent',$id_row_cat)->first();
+                if($get_sub_cat == null){
+                    break;
+                }else{
+                    $i_id_row_cat = $get_sub_cat->id;
+                    $id_row_cat = $i_id_row_cat;
+                    $array_parent_2 = $get_sub_cat->array_parent;
+                    $array_parent_2 = unserialize($array_parent_2);
+                    unset($array_parent_2[0]);
+                    array_push($array_parent_2,$id_row_cat);
+                }
+            }
+            $id_cat_of_post = self::array_minus($array_parent_2, $array_parent_1);
         }
-        if(($request->cookie("post-" . $post)) == null){
-            Posts::view_plus($post);
-            $response = new Response();
-            $response->withCookie("post-" . $post,"1", 3);
-            return $response;
+    }
+    public function array_minus($array_1, $array_2){
+        //$array_1 > $array_2
+        foreach ($array_1 as $key => $value) {
+            if(in_array($value, $array_2)){
+                unset($array_1[$key]);
+            }
         }
+        return $array_1;
     }
 }

@@ -124,7 +124,7 @@
 	<script type="text/javascript">
 		id = {{$row->id}};
 		parent = {{$row->parent}};
-		$('.form-select option[value='+id+']').addClass('hidden');
+		$('.form-select option[value='+id+']').attr('disabled','');
 		$('.form-select option[value='+parent+']').attr('selected','selected');
 	</script>
 @endsection
