@@ -103,6 +103,7 @@ class PageController extends Controller
                 $cat_slug = Categories::where('id',$value)->first();
                 if($array_slug[$key] != $cat_slug->slug){
                     $result = false;
+                    break;
                 }
             }
             $c_array_slug = count($array_slug) - 1;
@@ -111,6 +112,8 @@ class PageController extends Controller
                 $result = false;
             }
             if($result == true){
+                //Hiển thì view bài viết
+                //$row_post
                 echo $row_post->title;
             }
             else{
@@ -125,9 +128,24 @@ class PageController extends Controller
         }
         else{
             $row_cat = Categories::where('slug',$end_slug)->first();
+            if($row_cat == null){
+                abort(404);
+            }
             $id_row_cat = $row_cat->id;
             $array_parent_1 = unserialize($row_cat->array_parent);
             unset($array_parent_1[0]);
+            //So sánh link
+            $array_compare = $array_parent_1;
+            array_push($array_compare,$id_row_cat);
+            $array_compare = array_values($array_compare);
+            foreach ($array_compare as $key => $value) {
+                $cat_slug = Categories::where('id',$value)->first();
+                if($array_slug[$key] != $cat_slug->slug){
+                    $result = false;
+                    break;
+                }
+            }
+            //Lấy hết id con để hiển thị bài viết.
             while(true){
                 $get_sub_cat = Categories::where('parent',$id_row_cat)->first();
                 if($get_sub_cat == null){
@@ -142,6 +160,41 @@ class PageController extends Controller
                 }
             }
             $id_cat_of_post = self::array_minus($array_parent_2, $array_parent_1);
+            if($result == true){
+                //Hiển thì bài viết theo cat
+                //$id_cat_of_post
+                //var_dump($id_cat_of_post);
+                $data_post = Posts::whereIn('cat_id',$id_cat_of_post)->get();
+                foreach ($data_post as $key => $value) {
+                    //var_dump($value->title);
+                    $row_cat_to_link = Categories::where('id',$value->cat_id)->first();
+                    $row_cat_to_link_array_parent = unserialize($row_cat_to_link->array_parent);
+                    unset($row_cat_to_link_array_parent[0]);
+                    array_push($row_cat_to_link_array_parent,$value->cat_id);
+                    $row_cat_to_link_array_parent = array_values($row_cat_to_link_array_parent);
+                    $link = '';
+                    foreach ($row_cat_to_link_array_parent as $value_2) {
+                        $link .= Categories::where('id', $value_2)->first()->slug . '/';
+                    }
+                    $link .= $value->slug;
+                    $url = route('page.posts',['slug'=>$link]);
+
+                    $post_item[$key]['title'] = $value->title;
+                    $post_item[$key]['description'] = $value->description;
+                    $post_item[$key]['content'] = $value->content;
+                    $post_item[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
+                    $post_item[$key]['view'] = $value->view;
+                    $post_item[$key]['seo_keyword'] = $value->seo_keyword;
+                    $post_item[$key]['seo_description'] = $value->seo_description;
+                    $post_item[$key]['seo_content'] = $value->seo_content;
+                    $post_item[$key]['created_at'] = $value->created_at;
+                    $post_item[$key]['url'] = $url;
+                }
+                var_dump($post_item);
+            }
+            else{
+                abort(404);
+            }
         }
     }
     public function array_minus($array_1, $array_2){
