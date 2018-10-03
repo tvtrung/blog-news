@@ -25,6 +25,9 @@
 <link rel="stylesheet" type="text/css" href="style/menu-mobile/css/webslidemenu.css">
 <link rel="stylesheet" type="text/css" href="style/menu-mobile/css/tree-menu.css">
 <link rel="stylesheet" type="text/css" href="style/menu-mobile/css/style.css">
+<link rel="stylesheet" href="style/owl-carousel/custom.css" >
+<link rel="stylesheet" href="style/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="style/owl-carousel/owl.theme.css">
 <link rel="stylesheet" type="text/css" href="style/slick/slick-theme.css">
 <link rel="stylesheet" type="text/css" href="style/slick/slick.css" >
 <link rel="stylesheet" type="text/css" href="style/css/mystyle.css">

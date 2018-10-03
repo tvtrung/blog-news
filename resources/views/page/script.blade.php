@@ -2,6 +2,7 @@
 <script src="style/jquery/jquery-2.2.4.min.js"></script>
 <script src="style/bootstrap-4.0.0/bootstrap.min.js"></script>
 <script src="style/menu-mobile/js/webslidemenu.js"></script>
+<script src="style/owl-carousel/owl.carousel.js"></script>
 <script src="style/lazyload/lazyload.js"></script>
 <script src="style/slick/slick.js"></script>
 <script src="style/js/myscript.js"></script>

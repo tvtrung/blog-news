@@ -31,7 +31,7 @@
 			<div class="col-xl-3 tt-col">
 				<div class="title">Dịch vụ</div>
 				<div class="line-title">
-					<img class="lazy" data-src="style/images/line-footer.png">
+					<img src="style/images/bg-line-footer.jpg">
 				</div>
 				<ul class="menu-footer">
 					<li><a href="https://kdata.vn/product/dedicated-server" target="_blank">Máy chủ riêng</a></li>
@@ -46,7 +46,7 @@
 			<div class="col-xl-3 tt-col">
 				<div class="title">Thông tin</div>
 				<div class="line-title">
-					<img class="lazy" data-src="style/images/line-footer.png">
+					<img src="style/images/bg-line-footer.jpg">
 				</div>
 				<ul class="menu-footer">
 					<li><a href="#">Chính sách bảo mật</a></li>
@@ -69,7 +69,7 @@
 			<div class="col-xl-3 tt-col">
 				<div class="title">Liên hệ</div>
 				<div class="line-title">
-					<img class="lazy" data-src="style/images/line-footer.png">
+					<img src="style/images/bg-line-footer.jpg">
 				</div>
 				<div class="form-contact-footer">
 					<form action="" method="post" id="form-footer">

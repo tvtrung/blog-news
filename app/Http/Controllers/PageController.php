@@ -113,8 +113,15 @@ class PageController extends Controller
             }
             if($result == true){
                 //Hiển thì view bài viết
-                //$row_post
-                echo $row_post->title;
+                $post_item['title'] = $row_post->title;
+                $post_item['description'] = $row_post->description;
+                $post_item['content'] = $row_post->content;
+                $post_item['view'] = $row_post->view;
+                $post_item['seo_keyword'] = $row_post->seo_keyword;
+                $post_item['seo_description'] = $row_post->seo_description;
+                $post_item['seo_content'] = $row_post->seo_content;
+                $post_item['created_at'] = $row_post->created_at;
+                var_dump($post_item);
             }
             else{
                 abort(404);
@@ -161,7 +168,7 @@ class PageController extends Controller
             }
             $id_cat_of_post = self::array_minus($array_parent_2, $array_parent_1);
             if($result == true){
-                //Hiển thì bài viết theo cat
+                //Hiển thị bài viết theo cat
                 //$id_cat_of_post
                 //var_dump($id_cat_of_post);
                 $data_post = Posts::whereIn('cat_id',$id_cat_of_post)->get();
