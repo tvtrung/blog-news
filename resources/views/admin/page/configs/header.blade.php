@@ -24,48 +24,18 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Hotline 1</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-pencil"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="hotline-1" value="{{isset($row['hotline-1'])?$row['hotline-1']:''}}"> 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Hotline 2</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-pencil"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="hotline-2" value="{{isset($row['hotline-2'])?$row['hotline-2']:''}}"> 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Hotline 3</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-pencil"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="hotline-3" value="{{isset($row['hotline-3'])?$row['hotline-3']:''}}"> 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Link Đăng ký</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-pencil"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="link-register" value="{{isset($row['link-register'])?$row['link-register']:''}}"> 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Link Đăng nhập</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-pencil"></i>
-                                    </span>
-                                    <input type="text" class="form-control" name="link-login" value="{{isset($row['link-login'])?$row['link-login']:''}}"> 
+                                <label>Banner Đầu trang</label><div class="clearfix"></div>
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail" style="height: 150px;">
+                                        <img src="/uploads/configs/{{isset($row['banner-top'])?$row['banner-top']:''}}" alt="" /> </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                    <div>
+                                        <span class="btn default btn-file">
+                                            <span class="fileinput-new"> Chọn Hình </span>
+                                            <span class="fileinput-exists"> Thay đổi </span>
+                                            <input type="file" name="banner-top">
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

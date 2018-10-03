@@ -70,7 +70,7 @@ class ConfigsController extends Controller
 		    	foreach ($data as $key => $value) {
 			        $array_data[$key] = $value;
 	    		}
-	    		$array_image = array('logo');
+	    		$array_image = array('logo','banner-top');
 	    		$dir = 'uploads/configs/';
 	    		foreach ($array_image as $value) {
 		    		if($request->hasFile($value)){
@@ -81,7 +81,7 @@ class ConfigsController extends Controller
 			            }
 			            $path = $dir . $filename;
 			            Image::make($file)->save(($path));
-			    		File::delete(public_path($dir . $array_row[$value]));
+			    		//File::delete(public_path($dir . $array_row[$value]));
 			    		$array_data[$value] = $filename;
 			        }else{
 	    				if(isset($array_row[$value]))
@@ -119,7 +119,7 @@ class ConfigsController extends Controller
 			            }
 			            $path = $dir . $filename;
 			            Image::make($file)->save(($path));
-			    		File::delete(public_path($dir . $array_row[$value]));
+			    		//File::delete(public_path($dir . $array_row[$value]));
 			    		$array_data[$value] = $filename;
 			        }else{
 	    				if(isset($array_row[$value]))
@@ -149,7 +149,7 @@ class ConfigsController extends Controller
 			            }
 			            $path = $dir . $filename;
 			            Image::make($file)->save(($path));
-			    		File::delete(public_path($dir . $array_row[$value]));
+			    		//File::delete(public_path($dir . $array_row[$value]));
 			    		$array_data[$value] = $filename;
 			        }else{
 	    				if(isset($array_row[$value]))

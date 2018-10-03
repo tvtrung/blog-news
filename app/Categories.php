@@ -35,7 +35,8 @@ class Categories extends Model
     	$row->title = $input['title'];
     	$row->slug = $input['slug'];
     	$row->order = $input['order'];
-    	$row->status = $input['status'];
+        $row->status = $input['status'];
+    	$row->url = $input['link'];
     	$row->save();
     }
     public static function update_data($input, $id){
@@ -46,6 +47,7 @@ class Categories extends Model
     	$row->slug = $input['slug'];
     	$row->order = $input['order'];
     	$row->status = $input['status'];
+        $row->url = $input['link'];
     	$row->save();
     }
 }

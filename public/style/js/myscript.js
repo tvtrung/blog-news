@@ -26,13 +26,19 @@ $(document).ready(function() {
 	[0, 2],
 	[450, 2],
 	[600, 2],
-	[700, 4],
-	[1000, 4],
-	[1200, 7],
-	[1400, 7],
-	[1600, 7]
+	[700, 3],
+	[1000, 3],
+	[1200, 3],
+	[1400, 3],
+	[1600, 3]
 	],
 	navigation : true,
 	autoPlay:true,
 	});
+	$('.posts-carousel .fa-angle-left').click(function() {
+	    owl.trigger('owl.prev');
+	});
+	$('.posts-carousel .fa-angle-right').click(function() {
+	    owl.trigger('owl.next');
+	})
 });

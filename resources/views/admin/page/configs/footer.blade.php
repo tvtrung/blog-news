@@ -3,7 +3,7 @@
 	<div class="page-content-wrapper">
     <div class="page-content">
         <h3 class="page-title">Footer</h3>
-        <form action="" method="post" enctype="multipart/form-data" id="submit-form-configs-footer">
+        <form action="" method="post" enctype="multipart/form-data" id="submit-form-configs">
 	        <div class="row">
 	        	<div class="col-md-12">
 	        		<div class="portlet light bordered">
@@ -79,11 +79,12 @@
 </div>
 @endsection
 @section('script')
-    <script src="/admin/assets/pages/scripts/components-code-editors.min.js" type="text/javascript"></script>
+    {{-- <script src="/admin/assets/pages/scripts/components-code-editors.min.js" type="text/javascript"></script> --}}
 	<script type="text/javascript">
         $(document).ready(function(e){
-            $("#submit-form-configs-footer").on('submit', function(e){
+            $("#submit-form-configs").on('submit', function(e){
                 e.preventDefault();
+                console.log('ok');
                 $.ajax({
                     type: 'POST',
                     url: '{{ route('admin.configs.update') }}',
@@ -101,6 +102,5 @@
                 });
             });
         });
-        </script>
     </script>
 @endsection

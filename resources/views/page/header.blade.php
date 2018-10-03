@@ -9,7 +9,7 @@
 				</div>
 				<div class="col-lg-8">
 					<div class="banner-top">
-						<img src="style/images/banner-top.jpg" alt="banner">
+						<img src="uploads/configs/{{isset($configs_data['header']['banner-top'])?$configs_data['header']['banner-top']:''}}" alt="Banner">
 					</div>
 				</div>
 			</div>
@@ -28,14 +28,11 @@
 								<!--Main Menu HTML Code-->
 								<nav id="" class="wsmenu clearfix">
 									<ul class="mobile-sub wsmenu-list">
-										<li class="title icon-home active" ><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-										<li class="title" ><a href="#">Tin tức</a></li>
-										<li class="title" ><a href="#">Tutorial</a></li>
-										<li class="title" ><a href="#">Kiến thức</a></li>
-										<li class="title" ><a href="#">Khuyến mãi</a></li>
-										<li class="title" ><a href="#">High Tech</a></li>
-										<li class="title" ><a href="#">App Game</a></li>
-										<li class="title last" ><a class="" href="#">Khác</a></li>
+										<li class="title icon-home active" ><a href="{{url('/')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+										@foreach($get_cat as $item)
+										<li class="title" ><a href="{!!$item['url']!!}">{!!$item['title']!!}</a></li>
+										@endforeach
+										<li class="title last" ><a class="" href="{{url('/')}}">Khác</a></li>
 										<!-- <li class="only-mobile"><a href="#">Ngôn ngữ</a>
 											<ul class="wsmenu-submenu">
 												<li><a href="#">Tiếng Việt</a></li>

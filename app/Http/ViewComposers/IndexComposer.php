@@ -4,6 +4,7 @@ namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use App\Categories;
 
 class IndexComposer {
     
@@ -54,6 +55,69 @@ class IndexComposer {
         $array_product = DB::table('products')->where('status',1)->get();
         $view->with('product_data', $array_product);
 
+        //menu-cat
+        $array_cat = DB::table('categories')->orderBy('order')->get();
+        foreach ($array_cat as $key => $value) {
+            $get_array_parent = $value->array_parent;
+            $get_array_parent = unserialize($get_array_parent);
+            unset($get_array_parent[0]);
+            array_push($get_array_parent,$value->id);
+            $get_array_parent = array_values($get_array_parent);
+            $link = '';
+            foreach ($get_array_parent as $value_2) {
+                $link .= Categories::where('id', $value_2)->first()->slug . '/';
+            }
+            $url = route('page.posts',['slug'=>$link]);
+            $get_cat[$key]['title'] = $value->title;
+            $get_cat[$key]['url'] = $url;
+        }
+        $view->with('get_cat', $get_cat);
+
+        //test
+        // $categories = Categories::orderBy('order')->get();
+        // echo self::showCategories($categories);
+        // die;
+    }
+    function showCategories($categories, $parent_id = 0, $char = '',$stt = 0)
+    {
+        $html = '';
+        // BƯỚC 2.1: LẤY DANH SÁCH CATE CON
+        $cate_child = array();
+        foreach ($categories as $key => $item)
+        {
+            // Nếu là chuyên mục con thì hiển thị
+            if ($item->parent == $parent_id)
+            {
+                $cate_child[] = $item;
+                unset($categories[$key]);
+            }
+        }
+         
+        // BƯỚC 2.2: HIỂN THỊ DANH SÁCH CHUYÊN MỤC CON NẾU CÓ
+        if ($cate_child)
+        {
+            if ($stt == 0){
+                $class='';
+            }
+            else if ($stt == 1){
+                $class = "";
+            }
+            else if ($stt == 2){
+                $class='wsmenu-submenu';
+            }
+            if(!isset($class)) $class='';
+            $html .= '<ul class="'.$class.'">';
+            foreach ($cate_child as $key => $item)
+            {
+                // Hiển thị tiêu đề chuyên mục
+                $html .= '<li><a href="#123">' . $item->title . '</a>';
+                // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
+                $html .= self::showCategories($categories, $item->id, $char.'|---',++$stt);
+                $html .= '</li>';
+            }
+            $html .= '</ul>';
+        }
+        return $html;
     }
     
 }

@@ -504,13 +504,14 @@ footer .tt-col{
     font-size: 13px;
 }
 .block-posts{
-    padding-top: 30px;
+    /*padding-top: 30px;*/
 }
 .box-posts-cat .bg-title-cat{
     background-image: url(../images/bg-title-cat.jpg);
     position: relative;
     height: 10px;
     margin-bottom: 18px;
+    margin-top: 18px;
 }
 .box-posts-cat .title-category{
     position: absolute;
@@ -518,9 +519,16 @@ footer .tt-col{
     background: white;
     padding: 0 15px;
     font-size: 21px;
-    color: #231f20;
     font-weight: bold;
     text-transform: uppercase;
+}
+.box-posts-cat .title-category a{
+    color: #231f20;
+    transition: all 0.5s ease;
+}
+.box-posts-cat .title-category a:hover{
+    color: #f68b1e;
+    text-decoration: none;
 }
 .box-post-item{
     border: 2px solid #e6e7e8;
@@ -533,7 +541,7 @@ footer .tt-col{
     background-color: #f68b1e;
 }
 .block-1, .block-2{
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 .post-item-1 .img{
     margin-bottom: 5px;
@@ -621,8 +629,50 @@ footer .tt-col{
     text-decoration: none;
     background-color: #ff8100;
 }
+.posts-carousel{
+    margin-bottom: 20px;
+}
+.posts-carousel .pre-next{
+    margin: 10px 0;
+}
+.posts-carousel .pre-next span{
+    background-color: #f68b1e;
+    color: #FFF;
+    padding: 2px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.posts-carousel .owl-controls{
+    display: none!important;
+}
+.box-post-item-carousel{
+    padding: 0 5px;
+}
+.posts-carousel .post-item-1{
+    background-color: #f6f7f7;
+    padding: 15px;
+}
+.html-mobile{
+    margin-bottom: 20px;
+}
 /*----------------------------------------------*/
 /*---------END.HOME-----------------------------*/
+/*----------------------------------------------*/
+
+/*----------------------------------------------*/
+/*---------SIDEBAR------------------------------*/
+/*----------------------------------------------*/
+.sidebar .banner-sidebar img{
+    margin-bottom: 10px;
+}
+.sidebar .box-posts-cat{
+    border: 1px solid #e6e7e8;
+    border-bottom: 5px solid #f68b1e; 
+    margin: 10px 0;
+    padding: 15px 0 0;
+}
+/*----------------------------------------------*/
+/*---------END.SIDEBAR--------------------------*/
 /*----------------------------------------------*/
 
 /*----------------------------------------------*/

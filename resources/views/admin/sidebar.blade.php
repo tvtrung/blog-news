@@ -65,18 +65,6 @@
                             <span class="title">Footer</span>
                         </a>
                     </li>
-                    <li class="nav-item start {{ setActive('*/configs/home-tinhnang*', 'active open') }}">
-                        <a href="{{route('admin.configs.show_type',['type'=>'home-tinhnang'])}}" class="nav-link ">
-                            <i class="fa fa-list"></i>
-                            <span class="title">Home - Tính năng</span>
-                        </a>
-                    </li>
-                    <li class="nav-item start {{ setActive('*/configs/gioithieu*', 'active open') }}">
-                        <a href="{{route('admin.configs.show_type',['type'=>'gioithieu'])}}" class="nav-link ">
-                            <i class="fa fa-list"></i>
-                            <span class="title">Giới thiệu</span>
-                        </a>
-                    </li>
                     <li class="nav-item start {{ setActive('*/configs/lienhe*', 'active open') }}">
                         <a href="{{route('admin.configs.show_type',['type'=>'lienhe'])}}" class="nav-link ">
                             <i class="fa fa-list"></i>

@@ -41,6 +41,15 @@ class CategoriesController extends Controller
         else{
             $serialize_parent = serialize(array(0));
         }
+        $create_link = unserialize($serialize_parent);
+        unset($create_link[0]);
+        $create_link = array_values($create_link);
+        $link = '';
+        foreach ($create_link as $value) {
+            $link .= Categories::where('id', $value)->first()->slug . '/';
+        }
+        $link .= $request->get('slug');
+        //Lấy trạng thái
     	if($request->get('status') == 'on'){
             $status = 1;
         }else{
@@ -53,6 +62,7 @@ class CategoriesController extends Controller
             'slug' => $request->get('slug'),
             'order' => $request->get('order'),
             'status' => $status,
+            'link' => $link,
         ];
         Categories::create_data($input);
         return redirect()->route('admin.cats.index')->with('success','Đã thêm dữ liệu thành công');
@@ -69,6 +79,7 @@ class CategoriesController extends Controller
         while(true){
             $row = DB::table('categories')->where('id',$i_parent)->first();
             $i_row_parent = $row->parent;
+            die;
             if($row->id == $id){
                 $i_row_parent = $parent;
             }
@@ -97,6 +108,15 @@ class CategoriesController extends Controller
         else{
             $serialize_parent = serialize(array(0));
         }
+        $create_link = unserialize($serialize_parent);
+        unset($create_link[0]);
+        $create_link = array_values($create_link);
+        $link = '';
+        foreach ($create_link as $value) {
+            $link .= Categories::where('id', $value)->first()->slug . '/';
+        }
+        $link .= $request->get('slug');
+        //Lấy trạng thái
     	if($request->get('status') == 'on'){
             $status = 1;
         }else{
@@ -109,6 +129,7 @@ class CategoriesController extends Controller
             'slug' => $request->get('slug'),
             'order' => $request->get('order'),
             'status' => $status,
+            'link' => $link,
         ];
         Categories::update_data($input, $id);
         return redirect()->route('admin.cats.edit',['id'=>$id])->with('success','Chỉnh sửa dữ liệu thành công');
