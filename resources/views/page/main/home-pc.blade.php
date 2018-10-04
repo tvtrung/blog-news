@@ -1,51 +1,51 @@
 <section class="home-post-latest only-pc">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="item">
-						<a href="#"><img src="style/images/news1.jpg" alt="" class="width100"></a>
-						<div class="title">
-							<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="item">
-						<a href="#"><img src="style/images/news1.jpg" alt="" class="width100"></a>
-						<div class="title">
-							<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
-						</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="item">
+					<a href="#"><img src="/style/images/news1.jpg" alt="" class="width100"></a>
+					<div class="title">
+						<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
 					</div>
 				</div>
 			</div>
-			<br>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="item">
-						<a href="#"><img src="style/images/news2.jpg" alt="" class="width100"></a>
-						<div class="title">
-							<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="item">
-						<a href="#"><img src="style/images/news2.jpg" alt="" class="width100"></a>
-						<div class="title">
-							<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="item">
-						<a href="#"><img src="style/images/news2.jpg" alt="" class="width100"></a>
-						<div class="title">
-							<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
-						</div>
+			<div class="col-md-6">
+				<div class="item">
+					<a href="#"><img src="/style/images/news1.jpg" alt="" class="width100"></a>
+					<div class="title">
+						<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
 					</div>
 				</div>
 			</div>
 		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="item">
+					<a href="#"><img src="/style/images/news2.jpg" alt="" class="width100"></a>
+					<div class="title">
+						<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="item">
+					<a href="#"><img src="/style/images/news2.jpg" alt="" class="width100"></a>
+					<div class="title">
+						<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="item">
+					<a href="#"><img src="/style/images/news2.jpg" alt="" class="width100"></a>
+					<div class="title">
+						<a href="#">Lợi ích của việc lưu trữ dữ liệu trên mây</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <section class="block-posts">
 	<div class="container">
@@ -63,7 +63,7 @@
 								<div class="box-post-item">
 									<div class="post-item-1">
 										<div class="img">
-											<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+											<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 										</div>
 										<div class="title">
 											<a href="#">Tác động của điện toán đám mây trong kinh doanh</a>
@@ -86,7 +86,7 @@
 										<div class="row">
 											<div class="col-md-4">
 												<div class="img">
-													<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+													<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 												</div>
 											</div>
 											<div class="col-md-8" style="padding-left: 0">
@@ -107,7 +107,7 @@
 										<div class="row">
 											<div class="col-md-4">
 												<div class="img">
-													<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+													<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 												</div>
 											</div>
 											<div class="col-md-8" style="padding-left: 0">
@@ -135,7 +135,7 @@
 								<div class="box-post-item">
 									<div class="post-item-1">
 										<div class="img">
-											<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+											<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 										</div>
 										<div class="title">
 											<a href="#">Tác động của điện toán đám mây trong kinh doanh</a>
@@ -158,7 +158,7 @@
 										<div class="row">
 											<div class="col-md-4">
 												<div class="img">
-													<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+													<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 												</div>
 											</div>
 											<div class="col-md-8" style="padding-left: 0">
@@ -179,7 +179,7 @@
 										<div class="row">
 											<div class="col-md-4">
 												<div class="img">
-													<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+													<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 												</div>
 											</div>
 											<div class="col-md-8" style="padding-left: 0">
@@ -214,7 +214,7 @@
 										<div class="box-post-item">
 											<div class="post-item-1">
 												<div class="img">
-													<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+													<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 												</div>
 												<div class="title">
 													<a href="#">Tác động của điện toán đám mây trong kinh doanh</a>
@@ -237,7 +237,7 @@
 										<div class="box-post-item">
 											<div class="post-item-1">
 												<div class="img">
-													<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+													<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 												</div>
 												<div class="title">
 													<a href="#">Tác động của điện toán đám mây trong kinh doanh</a>
@@ -274,7 +274,7 @@
 								<div class="box-post-item" style="height: 100%; border-right: none;">
 									<div class="post-item-1">
 										<div class="img">
-											<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+											<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 										</div>
 										<div class="title">
 											<a href="#">Tác động của điện toán đám mây trong kinh doanh</a>
@@ -300,7 +300,7 @@
 										<div class="row">
 											<div class="col-md-4">
 												<div class="img">
-													<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+													<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 												</div>
 											</div>
 											<div class="col-md-8" style="padding-left: 0">
@@ -324,23 +324,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="sidebar">
-					<div class="banner-sidebar">
-						<img src="style/images/news3.jpg" alt="" class="width100">
-						<img src="style/images/news3.jpg" alt="" class="width100">
-					</div>
-					<div class="box-posts-cat">
-						<div class="bg-title-cat">
-							<div class="title-category">
-								Social
-							</div>
-						</div>
-					</div>
-					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkhoanhkhaccuocsong1101%2F&tabs&width=340&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="215px;" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-					<div class="banner-sidebar">
-						<img src="style/images/news3.jpg" alt="" class="width100">
-					</div>
-				</div>
+				@include('page.main.sidebar')
 			</div>
 		</div>
 		<div class="row">
@@ -362,7 +346,7 @@
 								<div class="box-post-item-carousel">
 									<div class="post-item-1">
 										<div class="img">
-											<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+											<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 										</div>
 										<div class="title">
 											<a href="#">Tác động của điện toán đám mây trong kinh doanh</a>

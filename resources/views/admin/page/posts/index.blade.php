@@ -10,6 +10,17 @@
 		.table-bordered>thead>tr>th{
 			font-size: 13px;
 		}
+        .url-create{
+            background: #36c6d3;
+            color: #FFF;
+            padding: 5px 15px;
+            float: left;
+            margin-top: 5px;
+        }
+        .url-create:hover{
+            color: #FFF;
+            text-decoration: none;
+        }
 	</style>
 @endsection
 @section('content')
@@ -43,13 +54,14 @@
 	        	<div class="col-md-12">
                     <form action="" method="get">
 	        		<div class="form-actions right">
-                        <a href="{{route('admin.posts.create')}}"><button type="" class="btn green">Thêm bài viết</button></a>
+                        <a class="url-create" href="{{route('admin.posts.create')}}">Thêm bài viết</a>
                         <select name="cat" class="bs-select form-control list-cats-id" style="width: 250px;float: right;" onchange="this.form.submit()">
                             <option value="0">Tất cả</option>
                             {!! $html_option !!}
                         </select>
                     </div>
                     </form>
+                    <div class="clearfix"></div><br>
 	        		<div class="portlet-body">
                         <div class="table-scrollable">
                             <table class="table table-bordered table-hover">
@@ -67,7 +79,7 @@
                                     @foreach($data as $item)
                                     <tr>
                                         <td>{!!$item->title!!}</td>
-                                    	<td>Tin tức</td>
+                                    	<td>{{$title_cat[$item->cat_id]}}</td>
                                     	<td class="text-center">{{$item->view}}</td>
                                     	<td class="text-center"><input type="checkbox" class="ajax-switch" data-link="{{route('admin.posts.ajax_switch',['id'=>$item->id])}}" @if($item->status == 1) checked="checked" @endif></td>
                                     	<td>{{$item->created_at}}</td>

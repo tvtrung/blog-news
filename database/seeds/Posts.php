@@ -18,7 +18,7 @@ class Posts extends Seeder
     			'slug' => 'bai-viet-' . $i,
     			'description' => 'Mô tả ' . $i,
     			'content' => 'Nội dung ' . $i,
-    			'photo' => 'asd-' . $i . '.jpg',
+    			'photo' => '15386388925hyFb.jpg',
     			'status' => 1,
     			'view' => 12,
     			'seo_keyword' => 'Seo Keyword ' . $i,

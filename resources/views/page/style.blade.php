@@ -4,8 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <meta name="robots" content="{{isset($configs_data['seo']['seo-robots'])?$configs_data['seo']['seo-robots']:''}}" />
-<meta name="keywords" content="{{isset($configs_data['seo']['seo-keywords'])?$configs_data['seo']['seo-keywords']:''}}" />
-<meta name="description" content="{{isset($configs_data['seo']['seo-description'])?$configs_data['seo']['seo-description']:''}}" />
+<meta name="keywords" content="@yield('keywords')" />
+<meta name="description" content="@yield('description')" />
 <meta name="language" content="{{isset($configs_data['seo']['seo-language'])?$configs_data['seo']['seo-language']:''}}" />
 <meta name="copyright" content="{{isset($configs_data['seo']['seo-copyright'])?$configs_data['seo']['seo-copyright']:''}}" />
 <meta name="distribution" content="{{isset($configs_data['seo']['seo-distribution'])?$configs_data['seo']['seo-distribution']:''}}" />
@@ -19,18 +19,18 @@
 <meta property="og:type" content="{{isset($configs_data['seo']['seo-og-type'])?$configs_data['seo']['seo-og-type']:''}}"> 
 
 @if(!isset($configs_data['optimize']['css-js-inpage']) || $configs_data['optimize']['css-js-inpage'] == 0 || $configs_data['optimize']['css-js-inpage'] == null)
-<link rel="stylesheet" type="text/css" href="style/bootstrap-4.0.0/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="style/font-awesome-4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="style/font-family/Roboto/font.css" >
-<link rel="stylesheet" type="text/css" href="style/menu-mobile/css/webslidemenu.css">
-<link rel="stylesheet" type="text/css" href="style/menu-mobile/css/tree-menu.css">
-<link rel="stylesheet" type="text/css" href="style/menu-mobile/css/style.css">
-<link rel="stylesheet" href="style/owl-carousel/custom.css" >
-<link rel="stylesheet" href="style/owl-carousel/owl.carousel.css">
-<link rel="stylesheet" href="style/owl-carousel/owl.theme.css">
-<link rel="stylesheet" type="text/css" href="style/slick/slick-theme.css">
-<link rel="stylesheet" type="text/css" href="style/slick/slick.css" >
-<link rel="stylesheet" type="text/css" href="style/css/mystyle.css">
+<link rel="stylesheet" type="text/css" href="/style/bootstrap-4.0.0/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/style/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/style/font-family/Roboto/font.css" >
+<link rel="stylesheet" type="text/css" href="/style/menu-mobile/css/webslidemenu.css">
+<link rel="stylesheet" type="text/css" href="/style/menu-mobile/css/tree-menu.css">
+<link rel="stylesheet" type="text/css" href="/style/menu-mobile/css/style.css">
+<link rel="stylesheet" href="/style/owl-carousel/custom.css" >
+<link rel="stylesheet" href="/style/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="/style/owl-carousel/owl.theme.css">
+<link rel="stylesheet" type="text/css" href="/style/slick/slick-theme.css">
+<link rel="stylesheet" type="text/css" href="/style/slick/slick.css" >
+<link rel="stylesheet" type="text/css" href="/style/css/mystyle.css">
 @else
 <style>
 {!! file_get_contents(public_path('/style/bootstrap-4.0.0/bootstrap.min.css')) !!}

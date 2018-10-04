@@ -19,6 +19,7 @@ class CreateTableCategories extends Migration
             $table->text('array_parent');
             $table->text('title');
             $table->text('slug');
+            $table->text('url');
             $table->integer('status');
             $table->integer('order');
             $table->timestamps();

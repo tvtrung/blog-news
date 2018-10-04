@@ -17,14 +17,18 @@ class PostsController extends Controller
     }
     public function index(){
     	$data_cats = Categories::all();
+        foreach ($data_cats as $value) {
+            $title_cat[$value->id] = $value->title;
+        }
     	$html_option = Self::showCategories_option($data_cats);
     	if(isset($_GET['cat']) && $_GET['cat'] != 0 && $_GET['cat'] != null){
     		$get_cat_id = $_GET['cat'];
-    		$data = Posts::where('cat_id',$get_cat_id)->orderBy('id','desc')->paginate(5);
+    		$data = Posts::where('cat_id',$get_cat_id)->orderBy('id','desc')->paginate(20);
     	}else{
-    		$data = Posts::orderBy('id','desc')->paginate(5);
+    		$data = Posts::orderBy('id','desc')->paginate(20);
     	}
-    	return view('admin.page.posts.index',['data'=>$data,'html_option'=>$html_option]);
+        
+    	return view('admin.page.posts.index',['data'=>$data,'html_option'=>$html_option,'title_cat'=>$title_cat]);
     }
     public function edit($id){
     	$row = Posts::findOrFail($id);
@@ -102,6 +106,7 @@ class PostsController extends Controller
             'list-cats-id' => $request->get('list-cats-id'),
             'description' => $request->get('text-description'),
             'content' => $request->get('text-content'),
+            'view' => 0,
             'seo_keyword' => $request->get('seo_keyword'),
             'seo_description' => $request->get('seo_description'),
             'seo_content' => $request->get('seo_content'),
@@ -120,8 +125,12 @@ class PostsController extends Controller
         }
     }
     public function ajax_view($id){
+        $data_cats = Categories::all();
+        foreach ($data_cats as $value) {
+            $title_cat[$value->id] = $value->title;
+        }
     	$row = Posts::detail($id);
-        return view('admin.page.posts.view',['row' => $row]);
+        return view('admin.page.posts.view',['row' => $row,'title_cat'=>$title_cat]);
     }
     public function ajax_switch($id){
     	Posts::update_status($id);

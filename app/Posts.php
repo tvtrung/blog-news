@@ -28,7 +28,8 @@ class Posts extends Model
     	$row->cat_id = $input['list-cats-id'];
     	$row->photo = $input['photo'];
     	$row->description = $input['description'];
-    	$row->content = $input['content'];
+        $row->content = $input['content'];
+    	$row->view = $input['view'];
     	$row->seo_keyword = $input['seo_keyword'];
     	$row->seo_description = $input['seo_description'];
     	$row->seo_content = $input['seo_content'];

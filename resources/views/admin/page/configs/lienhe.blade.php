@@ -11,7 +11,7 @@
                         <div class="portlet-body form">
                             <div class="form-group">
                                 <label>Thông tin địa chỉ</label>
-                                <textarea name="contact-addr-1" class="form-control ckeditor" rows="5">{{isset($row['contact-addr-1'])?$row['contact-addr-1']:''}}</textarea>
+                                <textarea name="contact-addr-1" class="form-control" rows="5">{{isset($row['contact-addr-1'])?$row['contact-addr-1']:''}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                         <div class="portlet-body form">
                             <div class="form-group">
                                 <label>Thông tin địa chỉ</label>
-                                <textarea name="contact-addr-2" class="form-control ckeditor" rows="5">{{isset($row['contact-addr-2'])?$row['contact-addr-2']:''}}</textarea>
+                                <textarea name="contact-addr-2" class="form-control" rows="5">{{isset($row['contact-addr-2'])?$row['contact-addr-2']:''}}</textarea>
                             </div>
                         </div>
                     </div>

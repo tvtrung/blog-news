@@ -13,7 +13,7 @@ class CategoriesController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-    	$data = Categories::all();
+    	$data = Categories::orderBy('order')->get();
     	$html = Self::showCategories($data);
     	return view('admin.page.categories.index',['html'=>$html]);
     }
@@ -76,20 +76,21 @@ class CategoriesController extends Controller
     public function update(CategoriesRequest $request, $id){
         $parent = $request->get('parent');
         $i_parent = $parent;
-        while(true){
-            $row = DB::table('categories')->where('id',$i_parent)->first();
-            $i_row_parent = $row->parent;
-            die;
-            if($row->id == $id){
-                $i_row_parent = $parent;
-            }
-            $i_parent = $i_row_parent;
-            if($i_parent == $parent){
-                return redirect()->route('admin.cats.edit',['id'=>$id])->with('fail','Lỗi: Không thể chọn danh mục con là danh mục cha');
-                break;
-            }
-            if($i_parent == 0){
-                break;
+        if($i_parent != 0){
+            while(true){
+                $row = DB::table('categories')->where('id',$i_parent)->first();
+                $i_row_parent = $row->parent;
+                if($row->id == $id){
+                    $i_row_parent = $parent;
+                }
+                $i_parent = $i_row_parent;
+                if($i_parent == $parent){
+                    return redirect()->route('admin.cats.edit',['id'=>$id])->with('fail','Lỗi: Không thể chọn danh mục con là danh mục cha');
+                    break;
+                }
+                if($i_parent == 0){
+                    break;
+                }
             }
         }
         $row_parent = Categories::where('id',$parent)->first();

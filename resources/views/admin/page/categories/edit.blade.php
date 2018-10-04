@@ -53,6 +53,7 @@
 			                                    <input type="text" class="form-control" placeholder="Slug" name="slug" readonly="readonly" value="{{$row->slug}}"> 
 			                                </div>
 			                            </div>
+			                            {{-- Tạm ẩn
 			                            <div class="form-group form-select">
 			                                <label>Chọn cấp danh mục</label>
 			                                <select class="bs-select form-control" name="parent">
@@ -60,6 +61,8 @@
                                             {!! $html !!}
                                             </select>
 			                            </div>
+			                            --}}
+			                            <input type="hidden" name="parent" value="0">
 			                            <div class="form-group">
 			                                <label>Sắp xếp <span class="require-field">(*)</span></label>
 			                                <div class="input-group">

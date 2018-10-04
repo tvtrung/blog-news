@@ -77,6 +77,12 @@
                             <span class="title">SEO</span>
                         </a>
                     </li>
+                    <li class="nav-item start {{ setActive('*/configs/fanpage*', 'active open') }}">
+                        <a href="{{route('admin.configs.show_type',['type'=>'fanpage'])}}" class="nav-link ">
+                            <i class="fa fa-list"></i>
+                            <span class="title">Iframe Fanpage</span>
+                        </a>
+                    </li>
                     <li class="nav-item start {{ setActive('*/configs/optimize*', 'active open') }}">
                         <a href="{{route('admin.configs.show_type',['type'=>'optimize'])}}" class="nav-link ">
                             <i class="fa fa-list"></i>
@@ -93,7 +99,21 @@
                     <span class="arrow open"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item start {{ setActive('*/images/slider*', 'active open') }}">
+                    <li class="nav-item start {{ setActive('*/images/banner_sidebar_1*', 'active open') }}">
+                        <a href="{{route('admin.images.index',['type'=>'banner_sidebar_1'])}}" class="nav-link ">
+                            <i class="fa fa-list"></i>
+                            <span class="title">Banner Sidebar 1</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item start {{ setActive('*/images/banner_sidebar_2*', 'active open') }}">
+                        <a href="{{route('admin.images.index',['type'=>'banner_sidebar_2'])}}" class="nav-link ">
+                            <i class="fa fa-list"></i>
+                            <span class="title">Banner Sidebar 2</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    {{-- <li class="nav-item start {{ setActive('*/images/slider*', 'active open') }}">
                         <a href="{{route('admin.images.index',['type'=>'slider'])}}" class="nav-link ">
                             <i class="fa fa-list"></i>
                             <span class="title">Slider</span>
@@ -141,7 +161,7 @@
                             <span class="title">Giới thiệu</span>
                             <span class="selected"></span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
             <li class="nav-item start {{ setActive('*/posts*', 'active open') }}">

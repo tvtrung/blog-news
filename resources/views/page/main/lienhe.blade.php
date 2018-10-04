@@ -1,12 +1,9 @@
 @extends('page.index')
 @section('title',isset($configs_data['seo']['title-lienhe'])?$configs_data['seo']['title-lienhe']:'')
+@section('keywords',isset($configs_data['seo']['seo-keywords'])?$configs_data['seo']['seo-keywords']:'')
+@section('description',isset($configs_data['seo']['seo-description'])?$configs_data['seo']['seo-description']:'')
 @section('content')
 	<main class="page-sub page-contact">
-	<div class="banner lazy" data-src="style/images/banner-lienhe.png">
-			<div class="container">
-				<h1>- Liên hệ -</h1>
-			</div>
-		</div>
 		<div class="content">
 			<div class="container">
 				<div class="row">
@@ -50,7 +47,6 @@
 						<br>
 					</div>
 				</div>
-				<br>
 				<div class="row map">
 					<div class="col-sm-6">
 						<div class="title">{!!isset($configs_data['lienhe']['contact-map-title-1'])?$configs_data['lienhe']['contact-map-title-1']:''!!}</div>

@@ -20,7 +20,7 @@
 		        		<div class="portlet light bordered">
 	                        <div class="portlet-body form">
 	                    		<div class="form-group">
-	                                <label>Tiêu đề</label> {{$type}}
+	                                <label>Tiêu đề</label>
 	                                <input type="text" class="form-control" placeholder="Tiêu đề" name="title" value="{{old('title')}}" > 
 	                            </div>
 	                            <div class="form-group">

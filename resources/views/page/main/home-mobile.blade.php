@@ -13,7 +13,7 @@
 				<div class="row">
 					<div class="col-4">
 						<div class="img">
-							<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+							<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 						</div>
 					</div>
 					<div class="col-8" style="padding-left: 0">
@@ -44,7 +44,7 @@
 				<div class="row">
 					<div class="col-4">
 						<div class="img">
-							<a href="#"><img src="style/images/news3.jpg" class="width100" alt=""></a>
+							<a href="#"><img src="/style/images/news3.jpg" class="width100" alt=""></a>
 						</div>
 					</div>
 					<div class="col-8" style="padding-left: 0">
@@ -65,22 +65,6 @@
 	</div>
 	<div class="clearfix"></div><br>
 	<div class="container-fluid">
-		<div class="sidebar">
-			<div class="banner-sidebar">
-				<img src="style/images/news3.jpg" alt="" class="width100">
-				<img src="style/images/news3.jpg" alt="" class="width100">
-			</div>
-			<div class="box-posts-cat">
-				<div class="bg-title-cat">
-					<div class="title-category">
-						Social
-					</div>
-				</div>
-			</div>
-			<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fkhoanhkhaccuocsong1101%2F&tabs&width=340&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="215px;" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-			<div class="banner-sidebar">
-				<img src="style/images/news3.jpg" alt="" class="width100">
-			</div>
-		</div>
+		@include('page.main.sidebar')
 	</div>
 </section>

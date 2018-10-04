@@ -177,10 +177,13 @@ iframe{width: 100% !important;}
     }
 }
 @media only screen and (max-width: 992px){
-    .wsmenu > .wsmenu-list > li > a.active {
+    .wsmenu > .wsmenu-list > li.active > a{
         color: #FFF;
         background-color: #f68b1e;
         font-size: 13px;
+    }
+    .wsmenu > .wsmenu-list > li.active > a .fa {
+        color: #FFF;
     }
 }
 @media only screen and (max-width: 992px){
@@ -203,7 +206,12 @@ iframe{width: 100% !important;}
     }
 }
 @media only screen and (max-width: 780px){
-    .wsmenu > .wsmenu-list > li > a:hover {
+    .wsmenu > .wsmenu-list > li > a ,
+    .wsmenu > .wsmenu-list > li > a .fa {
+        color: #666666;
+    }
+    .wsmenu > .wsmenu-list > li > a:hover ,
+    .wsmenu > .wsmenu-list > li > a .fa:hover {
         color: #ffffff;
     }
 }
@@ -676,473 +684,61 @@ footer .tt-col{
 /*----------------------------------------------*/
 
 /*----------------------------------------------*/
-/*---------PRODUCT-ITEM-------------------------*/
+/*---------PAGE-LIST-POSTS----------------------*/
 /*----------------------------------------------*/
-.list-product .row{
-    align-items: center;
-    justify-content: center;
-}
-.list-product-item{
-    border: 2px solid #d9d9d9;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    overflow: hidden;
-}
-.list-product-item img{
-    width: 50px;
-    margin-right: 15px;
-}
-.list-product-item h3{
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #FFF;
-    background: #0080c5;
-    padding: 15px 20px 0;
-    text-align: center;
-    margin-bottom: 0;
-}
-.list-product .list-product-col:nth-child(n+1) h3{
-    background-color: #0080c5;
-}
-.list-product .list-product-col:nth-child(n+2) h3{
-    background-color: #009dd3;
-}
-.list-product .list-product-col:nth-child(n+3) h3{
-    background-color: #00c9d3;
-}
-.list-product .list-product-col:nth-child(n+4) h3{
-    background-color: #00c59d;
-}
-.list-product-item .detail{
-    text-align: center;
-    padding: 0 15px;
-    margin-top: 15px;
-}
-.list-product-item .price{
-    color: #0080c5;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-.list-product .list-product-col:nth-child(n+1) .price{
-    color: #0080c5;
-}
-.list-product .list-product-col:nth-child(n+2) .price{
-    color: #009dd3;
-}
-.list-product .list-product-col:nth-child(n+3) .price{
-    color: #00c9d3;
-}
-.list-product .list-product-col:nth-child(n+4) .price{
-    color: #00c59d;
-}
-.list-product-item .line-1{
-    width: 90px;
-    height: 1px;
-    background-color: #c6c7c8;
-    margin: 0 auto;
-}
-.list-product-item .line-2{
-    width: 130px;
-    height: 1px;
-    background-color: #c6c7c8;
-    margin: 5px auto;
-}
-.list-product-item .detail li{
-    list-style-type: none;
-    font-size: 13px;
-    color: #6d6e70;
-    margin-bottom: 10px;
-}
-.list-product-item .triangle_down {
-    width: 0;
-    height: 0;
-    border-top: 20px solid #0080c5;
-    margin-top: -26px;
-}
-.list-product .list-product-col:nth-child(n+1) .triangle_down{
-    border-top: 20px solid #0080c5;
-}
-.list-product .list-product-col:nth-child(n+2) .triangle_down{
-    border-top: 20px solid #009dd3;
-}
-.list-product .list-product-col:nth-child(n+3) .triangle_down{
-    border-top: 20px solid #00c9d3;
-}
-.list-product .list-product-col:nth-child(n+4) .triangle_down{
-    border-top: 20px solid #00c59d;
-}
-.list-product-item .detail li.register{
-    display: inline-block;
-    padding: 3px 15px;
-    border-radius: 15px;
-}
-.list-product-item .detail li.register a{
-    font-size: 14px;
-    font-weight: bold;
-}
-.list-product .list-product-col:nth-child(n+1) .detail li.register{
-    border: 1px solid #0080c5;
-}
-.list-product .list-product-col:nth-child(n+2) .detail li.register{
-    border: 1px solid #009dd3;
-}
-.list-product .list-product-col:nth-child(n+3) .detail li.register{
-    border: 1px solid #00c9d3;
-}
-.list-product .list-product-col:nth-child(n+4) .detail li.register{
-    border: 1px solid #00c59d;
-}
-.list-product .list-product-col:nth-child(n+1) .detail li.register a{
-    color: #0080c5;
-}
-.list-product .list-product-col:nth-child(n+2) .detail li.register a{
-    color: #009dd3;
-}
-.list-product .list-product-col:nth-child(n+3) .detail li.register a{
-    color: #00c9d3;
-}
-.list-product .list-product-col:nth-child(n+4) .detail li.register a{
-    color: #00c59d;
-}
-.list-product-item .detail li.register:hover a{
-    text-decoration: none;
-    color: #FFF!important;
-}
-.list-product .list-product-col:nth-child(n+1) .detail li.register:hover{
-   background-color: #0080c5;
-}
-.list-product .list-product-col:nth-child(n+2) .detail li.register:hover{
-    background-color: #009dd3;
-}
-.list-product .list-product-col:nth-child(n+3) .detail li.register:hover{
-    background-color: #00c9d3;
-}
-.list-product .list-product-col:nth-child(n+4) .detail li.register:hover{
-    background-color: #00c59d;
-}
-.list-product-item .triangle_down_border {
-    width: 0;
-    height: 0;
-    border-top: 20px solid #d9d9d9;
-}
-.list-product-item .rectangle_border{
-    width: 100%;
-    height: 5px;
-    background-color: #d9d9d9;
-}
-/*----------------------------------------------*/
-/*---------END.PRODUCT-ITEM---------------------*/
-/*----------------------------------------------*/
-
-/*----------------------------------------------*/
-/*---------HEADER-SUB-PAGE-GENERAL--------------*/
-/*----------------------------------------------*/
-.page-sub .banner h1{
-    margin: 0;
-    font-size: 38px;
-    color: #FFF;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-@media only screen and (max-width: 992px) {
-    .page-sub .banner h1{
-        font-size: 38px;
-    }
-}
-@media only screen and (max-width: 680px) {
-    .page-sub .banner h1{
-        font-size: 30px;
-    }
-}
-@media only screen and (max-width: 420px) {
-    .page-sub .banner h1{
-        font-size: 29px;
-    }
-}
-.page-sub .banner .line{
-    width: 205px;
-    height: 7px;
-    background-color: #FFF;
-    margin: 0 auto;
-    margin-top: 20px;
-}
-@media only screen and (max-width: 680px) {
-    .page-sub .banner .line{
-        width: 135px;
-        height: 3px;
-        background-color: #FFF;
-        margin: 0 auto;
-        margin-top: 10px;
-    }
-}
-.page-sub .banner img{
-    margin-bottom: 20px;
-    width: 60px;
-}
-.page-sub .banner{
-    text-align: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.list-posts{
     padding: 30px 0;
 }
-/*.page-introduce .banner{background-image: url(../images/banner-gioithieu.png);}
-.page-faq .banner{background-image: url(../images/banner-banggia.png);}
-.page-price .banner{background-image: url(../images/banner-banggia.png);}
-.page-contact .banner{background-image: url(../images/banner-lienhe.png);}
-.page-guide .banner{background-image: url(../images/banner-huongdan.png);}*/
-
-.page-sub .title-head{
-    font-size: 35px;
-    line-height: 40px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
-}
-@media only screen and (max-width: 992px) {
-    .page-sub .title-head{
-        font-size: 30px;
-    }
-}
-@media only screen and (max-width: 992px) {
-    .page-sub .title-head{
-        font-size: 23px;
-        line-height: 35px;
-    }
-}
-.page-sub .title-head .text-1{
-    color: #231f20;
-}
-.page-sub .title-head .text-2{
-    color: #0095da;
-}
-.page-sub .line-title-head{
-    width: 90px;
-    height: 4px;
-    margin: 20px auto 20px;
-    background: linear-gradient(to right, #70c388 , #1d95d0);
-}
-@media only screen and (max-width: 992px) {
-    .page-sub .line-title-head{
-        margin: 15px auto;
-    }
-}
-.page-sub .content{
-    padding: 40px 0;
-}
 /*----------------------------------------------*/
-/*---------END-SUB-HEADER-PAGE-GENERAL----------*/
+/*---------END.PAGE-LIST-POSTS------------------*/
 /*----------------------------------------------*/
 
 /*----------------------------------------------*/
-/*----------PAGE.GIOI-THIEU---------------------*/
+/*---------PAGE-DETAILT-POSTS-------------------*/
 /*----------------------------------------------*/
-.gioithieu-block-1{
+.detail-posts{
     padding: 30px 0;
 }
-.gioithieu-block-1 .block-title-head .tt-title-head{
-    font-size: 30px;
-}
-.gioithieu-block-1 img{
-    width: 55%;
-    margin: 0 auto;
-    display: block;
-}
-.gioithieu-block-1 li{
-    list-style-type: none;
-    font-size: 13px;
-    line-height: 23px;
-    text-align: justify;
-    margin-bottom: 10px;
-    color: #231f20;
-}
-.gioithieu-block-1 li:before{
-    font-family: FontAwesome;
-    content:'\f111 ';
-    font-size: 9px;
-    margin-right: 3px;
-}
-.gioithieu-block-2 .box-title{
-    background: linear-gradient(to right, #0090c4 , #00d9f8);
-    color: #FFF;
-    text-align: center;
-    padding: 8px;
-    font-size: 23px;
-    font-style: italic;
-    font-weight: bold;
-}
-.gioithieu-block-2 .item{
-    box-shadow: 6px 6px 40px 0px #d6d6d6;
-    margin-bottom: 30px;
-    padding-bottom: 40px;
-}
-.gioithieu-block-2 .item .head{
-    padding: 10px 15px 25px;
-    color: #FFF;
-}
-.gioithieu-block-2 .item .head .line-1{
-    font-weight: bold;
-    font-size: 60px;
-    line-height: 55px;
-}
-.gioithieu-block-2 .item .head .line{
-    width: 100%;
-    height: 6px;
-    background: #FFF;
-    margin: 15px 0;
-}
-.gioithieu-block-2 .item .head .line-2{
+.detail-posts h1{
+    margin-top: 0;
+    color: #f68b1e;
     font-weight: bold;
     font-size: 20px;
-    text-transform: uppercase;
-    text-align: center;
 }
-@media only screen and (max-width: 1200px) {
-    .gioithieu-block-2 .item .head .line-2{
-        font-size: 18px;
-    }
-}
-.gioithieu-block-2 .item .head .line-3{
-    font-weight: bold;
-    font-size: 17px;
-    font-style: italic;
-    text-align: center;
-}
-@media only screen and (max-width: 1200px) {
-    .gioithieu-block-2 .item .head .line-3{
-        font-size: 16px;
-    }
-}
-.gioithieu-block-2 .item .body .img{
-    text-align: center;
-    padding: 25px;
-}
-.gioithieu-block-2 .item .body .img img{
-    height: 60px;
-}
-.gioithieu-block-2 .item .body .detail{
-    color: #404041;
-    font-size: 13px;
-    line-height: 23px;
-    text-align: center;
-    padding: 0px 30px;
-    display: block;
-}
-.gioithieu-block-2 .item .head{
-    background-repeat: no-repeat;
-    background-size:cover; 
-}
-.gioithieu-block-2 .item-1 .head{
-    background-image: url(../images/gioithieu-bg-1.png);
-}
-.gioithieu-block-2 .item-2 .head{
-    background-image: url(../images/gioithieu-bg-2.png);
-}
-.gioithieu-block-2 .item-3 .head{
-    background-image: url(../images/gioithieu-bg-3.png);
-}
-.gioithieu-block-2 .item .triangle{
-    width: 0;
-    height: 0;
-    border-left: 22px solid transparent;
-    border-right: 22px solid transparent;
-    display: block;
-    margin: 0 auto;
-    margin-top: -1px;
-}
-.gioithieu-block-2 .item-1 .triangle{
-    border-top: 30px solid #fd7700;
-}
-.gioithieu-block-2 .item-2 .triangle{
-    border-top: 30px solid #dd423e;
-}
-.gioithieu-block-2 .item-3 .triangle{
-    border-top: 30px solid #00c5ea;
-}
-@media only screen and (min-width: 992px) {
-    .gioithieu-block-2 .tt-col-1{
-        padding-right: 70px;
-    }
-    .gioithieu-block-2 .tt-col-2{
-        padding: 0 35px;
-    }
-    .gioithieu-block-2 .tt-col-3{
-        padding-left: 70px;
-    }
-}
-.gioithieu-block-2{
-    position: relative;
-}
-.gioithieu-block-2 .img-tieuchi{
-    position: absolute;
-    margin-top: -57px;
-    width: 100%;
-    text-align: center;
-}
-@media only screen and (max-width: 768px) {
-    .gioithieu-block-2 .img-tieuchi{
-        display: none;
-    }
-}
-/*----------------------------------------------*/
-/*-----------END-PAGE.GIOI-THIEU----------------*/
-/*----------------------------------------------*/
-
-/*----------------------------------------------*/
-/*---------PAGE-FAQ-------------------------*/
-/*----------------------------------------------*/
-.page-faq .idz-accordion .uk-accordion-title {
-    color: #414042;
-    font-weight: bold;
-    font-size: 14px!important;
+.detail-posts h3{
     margin-top: 0;
-}
-.page-faq .idz-accordion .uk-accordion-content {
-    font-size: 13px;
-    color: #6d6e71;
-    font-weight: 300;
-}
-.page-faq a.btn-gradient{
-    text-transform: uppercase;
-    color: #FFF;
-    background: linear-gradient(#4c97ce, #70c388);
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 13px;
+    color: #f68b1e;
     font-weight: bold;
-    box-shadow: 0px 0px 21px 6px #e4e5e6;
+    font-size: 16px;
 }
-.page-faq a.btn-gradient:hover{
-    text-decoration: none;
-    opacity: 0.9;
+.detail-posts .info {
+    font-size: 11px;
+    color: #231f20;
+    margin-bottom: 5px;
 }
-.btn-submit{
-    text-transform: uppercase;
-    color: #FFF;
-    background: linear-gradient(#4c97ce, #70c388);
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-family: 'Roboto', sans-serif;
+.detail-posts .info .fa {
+    color: #0093d9;
     font-size: 13px;
-    font-weight: bold;
-    box-shadow: 0px 0px 21px 6px #e4e5e6;
-    border:none;
 }
-.btn-submit:hover{
-    opacity: 0.9;
-    cursor: pointer;
+.detail-posts .content-posts{
+    font-size: 13px;
+    color: #000;
+}
+.detail-posts .content-posts{
+    width: initial!important;
+    height: initial!important;
+    max-width: 100%!important;
 }
 /*----------------------------------------------*/
-/*---------END-PAGE-FAQ-------------------------*/
+/*---------END.PAGE-DETAILT-POSTS---------------*/
 /*----------------------------------------------*/
 
 /*----------------------------------------------*/
 /*---------PAGE-CONTACT-------------------------*/
 /*----------------------------------------------*/
+.page-contact{
+    padding: 30px 0;
+}
 .page-contact .box-info{
     border:1px solid #bcbdc0;
     border-radius: 15px;
@@ -1221,201 +817,6 @@ footer .tt-col{
 
 /*----------------------------------------------*/
 /*---------END-PAGE-CONTACT---------------------*/
-/*----------------------------------------------*/
-
-/*----------------------------------------------*/
-/*-------------PAGE-LOGIN-----------------------*/
-/*----------------------------------------------*/
-.page-auth{
-    background: #edf5fa;
-    padding: 20px 0;
-}
-.page-auth .col-login{
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-@media only screen and (min-width: 992px) {
-    .page-auth .col-login{
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-}
-.page-auth .btn-login{
-    text-transform: capitalize;
-    color: #FFF;
-    background: linear-gradient(#4c97ce, #70c388);
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    box-shadow: 0px 0px 21px 6px #e4e5e6;
-    margin-top: 15px;
-    display: inline-block;
-}
-.page-auth .btn-login:hover{
-    text-decoration: none;
-    opacity: 0.9;
-}
-.page-auth .btn-forgot{
-    color: #0095da;
-    font-size: 13px;
-    text-decoration: underline;
-    margin-top: 15px;
-    display: inline-block;
-}
-.page-auth .form-check{
-    color: #231f20;
-    font-size: 13px;
-}
-.page-auth .form-group, .page-auth .form-group input,
-.page-auth .form-check, .page-auth .form-check input{
-    font-size: 13px;
-}
-.div-password{
-    position: relative;
-}
-.div-password .fa{
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    cursor: pointer;
-}
-.form-input-group {
-    min-height: 42px;
-    background: #fff;
-    border: 1px solid #d0d7dc;
-    border-radius: 3px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    position: relative;
-    -webkit-transition: all .15s ease;
-    transition: all .15s ease;
-}
-.form-input-group .label {
-    width: 60px;
-    height: auto;
-    display: block;
-    text-align: left;
-    font-size: 13px;
-    color: #032a3f;
-    margin: 0 10px 0 15px;
-    font-weight: bold;
-    line-height: 42px;
-    cursor: pointer;
-}
-.form-input-group .label-checkbox input{
-    float: left;
-    cursor: pointer;
-}
-.form-input-group .label-checkbox{
-    margin: 0 6px;
-    width: 0;
-}
-.form-input-group .title-show-password{
-    width: 30px;
-}
-.form-input-group input{
-    height: 100%;
-    min-height: 42px;
-    border: none;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    color: #168ad1;
-    font-weight: 700;
-    padding: 0 15px;
-    font-size: 13px;
-}
-.form-input-group input, select, textarea {
-    outline: none;
-}
-.col-login .error-form{
-    font-size: 13px;
-    color: red;
-    font-weight: 400;
-}
-/*----------------------------------------------*/
-/*---------END.PAGE-LOGIN-----------------------*/
-/*----------------------------------------------*/
-
-/*----------------------------------------------*/
-/*---------PAGE-GUIDE---------------------------*/
-/*----------------------------------------------*/
-.page-guide .guide-block{
-    padding: 30px 0;
-}
-.page-guide .block-title-head{
-    font-size: 25px;
-}
-.page-guide .guide-block h3{
-    color: #00aced;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 10px;
-    margin-top: 15px;
-}
-.page-guide .guide-block li {
-    list-style-type: none;
-    font-size: 13px;
-    line-height: 23px;
-    text-align: justify;
-    margin-bottom: 5px;
-    color: #231f20;
-}
-.page-guide .guide-block li:before {
-    font-family: FontAwesome;
-    content: '\f111 ';
-    font-size: 8px;
-    margin-right: 3px;
-}
-.page-guide .guide-block li.normal:before {
-    content: '';
-    margin-right: -3px;
-}
-.page-guide .guide-block .title-img{
-    color: #231f20;
-    font-weight: bold;
-    font-size: 13px;
-    font-style: italic;
-    text-align: center;
-    margin: 5px 0;
-    margin-top: 30px;
-}
-.page-guide .guide-block img{
-    box-shadow: 6px 6px 40px 0px #d6d6d6;
-}
-.page-guide .box-info{
-    border:1px solid #bcbdc0;
-    border-radius: 15px;
-    overflow: hidden;
-}
-.page-guide .box-info .title{
-    color: #FFF;
-    font-size: 14px;
-    text-align: center;
-    background: linear-gradient(to right, #22265b , #5799d2);
-    padding: 8px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-.page-guide .box-info .box-support{
-    padding: 10px 15px;
-    font-size: 13px;
-    line-height: 25px;
-    color: #231f20;
-}
-/*----------------------------------------------*/
-/*---------END.PAGE-GUIDE-----------------------*/
 /*----------------------------------------------*/
 
 /*----------------------------------------------*/

@@ -13,7 +13,7 @@
                                 <label>Trang chủ</label>
                                	<input type="text" class="form-control" name="title-trangchu" value="{{isset($row['title-trangchu'])?$row['title-trangchu']:''}}"> 
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Giới thiệu</label>
                                	<input type="text" class="form-control" name="title-gioithieu" value="{{isset($row['title-gioithieu'])?$row['title-gioithieu']:''}}"> 
                             </div>
@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <label>Hỏi đáp</label>
                                	<input type="text" class="form-control" name="title-hoidap" value="{{isset($row['title-hoidap'])?$row['title-hoidap']:''}}"> 
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label>Liên hệ</label>
                                	<input type="text" class="form-control" name="title-lienhe" value="{{isset($row['title-lienhe'])?$row['title-lienhe']:''}}"> 

@@ -188,13 +188,8 @@ class ImagesController extends Controller
     }
     public function get_title($type){
         switch ($type) {
-            case 'slider': $title = "Slider";break;
-            case 'tinhchat': $title = "Tính chất";break;
-            case 'uudiem': $title = "Ưu điểm";break;
-            case 'tinhnang': $title = "Tính năng";break;
-            case 'cauhoi': $title = "Câu hỏi";break;
-            case 'thanhtoan': $title = "Thanh toán";break;
-            case 'gioithieu': $title = "Giới thiệu";break;
+            case 'banner_sidebar_1': $title = "Banner 1";break;
+            case 'banner_sidebar_2': $title = "Banner 2";break;
         }
         return $title;
     }

@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-xl-3 tt-col">
 				<div class="logo">
-					<a href="#"><img src="uploads/configs/{{isset($configs_data['header']['logo'])?$configs_data['header']['logo']:''}}"></a>
+					<a href="#"><img src="/uploads/configs/{{isset($configs_data['header']['logo'])?$configs_data['header']['logo']:''}}"></a>
 				</div>
 				<div class="address">
 					<ul>
@@ -31,7 +31,7 @@
 			<div class="col-xl-3 tt-col">
 				<div class="title">Dịch vụ</div>
 				<div class="line-title">
-					<img src="style/images/bg-line-footer.jpg">
+					<img src="/style/images/bg-line-footer.jpg">
 				</div>
 				<ul class="menu-footer">
 					<li><a href="https://kdata.vn/product/dedicated-server" target="_blank">Máy chủ riêng</a></li>
@@ -40,13 +40,13 @@
 					<li><a href="https://kdata.vn/product/hosting" target="_blank">Shared Hosting</a></li>
 				</ul>
 				<div class="bocongthuong">
-					<img class="lazy" data-src="style/images/bocongthuong.png">
+					<img src="/style/images/bocongthuong.png">
 				</div>
 			</div>
 			<div class="col-xl-3 tt-col">
 				<div class="title">Thông tin</div>
 				<div class="line-title">
-					<img src="style/images/bg-line-footer.jpg">
+					<img src="/style/images/bg-line-footer.jpg">
 				</div>
 				<ul class="menu-footer">
 					<li><a href="#">Chính sách bảo mật</a></li>
@@ -69,7 +69,7 @@
 			<div class="col-xl-3 tt-col">
 				<div class="title">Liên hệ</div>
 				<div class="line-title">
-					<img src="style/images/bg-line-footer.jpg">
+					<img src="/style/images/bg-line-footer.jpg">
 				</div>
 				<div class="form-contact-footer">
 					<form action="" method="post" id="form-footer">

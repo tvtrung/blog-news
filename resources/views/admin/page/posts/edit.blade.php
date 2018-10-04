@@ -97,10 +97,10 @@
 			                                <label>SEO Description</label>
 			                                <textarea name="seo_description" class="form-control m-input">{{$row->seo_description}}</textarea>
 			                            </div>
-			                            <div class="form-group">
+			                            {{-- <div class="form-group">
 			                                <label>SEO Content</label>
 			                                <textarea name="seo_content" class="form-control m-input">{{$row->seo_content}}</textarea> 
-			                            </div>
+			                            </div> --}}
 			                            <div class="form-actions right">
 			                                <button type="reset" class="btn default">Hủy</button>
 			                                <button type="submit" class="btn green">Cập nhật</button>
