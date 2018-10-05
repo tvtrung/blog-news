@@ -15,7 +15,70 @@ use App\Categories;
 class PageController extends Controller
 {
     public function home(){
-    	return view('page.main.main');
+        $data_post_count = Posts::count();
+        $data_cat_count = Categories::count();
+        //get_news_latest
+        if($data_post_count > 0){
+            $url_post = self::url_post();
+            $data_news_latest_1 = Posts::get_news_latest(0,2);
+            $data_news_latest_2 = Posts::get_news_latest(2,3);
+            foreach ($data_news_latest_1 as $key => $value) {
+                $post_item_latest_1[$key]['title'] = $value->title;
+                $post_item_latest_1[$key]['title_limit'] = limit_words($value->title, 8);
+                $post_item_latest_1[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
+                $post_item_latest_1[$key]['url'] = $url_post[$value->id];
+            }
+            foreach ($data_news_latest_2 as $key => $value) {
+                $post_item_latest_2[$key]['title'] = $value->title;
+                $post_item_latest_2[$key]['title_limit'] = limit_words($value->title, 8);
+                $post_item_latest_2[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
+                $post_item_latest_2[$key]['url'] = $url_post[$value->id];
+            }
+        }
+        else{
+            $post_item_latest_1 = null;
+            $post_item_latest_2 = null;
+        }
+        //get_cat_home
+        if($data_cat_count > 0 && $data_post_count > 0){
+            $url_post = self::url_post();
+            $row_cat = null;
+            $list_post = null;
+            for($i = 1; $i <= 5; $i++){
+                $row_cat[$i] = Categories::where('position', $i)->where('status',1)->first();
+                if($row_cat[$i] != null){
+                    $position = $i;
+                    switch ($position) {
+                        case 1:
+                            $limit = 3;
+                            break;
+                        case 2:
+                            $limit = 3;
+                            break;
+                        case 3:
+                            $limit = 2;
+                            break;
+                        case 4:
+                            $limit = 5;
+                            break;
+                        case 5:
+                            $limit = 10;
+                            break;
+                    }
+                    $list_post[$i] = Posts::get_post_cat_home($row_cat[$i]->id, $limit);                    
+                }
+            }
+        }
+        else{
+            $row_cat = null;
+        }
+    	return view('page.main.main',[
+                                    'post_item_latest_1'=>$post_item_latest_1,
+                                    'post_item_latest_2'=>$post_item_latest_2,
+                                    'row_cat'=>$row_cat,
+                                    'list_post'=>$list_post,
+                                    'url_post'=>$url_post
+                                ]);
     }
     public function introduce(){
     	return view('page.main.gioithieu');
@@ -94,6 +157,13 @@ class PageController extends Controller
         $row_post = Posts::where('slug',$end_slug)->where('status',1)->first();
         $result = true;
         if($row_post != null){
+            //set cookie
+            $value_cookie = "post-" . $end_slug;
+            if(!isset($_COOKIE[$value_cookie])) {
+                Posts::view_plus($end_slug);
+                setcookie($value_cookie, 1, time() + (180), "/");
+            }
+            $row_post = Posts::where('slug',$end_slug)->where('status',1)->first();
             $cat_id = $row_post->cat_id;
             $row_cat = Categories::where('id',$cat_id)->firstOrFail();
             $array_parent = unserialize($row_cat->array_parent);
@@ -129,12 +199,6 @@ class PageController extends Controller
             else{
                 abort(404);
             }
-            if(($request->cookie("post-" . $end_slug)) == null){
-                Posts::view_plus($end_slug);
-                $response = new Response();
-                $response->withCookie("post-" . $end_slug,"1", 3);
-                return $response;
-            }
         }
         else{
             $row_cat = Categories::where('slug',$end_slug)->first();
@@ -158,29 +222,9 @@ class PageController extends Controller
                 }
             }
             //Lấy hết id con để hiển thị bài viết.
-            while(true){
-                $get_sub_cat = Categories::where('parent',$id_row_cat)->first();
-                if($get_sub_cat == null){
-                    $get_sub_cat = false;
-                    break;
-                }else{
-                    $i_id_row_cat = $get_sub_cat->id;
-                    $id_row_cat = $i_id_row_cat;
-                    $array_parent_2 = $get_sub_cat->array_parent;
-                    $array_parent_2 = unserialize($array_parent_2);
-                    unset($array_parent_2[0]);
-                    array_push($array_parent_2,$id_row_cat);
-                }
-            }
-            if($get_sub_cat != false){
-                $id_cat_of_post = self::array_minus($array_parent_2, $array_parent_1);
-            }else{
-                $id_cat_of_post = array($id_row_cat);
-            }
+            $id_cat_of_post = self::get_sub_cat($id_row_cat);
             if($result == true){
                 //Hiển thị bài viết theo cat
-                //$id_cat_of_post
-                //var_dump($id_cat_of_post);
                 $data_post = Posts::whereIn('cat_id',$id_cat_of_post)->orderBy('id','desc')->where('status',1)->paginate(10);
                 if($data_post->count() > 0){
                     foreach ($data_post as $key => $value) {
@@ -217,6 +261,9 @@ class PageController extends Controller
     }
     public function url_post(){
         $row_post = Posts::all();
+        if($row_post->count() == 0){
+            return false;
+        }
         foreach ($row_post as $value) {
             $row_cat_to_link = Categories::where('id',$value->cat_id)->first();
             $row_cat_to_link_array_parent = unserialize($row_cat_to_link->array_parent);
@@ -232,5 +279,27 @@ class PageController extends Controller
             $url_post[$value->id] = $url;
         }
         return $url_post;
+    }
+    public function get_sub_cat($id_row_cat){
+        while(true){
+            $get_sub_cat = Categories::where('parent',$id_row_cat)->first();
+            if($get_sub_cat == null){
+                $get_sub_cat = false;
+                break;
+            }else{
+                $i_id_row_cat = $get_sub_cat->id;
+                $id_row_cat = $i_id_row_cat;
+                $array_parent_2 = $get_sub_cat->array_parent;
+                $array_parent_2 = unserialize($array_parent_2);
+                unset($array_parent_2[0]);
+                array_push($array_parent_2,$id_row_cat);
+            }
+        }
+        if($get_sub_cat != false){
+            $id_cat_of_post = self::array_minus($array_parent_2, $array_parent_1);
+        }else{
+            $id_cat_of_post = array($id_row_cat);
+        }
+        return $id_cat_of_post;
     }
 }

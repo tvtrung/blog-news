@@ -22,6 +22,7 @@ class CreateTableCategories extends Migration
             $table->text('url');
             $table->integer('status');
             $table->integer('order');
+            $table->integer('position')->nullable();
             $table->timestamps();
         });
     }

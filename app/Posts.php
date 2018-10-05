@@ -56,4 +56,12 @@ class Posts extends Model
         $row_post->view += 1;
         $row_post->save();
     }
+    public static function get_news_latest($param_1, $param_2){
+        $row_post = Posts::where('status',1)->orderBy('id','desc')->offset($param_1)->limit($param_2)->get();
+        return $row_post;
+    }
+    public static function get_post_cat_home($id, $limit){
+        $row_post = Posts::where('cat_id', $id)->where('status',1)->orderBy('id','desc')->limit($limit)->get();
+        return $row_post;
+    }
 }

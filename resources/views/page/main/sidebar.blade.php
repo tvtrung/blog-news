@@ -13,7 +13,7 @@
 			</div>
 		</div>
 	</div>
-	<div>{!!$configs_data['fanpage']['iframe-fanpage']!!}</div>
+	<div>{!!isset($configs_data['fanpage']['iframe-fanpage'])?$configs_data['fanpage']['iframe-fanpage']:''!!}</div>
 	<div class="banner-sidebar">
 		@if(isset($images_data['banner_sidebar_2']))
 		@foreach($images_data['banner_sidebar_2'] as $item)

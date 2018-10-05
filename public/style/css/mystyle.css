@@ -556,6 +556,8 @@ footer .tt-col{
 }
 .post-item-1 .title{
     line-height: 19px;
+    height: 43px;
+    overflow-y: hidden;
 }
 .post-item-1 .title a{
     font-size: 14px;
@@ -580,6 +582,8 @@ footer .tt-col{
     color: #231f20;
     font-size: 13px;
     margin-bottom: 10px;
+    height: 60px;
+    overflow: hidden;
 }
 .post-item-1 .link a{
     background: #f68b1e;
@@ -598,6 +602,8 @@ footer .tt-col{
 .post-item-2 .title{
     line-height: 19px;
     margin-bottom: 5px;
+    height: 40px;
+    overflow: hidden;
 }
 .post-item-2 .title a{
     font-size: 14px;
