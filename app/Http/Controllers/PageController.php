@@ -27,12 +27,16 @@ class PageController extends Controller
                 $post_item_latest_1[$key]['title_limit'] = limit_words($value->title, 8);
                 $post_item_latest_1[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
                 $post_item_latest_1[$key]['url'] = $url_post[$value->id];
+                $post_item_latest_1[$key]['created_at'] = $value->created_at;
+                $post_item_latest_1[$key]['view'] = $value->view;
             }
             foreach ($data_news_latest_2 as $key => $value) {
                 $post_item_latest_2[$key]['title'] = $value->title;
                 $post_item_latest_2[$key]['title_limit'] = limit_words($value->title, 8);
                 $post_item_latest_2[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
                 $post_item_latest_2[$key]['url'] = $url_post[$value->id];
+                $post_item_latest_2[$key]['created_at'] = $value->created_at;
+                $post_item_latest_2[$key]['view'] = $value->view;
             }
         }
         else{
