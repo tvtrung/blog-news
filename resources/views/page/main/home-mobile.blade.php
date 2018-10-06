@@ -1,4 +1,5 @@
 <section class="html-mobile">
+	<br>
 	<div class="container-fluid">
 		@if($post_item_latest_1 != null || $post_item_latest_2 != null)
 		<div class="box-posts-cat">

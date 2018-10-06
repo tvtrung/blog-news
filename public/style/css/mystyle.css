@@ -259,6 +259,35 @@ header .button-login-mobile span{
     background: #f6921e;
     border-radius: 15px;
 }
+@media only screen and (min-width: 992px){
+    header li.menu-search{
+        padding: 0 20px;
+            background: #57585b;
+    }
+    header li.menu-search .halfdiv{
+        margin-top: 55px;
+    }
+}
+@media only screen and (max-width: 992px){
+    .menu_form {
+        padding: 10px 10px 63px 10px;
+        padding-bottom: 40px;
+        background-color: #e7e7e7;
+    }
+}
+@media only screen and (min-width: 992px){
+    header ul.ul-1{
+        float: left;
+    }
+    header ul.ul-2{
+        float: right;
+    }
+}
+@media only screen and (max-width: 992px){
+    header ul.ul-2{
+        display: none!important;
+    }
+}
 /*----------------------------------------------*/
 /*---------EMD.MENU-----------------------------*/
 /*----------------------------------------------*/
@@ -512,14 +541,14 @@ footer .tt-col{
     font-size: 13px;
 }
 .block-posts{
-    /*padding-top: 30px;*/
+    padding-top: 30px;
 }
 .box-posts-cat .bg-title-cat{
     background-image: url(../images/bg-title-cat.jpg);
     position: relative;
     height: 10px;
     margin-bottom: 18px;
-    margin-top: 18px;
+    margin-top: 7px;
 }
 .box-posts-cat .title-category{
     position: absolute;

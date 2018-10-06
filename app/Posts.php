@@ -64,4 +64,8 @@ class Posts extends Model
         $row_post = Posts::where('cat_id', $id)->where('status',1)->orderBy('id','desc')->limit($limit)->get();
         return $row_post;
     }
+    public static function search($q, $take, $paginate){
+        $data_search = Posts::where('title','like',"%$q%")->orWhere('description','like',"%$q%")->orWhere('content','like',"%$q%")->take($take)->paginate($paginate);
+        return $data_search;
+    }
 }

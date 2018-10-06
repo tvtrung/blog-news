@@ -254,6 +254,14 @@ class PageController extends Controller
             }
         }
     }
+    public function search(Request $request){
+        $url_post = self::url_post();
+        $q = $request->get('q');
+        $take = 100;
+        $paginate = 10;
+        $data_search = Posts::search($q,$take,$paginate);
+        return view('page.main.search',['data_search'=>$data_search,'q'=>$q,'url_post'=>$url_post]);
+    }
     public function array_minus($array_1, $array_2){
         //$array_1 > $array_2
         foreach ($array_1 as $key => $value) {

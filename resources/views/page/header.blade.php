@@ -27,7 +27,7 @@
 							<div class="header">
 								<!--Main Menu HTML Code-->
 								<nav id="" class="wsmenu clearfix">
-									<ul class="mobile-sub wsmenu-list">
+									<ul class="mobile-sub wsmenu-list ul-1">
 										<li class="title icon-home @if(url()->current() == url('/')) active @endif""><a href="{{url('/')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
 										@foreach($get_cat as $item)
 										<?php 
@@ -37,6 +37,26 @@
 										<li class="title {{ setActive($str, 'active') }}"><a href="{{route('page.posts',['slug'=>$item['url']])}}">{{$item['title']}}</a></li>
 										@endforeach
 										<li class="title"><a href="{{url('lien-he')}}">Liên hệ</a></li>
+										<li class="menu-search only-mobile">
+	                                        <a href="#" class="last-menu"><i class="fa fa-search" aria-hidden="true"></i> <span class="only-mobile">Tìm kiếm</span></a>
+	                                        <div class="megamenu halfdiv">
+	                                            <form class="menu_form" method="get" action="{{route('page.search')}}">
+	                                                <input type="text" name="q" placeholder="Nhập nội dung tìm kiếm..." autocomplete="off">
+	                                                <button type="submit" class="btn btn-info pull-right" style="font-size: 13px;padding: 3px 10px;">Tìm kiếm</button>
+	                                            </form>
+	                                        </div>
+	                                    </li>
+									</ul>
+									<ul class="mobile-sub wsmenu-list ul-2">
+										<li class="menu-search">
+	                                        <a href="#" class="last-menu"><i class="fa fa-search" aria-hidden="true"></i> <span class="only-mobile">Tìm kiếm</span></a>
+	                                        <div class="megamenu halfdiv">
+	                                            <form class="menu_form" method="get" action="{{route('page.search')}}">
+	                                                <input type="text" name="q" placeholder="Nhập nội dung tìm kiếm..." autocomplete="off">
+	                                                <button type="submit" class="btn btn-info pull-right" style="font-size: 13px;padding: 3px 10px;">Tìm kiếm</button>
+	                                            </form>
+	                                        </div>
+	                                    </li>
 										<!-- <li class="only-mobile"><a href="#">Ngôn ngữ</a>
 											<ul class="wsmenu-submenu">
 												<li><a href="#">Tiếng Việt</a></li>
