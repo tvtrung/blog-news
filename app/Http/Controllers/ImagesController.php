@@ -190,6 +190,7 @@ class ImagesController extends Controller
         switch ($type) {
             case 'banner_sidebar_1': $title = "Banner 1";break;
             case 'banner_sidebar_2': $title = "Banner 2";break;
+            case 'bocongthuong': $title = "Bộ công thương";break;
         }
         return $title;
     }

@@ -34,7 +34,8 @@ class Categories extends Model
     	$row->array_parent = $input['array_parent'];
     	$row->title = $input['title'];
     	$row->slug = $input['slug'];
-    	$row->order = $input['order'];
+        $row->order = $input['order'];
+    	$row->position = $input['position'];
         $row->status = $input['status'];
     	$row->url = $input['link'];
     	$row->save();
@@ -46,6 +47,7 @@ class Categories extends Model
     	$row->title = $input['title'];
     	$row->slug = $input['slug'];
     	$row->order = $input['order'];
+        $row->position = $input['position'];
     	$row->status = $input['status'];
         $row->url = $input['link'];
     	$row->save();

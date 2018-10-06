@@ -5,6 +5,7 @@
 /public/uploads/images
 /public/uploads/www
 /public/uploads
+/public/sitemap.xml
 /storage/*.key
 /vendor
 /.idea

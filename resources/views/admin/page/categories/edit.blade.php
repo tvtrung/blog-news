@@ -53,6 +53,15 @@
 			                                    <input type="text" class="form-control" placeholder="Slug" name="slug" readonly="readonly" value="{{$row->slug}}"> 
 			                                </div>
 			                            </div>
+			                            <div class="form-group">
+			                                <label>Chọn vị trí</label>
+			                                <select class="bs-select form-control" name="position">
+			                                <option value="{{time()}}">Bỏ chọn</option>
+			                                @for($i = 1; $i <= 5; $i++)
+			                                <option value="{{$i}}" @if($row->position == $i) selected="selected" @endif>Vị trí {{$i}}</option>
+			                                @endfor
+                                            </select>
+			                            </div>
 			                            {{-- Tạm ẩn
 			                            <div class="form-group form-select">
 			                                <label>Chọn cấp danh mục</label>

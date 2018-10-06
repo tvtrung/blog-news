@@ -4,7 +4,7 @@
 		<div class="box-posts-cat">
 			<div class="bg-title-cat">
 				<div class="title-category">
-					<a href="#">{{$row_cat[5]->title}}</a>
+					<a href="{{route('page.posts',['slug'=>$row_cat[5]->slug])}}">{{$row_cat[5]->title}}</a>
 				</div>
 			</div>
 		</div>

@@ -113,6 +113,13 @@
                             <span class="selected"></span>
                         </a>
                     </li>
+                    <li class="nav-item start {{ setActive('*/images/bocongthuong*', 'active open') }}">
+                        <a href="{{route('admin.images.index',['type'=>'bocongthuong'])}}" class="nav-link ">
+                            <i class="fa fa-list"></i>
+                            <span class="title">Bộ công thương</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
                     {{-- <li class="nav-item start {{ setActive('*/images/slider*', 'active open') }}">
                         <a href="{{route('admin.images.index',['type'=>'slider'])}}" class="nav-link ">
                             <i class="fa fa-list"></i>
@@ -195,7 +202,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item start {{ setActive('*/product*', 'active open') }}">
+            {{-- <li class="nav-item start {{ setActive('*/product*', 'active open') }}">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-desktop"></i>
                     <span class="title">Product</span>
@@ -218,14 +225,14 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
             <li class="nav-item start {{ setActive('*/newletter*', 'active open') }}">
                 <a href="{{route('admin.newletter.index')}}" class="nav-link nav-toggle">
                     <i class="fa fa-envelope"></i>
                     <span class="title">Liên hệ</span>
                 </a>
             </li>
-            <li class="nav-item start {{ setActive('*/faq*', 'active open') }}">
+            {{-- <li class="nav-item start {{ setActive('*/faq*', 'active open') }}">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-question-circle"></i>
                     <span class="title">FAQs</span>
@@ -248,7 +255,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>

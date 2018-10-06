@@ -30,8 +30,10 @@
 			</div>
 			<div class="col-xl-3 tt-col">
 				<div class="title">Dịch vụ</div>
-				<div class="line-title">
-					<img src="/style/images/bg-line-footer.jpg">
+				<div class="line-title" style="margin: 10px 0;height: 3px;width: 100%;padding-left: 0;">
+					<div class="line-title-1" style="width: 30%;height: 3px;float: left;background-color:#f99833"></div>
+					<div class="line-title-2" style="width: 70%;height: 2px;float: left;background-color:#a3a3a3"></div>
+					{{-- <img src="/style/images/bg-line-footer.jpg"> --}}
 				</div>
 				<ul class="menu-footer">
 					<li><a href="https://kdata.vn/product/dedicated-server" target="_blank">Máy chủ riêng</a></li>
@@ -39,14 +41,20 @@
 					<li><a href="https://kdata.vn/product/cloudvps" target="_blank">Cloud VPS</a></li>
 					<li><a href="https://kdata.vn/product/hosting" target="_blank">Shared Hosting</a></li>
 				</ul>
+				@if(isset($images_data['bocongthuong']))
+				@foreach($images_data['bocongthuong'] as $item)
 				<div class="bocongthuong">
-					<img src="/style/images/bocongthuong.png">
+					<img src="/uploads/images/{{$item->photo}}" alt="{{$item->title}}">
 				</div>
+				@endforeach
+				@endif
 			</div>
 			<div class="col-xl-3 tt-col">
 				<div class="title">Thông tin</div>
-				<div class="line-title">
-					<img src="/style/images/bg-line-footer.jpg">
+				<div class="line-title" style="margin: 10px 0;height: 3px;width: 100%;padding-left: 0;">
+					<div class="line-title-1" style="width: 30%;height: 3px;float: left;background-color:#f99833"></div>
+					<div class="line-title-2" style="width: 70%;height: 2px;float: left;background-color:#a3a3a3"></div>
+					{{-- <img src="/style/images/bg-line-footer.jpg"> --}}
 				</div>
 				<ul class="menu-footer">
 					<li><a href="#">Chính sách bảo mật</a></li>
@@ -68,8 +76,10 @@
 			</div>
 			<div class="col-xl-3 tt-col">
 				<div class="title">Liên hệ</div>
-				<div class="line-title">
-					<img src="/style/images/bg-line-footer.jpg">
+				<div class="line-title" style="margin: 10px 0;height: 3px;width: 100%;padding-left: 0;">
+					<div class="line-title-1" style="width: 30%;height: 3px;float: left;background-color:#f99833"></div>
+					<div class="line-title-2" style="width: 70%;height: 2px;float: left;background-color:#a3a3a3"></div>
+					{{-- <img src="/style/images/bg-line-footer.jpg"> --}}
 				</div>
 				<div class="form-contact-footer">
 					<form action="" method="post" id="form-footer">

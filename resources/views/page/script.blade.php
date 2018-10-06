@@ -3,7 +3,7 @@
 <script src="/style/bootstrap-4.0.0/bootstrap.min.js"></script>
 <script src="/style/menu-mobile/js/webslidemenu.js"></script>
 <script src="/style/owl-carousel/owl.carousel.js"></script>
-<script src="/style/lazyload/lazyload.js"></script>
+{{-- <script src="/style/lazyload/lazyload.js"></script> --}}
 <script src="/style/slick/slick.js"></script>
 <script src="/style/js/myscript.js"></script>
 @else
@@ -11,8 +11,9 @@
 {!! file_get_contents(public_path('/style/jquery/jquery-2.2.4.min.js')) !!}
 {!! file_get_contents(public_path('/style/bootstrap-4.0.0/bootstrap.min.js')) !!}
 {!! file_get_contents(public_path('/style/menu-mobile/js/webslidemenu.js')) !!}
-{!! file_get_contents(public_path('/style/lazyload/lazyload.js')) !!}
-{!! file_get_contents(public_path('/style/slick/slick.js')) !!}
+{!! file_get_contents(public_path('/style/owl-carousel/owl.carousel.js')) !!}
+{{-- {!! file_get_contents(public_path('/style/lazyload/lazyload.js')) !!}
+{!! file_get_contents(public_path('/style/slick/slick.js')) !!} --}}
 {!! file_get_contents(public_path('/style/js/myscript.js')) !!}
 </script>
 @endif

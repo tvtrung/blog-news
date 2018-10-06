@@ -73,7 +73,7 @@
 				        	<td class="center">{{ $i }}</td>
 				            <td>{{ $item->email }}</td>
 				            <td>{{ substr($item->content,0,70) }}...</td>
-				            <td class="center">Ngày: {{$item->created_at}}</td>
+				            <td class="center">Ngày: {{date('d/m/Y h:m:s', strtotime($item->created_at))}}</td>
 				            <td class="center btn-action" style="width: 120px;">
 				            	<a href="#" data-id="{{ $item->id }}" onclick="return false;" class="btn btn-success m-btn m-btn--icon btn-view-detail"><span>Xem</span></a>
 				            	<a href="#" data-toggle="modal" data-target="#m_modal" data-id='{{$item->id}}' class="btn btn-danger m-btn m-btn--icon ajax-btn-delete"><span>Xóa</span></a>

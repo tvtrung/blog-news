@@ -38,8 +38,17 @@
 			                                    <span class="input-group-addon">
 			                                        <i class="fa fa-pencil"></i>
 			                                    </span>
-			                                    <input type="text" class="form-control" placeholder="Slug" name="slug" readonly="readonly"> 
+			                                    <input type="text" class="form-control" placeholder="Slug" name="slug" readonly="readonly" value="{{old('slug')}}"> 
 			                                </div>
+			                            </div>
+			                            <div class="form-group">
+			                                <label>Chọn vị trí</label>
+			                                <select class="bs-select form-control" name="position">
+			                                <option value="{{time()}}">Bỏ chọn</option>
+			                                @for($i = 1; $i <= 5; $i++)
+			                                <option value="{{$i}}">Vị trí {{$i}}</option>
+			                                @endfor
+                                            </select>
 			                            </div>
 			                            {{--
 			                            <div class="form-group">

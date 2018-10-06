@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PageController;
 use DomDocument;
 
 class SitemapController extends Controller
@@ -18,6 +19,7 @@ class SitemapController extends Controller
         $urlset = $xml->appendChild($urlset);
         $arr_link = [
             route('page.home'),
+            route('page.contact'),
         ];
         foreach ($arr_link as $key => $value) {
         	$url = $xml->createElement("url");
@@ -29,9 +31,9 @@ class SitemapController extends Controller
             $priority = $xml->createElement("priority",($key == 0) ? '1.00' : '0.80');
             $priority = $url->appendChild($priority);
         }
-        $data_categories = DB::table('categories')->pluck('slug');
+        $data_categories = DB::table('categories')->pluck('url');
         foreach ($data_categories as $key => $value) {
-        	$link = Route('user.list.news') . '/' . $value;
+        	$link = Route('page.posts',['slug'=>$value]);
         	$url = $xml->createElement("url");
             $url = $urlset->appendChild($url);
             $loc = $xml->createElement("loc", $link);
@@ -42,9 +44,10 @@ class SitemapController extends Controller
             $priority = $url->appendChild($priority);
         }
 
-        $data_posts = DB::table('posts')->pluck('slug');
-        foreach ($khuyenmai as $key => $value) {
-        	$link = Route('user.list.khuyenmai') . '/' . $value;
+        $data_posts = DB::table('posts')->pluck('id');
+        foreach ($data_posts as $key => $value) {
+            $url_post = PageController::url_post();
+        	$link = $url_post[$value];
         	$url = $xml->createElement("url");
             $url = $urlset->appendChild($url);
             $loc = $xml->createElement("loc", $link);

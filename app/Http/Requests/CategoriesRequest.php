@@ -27,6 +27,7 @@ class CategoriesRequest extends FormRequest
         return [
             'title' => 'bail|required|unique:categories,title,' . $request->get('id'),
             'slug' => 'bail|required|unique:categories,slug,' . $request->get('id'),
+            'position' => 'bail|required|unique:categories,position,' . $request->get('id'),
             'order' => 'bail|required',
         ];
     }
@@ -42,7 +43,9 @@ class CategoriesRequest extends FormRequest
             'slug.required' => 'Bạn chưa nhập Slug',
             'order.required' => 'Bạn chưa nhập sắp xếp',
             'title.unique' => 'Tiêu đề bị trùng',
-            'slug.unique' => 'Slug bị trùng'
+            'slug.unique' => 'Slug bị trùng',
+            'position.required' => 'Vui lòng chọn vị trí',
+            'position.unique' => 'Vị trí bị trùng'
         ];
     }
 }

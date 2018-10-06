@@ -259,7 +259,7 @@ class PageController extends Controller
         }
         return $array_1;
     }
-    public function url_post(){
+    public static function url_post(){
         $row_post = Posts::all();
         if($row_post->count() == 0){
             return false;

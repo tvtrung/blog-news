@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoriesRequest;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\SitemapController;
 use App\Categories;
 use App\Posts;
 
@@ -61,10 +62,12 @@ class CategoriesController extends Controller
             'title' => $request->get('title'),
             'slug' => $request->get('slug'),
             'order' => $request->get('order'),
+            'position' => $request->get('position'),
             'status' => $status,
             'link' => $link,
         ];
         Categories::create_data($input);
+        SitemapController::update_sitemap();
         return redirect()->route('admin.cats.index')->with('success','Đã thêm dữ liệu thành công');
     }
     public function edit($id){
@@ -129,10 +132,12 @@ class CategoriesController extends Controller
             'title' => $request->get('title'),
             'slug' => $request->get('slug'),
             'order' => $request->get('order'),
+            'position' => $request->get('position'),
             'status' => $status,
             'link' => $link,
         ];
         Categories::update_data($input, $id);
+        SitemapController::update_sitemap();
         return redirect()->route('admin.cats.edit',['id'=>$id])->with('success','Chỉnh sửa dữ liệu thành công');
     }
     public function ajax_switch($id){
@@ -169,12 +174,14 @@ class CategoriesController extends Controller
 	    foreach ($categories as $key => $item)
 	    {
 	    	$isCheck = "";
+            if($item->position > 5) $position = 0; else $position = $item->position;
 	    	if($item->status == 1) $isCheck = "checked=\"checked\""; else $isCheck = "";
 	        if ($item->parent == $parent_id)
 	        {
 	            $html .= '<tr>';
 	            $html .= '<td><input type="number" name="order" class="ajax-order" value="' . $item->order . '" min="0" data-link="' . route('admin.cats.ajax_order',['id'=>$item->id]) . '" style="width: 50px;"></td>';
-	            $html .= '<td>' . $char . $item->title . '</td>';
+                $html .= '<td>' . $char . $item->title . '</td>';
+	            $html .= '<td class="text-center">' . $position . '</td>';
 	            $html .= '<td class="text-center"><input type="checkbox" name="" class="ajax-switch" data-link="' . route('admin.cats.ajax_switch',['id'=>$item->id]) . '"' . $isCheck . '></td>';
 	            $html .= '<td class="text-center">';
 	            $html .= '<a href="#" class="click-to-view" data-link="' .  route('admin.cats.ajax_view',['id'=>$item->id]) . '"><span class="label label-sm label-success"><i class="fa fa-eye"></i></span></a>&nbsp;';

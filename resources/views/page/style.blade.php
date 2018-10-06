@@ -28,8 +28,10 @@
 <link rel="stylesheet" href="/style/owl-carousel/custom.css" >
 <link rel="stylesheet" href="/style/owl-carousel/owl.carousel.css">
 <link rel="stylesheet" href="/style/owl-carousel/owl.theme.css">
+{{--
 <link rel="stylesheet" type="text/css" href="/style/slick/slick-theme.css">
 <link rel="stylesheet" type="text/css" href="/style/slick/slick.css" >
+--}}
 <link rel="stylesheet" type="text/css" href="/style/css/mystyle.css">
 @else
 <style>
@@ -39,8 +41,13 @@
 {!! str_replace('../', '/style/menu-mobile/', file_get_contents(public_path('/style/menu-mobile/css/webslidemenu.css'))) !!}
 {!! str_replace('../', '/style/menu-mobile/', file_get_contents(public_path('/style/menu-mobile/css/tree-menu.css'))) !!}
 {!! str_replace('../', '/style/menu-mobile/', file_get_contents(public_path('/style/menu-mobile/css/style.css'))) !!}
+{!! file_get_contents(public_path('/style/owl-carousel/custom.css')) !!}
+{!! file_get_contents(public_path('/style/owl-carousel/owl.carousel.css')) !!}
+{!! file_get_contents(public_path('/style/owl-carousel/owl.theme.css')) !!}
+{{--
 {!! str_replace('fonts/', '/style/slick/fonts/', file_get_contents(public_path('style/slick/slick-theme.css'))) !!}
 {!! file_get_contents(public_path('style/slick/slick.css')) !!}
+--}}
 {!! str_replace('../', '/style/', file_get_contents(public_path('/style/css/mystyle.css'))) !!}
 </style>
 @endif
