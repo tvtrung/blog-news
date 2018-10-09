@@ -2,15 +2,31 @@
 @section('content')
 	<div class="page-content-wrapper">
     <div class="page-content">
-        <h3 class="page-title">Fanpage</h3>
         <form action="" method="post" enctype="multipart/form-data" id="submit-form-configs">
 	        <div class="row">
 	        	<div class="col-md-12">
 	        		<div class="portlet light bordered">
-	        			<h3>Iframe fanpage</h3>
-                        <div class="portlet-body form">
+                        <h3 class="page-title">Comments</h3>
+	        			<div class="portlet-body form">
                             <div class="form-group">
-                                <textarea class="form-control" name="iframe-fanpage" rows="5">{{isset($row['iframe-fanpage'])?$row['iframe-fanpage']:''}}</textarea>
+                                <label>Facebook App ID</label>
+                               	<input type="text" class="form-control" name="fb_app_id" value="{{isset($row['fb_app_id'])?$row['fb_app_id']:''}}"> 
+                            </div>
+                            <div class="form-group">
+                                <label>Facebook Admin ID</label>
+                               	<input type="text" class="form-control" name="fb_admins" value="{{isset($row['fb_admins'])?$row['fb_admins']:''}}"> 
+                            </div>
+                            <div style="color: red">(*) Ghi chú:</div>
+                            <div style="color: red">- Nếu có giá trị Admin ID thì thẻ meta là : &#60;meta property="fb:admins" content="[id-admin]"&#47;&#62;</div>
+                            <div style="color: red">- Nếu không có giá trị Admin ID thì thẻ meta là : &#60;meta property="fb:app_id" content="[id-app]"&#47;&#62;</div>
+                            <div style="color: red">- Xóa hết giá trị nếu không muốn hiển thị bình luận</div>
+                        </div>
+                    </div>
+                    <div class="portlet light bordered">
+                        <h3 class="page-title">Like/Share</h3>
+                        <div class="portlet-body form">
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="btn_like" > Hiển thị</label>
                             </div>
                         </div>
                     </div>
@@ -20,7 +36,7 @@
 	        	</div>
 	        </div>
 	        <input type="hidden" value="{{ csrf_token() }}" name="_token">
-	        <input type="hidden" name="type" value="fanpage">
+	        <input type="hidden" name="type" value="fb_social">
     	</form>
     </div>
 </div>
@@ -41,12 +57,10 @@
 </div>
 @endsection
 @section('script')
-    {{-- <script src="/admin/assets/pages/scripts/components-code-editors.min.js" type="text/javascript"></script> --}}
 	<script type="text/javascript">
         $(document).ready(function(e){
             $("#submit-form-configs").on('submit', function(e){
                 e.preventDefault();
-                console.log('ok');
                 $.ajax({
                     type: 'POST',
                     url: '{{ route('admin.configs.update') }}',
@@ -64,5 +78,6 @@
                 });
             });
         });
+        </script>
     </script>
 @endsection

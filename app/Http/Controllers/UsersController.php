@@ -37,6 +37,8 @@ class UsersController extends Controller
     }
     public function register()
     {
+        if(Auth::user()->level != 1)
+            abort('404');
         return view('admin.page.users.create');
     }
     public function store_user(Request $request){
@@ -59,6 +61,7 @@ class UsersController extends Controller
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),
                 'password' => Hash::make($request->get('password')),
+                'user_level' => $request->get('user_level')
             ];
         Users::create_row($data);
         return redirect()->route('admin.register');
@@ -80,6 +83,7 @@ class UsersController extends Controller
         $this->validate($request, $rule, $messages);
         $data = [
                 'name' => $request->get('name'),
+                'user_level' => $request->get('user_level')
             ];
         if($request->get('password') != "" && $request->get('password') != null){
         	$data['password'] = Hash::make($request->get('password'));

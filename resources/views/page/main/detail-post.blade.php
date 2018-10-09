@@ -1,7 +1,15 @@
+{{--Meta SEO--}}
 @extends('page.index')
 @section('title',$post_item['title'])
 @section('keywords',$post_item['seo_keyword'])
 @section('description',$post_item['seo_description'])
+{{--Facebook Like/share--}}
+@section('og_title', $post_item['title'])
+@section('og_description',$post_item['description'])
+@section('og_image', url('/') .'/uploads/posts/'.$post_item['photo'])
+@section('og_url',URL::current())
+@section('og_type','website')
+{{--Style--}}
 @section('style')
 @endsection
 @section('content')
@@ -18,6 +26,15 @@
 				<div class="content-posts">
 					{!!$post_item['content']!!}
 				</div>
+				<hr>
+				{{--Like/Share--}}
+				@if(isset($configs_data['fb_social']['btn_like']) && isset($configs_data['fb_social']['btn_like']) == 'on')
+				<div class="fb-like" data-href="{{URL::current()}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+				@endif
+				{{--Comment Facebook--}}
+				@if(isset($configs_data['fb_social']['fb_app_id']) && isset($configs_data['fb_social']['fb_app_id']) != null)
+				<div class="fb-comments" data-href="{{URL::current()}}" data-numposts="5" data-order-by="reverse_time" data-width="100%"></div>
+				@endif
 				<div class="clearfix"></div><hr>
 				<div class="row">
 					<div class="col-md-12">

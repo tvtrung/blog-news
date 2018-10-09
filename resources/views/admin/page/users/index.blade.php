@@ -15,6 +15,7 @@
 	    <div class="page-content">
 	        <h3 class="page-title">List Users</h3>
 	        <div class="portlet-body">
+	        	@if(Auth::user()->level == 1)
                 <div class="table-toolbar">
                     <div class="row">
                         <div class="col-md-6">
@@ -28,6 +29,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 <div class="row">
                 	<div class="col-md-12">
                 		@if(session('success'))
@@ -37,6 +39,8 @@
 						@endif
                 	</div>
                 </div>
+                @if(Auth::user()->level == 1)
+                <h3>Administrator</h3>
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                     <thead>
                         <tr>
@@ -48,6 +52,44 @@
                     </thead>
                     <tbody>
                     	@foreach($data as $item)
+                    	<?php if($item->level != 1) continue; ?>
+                    	<tr>
+                    		<td>{{$i++}}</td>
+                    		<td>{{$item->name}}</td>
+                    		<td>{{$item->email}}</td>
+                    		<td class="text-center">
+                    			<button type="button" class="btn btn-primary click-view" title="View" data-link="{{route('admin.user.view_detail',['id'=>$item->id])}}"><i class="fa fa-eye"></i></button>
+                            	<a href="{{route('admin.user.edit',['id'=>$item->id])}}"><button type="button" class="btn yellow-crusta" title="Edit"><i class="fa fa-edit"></i></button></a>
+                            	@if(Auth::user()->id != $item->id)
+                            	<button type="button" class="btn red click-delete" title="Delete" data-link="{{route('admin.user.delete',['id'=>$item->id])}}"><i class="fa fa-trash"></i></button> 
+                            	@endif
+                    		</td>
+                    	</tr>
+                    	@endforeach
+                    </tbody>
+                </table>
+                @endif
+                <h3>Editor</h3>
+                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_2">
+                    <thead>
+                        <tr>
+                            <th class="text-center" style="width: 50px;"> # </th>
+                            <th> Tên </th>
+                            <th> Email </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	@foreach($data as $item)
+                    	<?php if($item->level != 2) continue; ?>
+                    	<?php 
+                    		if(Auth::user()->level != 1){
+	                    		$id_user = Auth::user()->id; 
+	                    		if($item->id != $id_user ){
+	                    			continue;
+	                    		}
+	                    	}
+                    	?>
                     	<tr>
                     		<td>{{$i++}}</td>
                     		<td>{{$item->name}}</td>
@@ -107,6 +149,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 	    $('#sample_1').DataTable({
+	    	"order": [[ 0, "asc" ]]
+	    });
+	    $('#sample_2').DataTable({
 	    	"order": [[ 0, "asc" ]]
 	    });
 	});

@@ -60,6 +60,15 @@
 	                                    <input type="password" class="form-control" placeholder="Re-Type Password" name="repassword" value=""> 
 	                                </div>
 	                            </div>
+	                            @if(Auth::user()->level == 1)
+	                            <div class="form-group">
+	                                <label>Chọn cấp User</label>
+	                                <select class="bs-select form-control" name="user_level">
+	                                <option value="1" @if($row->level == 1) selected="selected" @endif>Administrator</option>
+	                                <option value="2" @if($row->level == 2) selected="selected" @endif>Editor</option>
+                                    </select>
+	                            </div>
+	                            @endif
 	                            <div class="form-actions right">
 	                                <button type="submit" class="btn green">Cập nhật</button>
 	                            </div>

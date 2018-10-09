@@ -92,36 +92,6 @@
                                	<input type="text" class="form-control" name="seo-rating" value="{{isset($row['seo-rating'])?$row['seo-rating']:''}}"> 
                             </div>
                         </div>
-                        <div class="portlet-body form">
-                            <div class="form-group">
-                                <label>og:title</label>
-                               	<input type="text" class="form-control" name="seo-og-title" value="{{isset($row['seo-og-title'])?$row['seo-og-title']:''}}"> 
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <div class="form-group">
-                                <label>og:description</label>
-                               	<input type="text" class="form-control" name="seo-og-description" value="{{isset($row['seo-seo-og-description'])?$row['seo-seo-og-description']:''}}"> 
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <div class="form-group">
-                                <label>og:image</label>
-                               	<input type="text" class="form-control" name="seo-og-image" value="{{isset($row['seo-og-image'])?$row['seo-og-image']:''}}"> 
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <div class="form-group">
-                                <label>og:url</label>
-                               	<input type="text" class="form-control" name="seo-og-url" value="{{isset($row['seo-og-url'])?$row['seo-og-url']:''}}"> 
-                            </div>
-                        </div>
-                        <div class="portlet-body form">
-                            <div class="form-group">
-                                <label>og:type</label>
-                               	<input type="text" class="form-control" name="seo-og-type" value="{{isset($row['seo-og-type'])?$row['seo-og-type']:''}}"> 
-                            </div>
-                        </div>
                     </div>
                     <div class="portlet light bordered">
 	        			<h3>Google Analytics</h3>

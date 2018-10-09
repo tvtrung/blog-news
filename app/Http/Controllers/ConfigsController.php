@@ -22,7 +22,8 @@ class ConfigsController extends Controller
 		    		'fanpage',
 		    		'lienhe',
 		    		'seo',
-		    		'optimize'
+		    		'optimize',
+		    		'fb_social'
 		    	);
    	public function __construct()
     {
@@ -188,6 +189,14 @@ class ConfigsController extends Controller
 	    		DB::table($this->_table)->where('key',$type)->update(['value'=>$json_data]);
 	    		break;
 	    	case 'fanpage':
+	    		$data = $request->except(['_token','type']);
+		    	foreach ($data as $key => $value) {
+			        $array_data[$key] = $value;
+	    		}
+	    		$json_data = json_encode($array_data);
+	    		DB::table($this->_table)->where('key',$type)->update(['value'=>$json_data]);
+	    		break;
+	    	case 'fb_social':
 	    		$data = $request->except(['_token','type']);
 		    	foreach ($data as $key => $value) {
 			        $array_data[$key] = $value;

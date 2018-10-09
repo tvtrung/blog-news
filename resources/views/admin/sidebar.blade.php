@@ -36,12 +36,14 @@
                             <span class="selected"></span>
                         </a>
                     </li>
+                    @if(Auth::user()->level == 1)
                     <li class="nav-item start {{ setActive('*/register*', 'active open') }}">
                         <a href="{{route('admin.register')}}" class="nav-link ">
                             <i class="fa fa-file-text-o"></i>
                             <span class="title">Create</span>
                         </a>
                     </li>
+                    @endif
                 </ul>
             </li>
             <li class="nav-item start {{ setActive('*/configs*', 'active open') }}">
@@ -81,6 +83,12 @@
                         <a href="{{route('admin.configs.show_type',['type'=>'fanpage'])}}" class="nav-link ">
                             <i class="fa fa-list"></i>
                             <span class="title">Iframe Fanpage</span>
+                        </a>
+                    </li>
+                    <li class="nav-item start {{ setActive('*/configs/fb_social*', 'active open') }}">
+                        <a href="{{route('admin.configs.show_type',['type'=>'fb_social'])}}" class="nav-link ">
+                            <i class="fa fa-list"></i>
+                            <span class="title">Facebook Social</span>
                         </a>
                     </li>
                     <li class="nav-item start {{ setActive('*/configs/optimize*', 'active open') }}">

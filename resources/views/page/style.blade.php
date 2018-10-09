@@ -12,12 +12,20 @@
 <meta name="author" content="{{isset($configs_data['seo']['seo-author'])?$configs_data['seo']['seo-author']:''}}" />
 <meta name="REVISIT-AFTER" content="{{isset($configs_data['seo']['seo-revisit-after'])?$configs_data['seo']['seo-revisit-after']:''}}" />
 <meta name="RATING" content="{{isset($configs_data['seo']['seo-rating'])?$configs_data['seo']['seo-rating']:''}}" />
-<meta property="og:title" content="{{isset($configs_data['seo']['seo-og-title'])?$configs_data['seo']['seo-og-title']:''}}">
-<meta property="og:description" content="{{isset($configs_data['seo']['seo-og-description'])?$configs_data['seo']['seo-og-description']:''}}r">
-<meta property="og:image" content="{{isset($configs_data['seo']['seo-og-image'])?$configs_data['seo']['seo-og-image']:''}}">
-<meta property="og:url" content="{{isset($configs_data['seo']['seo-og-url'])?$configs_data['seo']['seo-og-url']:''}}">
-<meta property="og:type" content="{{isset($configs_data['seo']['seo-og-type'])?$configs_data['seo']['seo-og-type']:''}}"> 
-
+{{--Facebook Like / Share--}}
+<meta property="og:title" content="@yield('og_title')">
+<meta property="og:description" content="@yield('og_description')">
+<meta property="og:image" content="@yield('og_image')">
+<meta property="og:url" content="@yield('og_url')">
+<meta property="og:type" content="@yield('og_type')">
+{{--Facebook Comment--}}
+@if(isset($configs_data['fb_social']['fb_app_id']) && isset($configs_data['fb_social']['fb_app_id']) != null)
+@if(isset($configs_data['fb_social']['fb_admins']) && isset($configs_data['fb_social']['fb_admins']) != null)
+<meta property="fb:admins" content="{{isset($configs_data['fb_social']['fb_admins'])?$configs_data['fb_social']['fb_admins']:''}}"/>
+@else
+<meta property="fb:app_id" content="{{isset($configs_data['fb_social']['fb_app_id'])?$configs_data['fb_social']['fb_app_id']:''}}"/>
+@endif
+@endif
 @if(!isset($configs_data['optimize']['css-js-inpage']) || $configs_data['optimize']['css-js-inpage'] == 0 || $configs_data['optimize']['css-js-inpage'] == null)
 <link rel="stylesheet" type="text/css" href="/style/bootstrap-4.0.0/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/style/font-awesome-4.7.0/css/font-awesome.min.css">

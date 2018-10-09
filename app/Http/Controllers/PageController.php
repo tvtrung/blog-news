@@ -194,6 +194,7 @@ class PageController extends Controller
                 $post_item['description'] = $row_post->description;
                 $post_item['content'] = $row_post->content;
                 $post_item['view'] = $row_post->view;
+                $post_item['photo'] = $row_post->photo;
                 $post_item['seo_keyword'] = $row_post->seo_keyword;
                 $post_item['seo_description'] = $row_post->seo_description;
                 $post_item['seo_content'] = $row_post->seo_content;

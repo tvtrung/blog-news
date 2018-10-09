@@ -55,6 +55,15 @@
 	                                    <input type="password" class="form-control" placeholder="Re-Type Password" name="repassword" value="{{old('repassword')}}"> 
 	                                </div>
 	                            </div>
+	                            @if(Auth::user()->level == 1)
+	                            <div class="form-group">
+	                                <label>Chọn cấp User</label>
+	                                <select class="bs-select form-control" name="user_level">
+	                                <option value="1">Administrator</option>
+	                                <option value="2">Editor</option>
+                                    </select>
+	                            </div>
+	                            @endif
 	                            <div class="form-actions right">
 	                                <button type="reset" class="btn default">Hủy</button>
 	                                <button type="submit" class="btn green">Thêm</button>
