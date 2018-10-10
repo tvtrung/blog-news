@@ -335,12 +335,5 @@ class PageController extends Controller
         DB::table($table_online)->where('time_out','<',$time_curent)->update(['online'=>0]);
         $count_online = DB::table($table_online)->where('online',1)->count();
         echo $count_online;
-        $time = date('Y-m-d h:m:s');
-        $cookie_online = 'statistic_online';
-        if(!isset($_COOKIE[$cookie_online])) {
-            setcookie($cookie_online, 1, time() + 180, "/");
-            $time = date('Y-m-d h:m:s');
-            DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
-        }
     }
 }
