@@ -35,4 +35,18 @@
 	    })
 	});
 </script>
+<script type="text/javascript">
+	function ajax_show(){
+	   	$.ajax({
+			type:'GET',
+			url: '{{ route('view_online') }}',
+			// data: $('#form-filter').serialize(),
+			// timeout: 3000,
+			success: function(html){
+	            // $('.content-data').html(html);
+			}
+		})
+   	}
+   	setInterval(function(){ajax_show()}, 3000);
+</script>
 {!!isset($configs_data['seo']['chat-script'])?$configs_data['seo']['chat-script']:''!!}

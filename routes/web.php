@@ -25,6 +25,7 @@ Route::get('lien-he','PageController@contact')->name('page.contact');
 Route::get('noscript','PageController@no_script')->name('page.noscript');
 Route::get('post/{slug?}','PageController@posts')->name('page.posts')->where('slug', '.+');
 Route::get('search','PageController@search')->name('page.search');
+Route::get('view_online','PageController@view_online')->name('view_online');
 // END-PAGE
 
 

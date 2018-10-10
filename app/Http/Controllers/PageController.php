@@ -11,9 +11,13 @@ use App\Newletter;
 use App\Faq;
 use App\Posts;
 use App\Categories;
+use Session;
 
 class PageController extends Controller
 {
+    public function __construct(){
+        
+    }
     public function home(){
         $data_post_count = Posts::count();
         $data_cat_count = Categories::count();
@@ -314,5 +318,22 @@ class PageController extends Controller
             $id_cat_of_post = array($id_row_cat);
         }
         return $id_cat_of_post;
+    }
+    public function view_online(Request $request){
+        $table_statistics = 'statistics';
+        $table_online = 'online';
+        $time_curent = time();
+        $second = 10;
+        $time_in = $time_curent;
+        $time_out = $time_curent + $second;
+        $session_id = Session::getId();
+        $has_sessionId = DB::table($table_online)->where('session_id',$session_id)->count();
+        if($has_sessionId == 0){
+            DB::table($table_online)->insert(['session_id'=>$session_id,'time_in'=>$time_in,'time_out'=>$time_out,'online'=>1]);
+        }
+        DB::table($table_online)->where('session_id',$session_id)->update(['time_in'=>$time_in,'time_out'=>$time_out,'online'=>1]);
+        DB::table($table_online)->where('time_out','<',$time_curent)->update(['online'=>0]);
+        $count_online = DB::table($table_online)->where('online',1)->count();
+        echo $count_online;
     }
 }

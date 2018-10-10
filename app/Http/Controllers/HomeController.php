@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Users;
 use Validator;
 use Hash;
@@ -27,7 +28,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.page.dashboard.index');
+        $count_admin = DB::table('users')->where('level',1)->count();
+        $count_editor = DB::table('users')->where('level',2)->count();
+        return view('admin.page.dashboard.index',['count_admin'=>$count_admin,'count_editor'=>$count_editor]);
     }
     public function logout()
     {
