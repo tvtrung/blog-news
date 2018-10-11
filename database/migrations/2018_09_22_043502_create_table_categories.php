@@ -13,7 +13,7 @@ class CreateTableCategories extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('Categories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent');
             $table->text('array_parent');
