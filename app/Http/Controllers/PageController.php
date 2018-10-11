@@ -16,7 +16,7 @@ use Session;
 class PageController extends Controller
 {
     public function __construct(){
-        
+        self::statistics();
     }
     public function home(){
         $data_post_count = Posts::count();
@@ -319,33 +319,22 @@ class PageController extends Controller
         }
         return $id_cat_of_post;
     }
-    public function view_online(Request $request){
+    public function statistics(){
         $table_statistics = 'statistics';
-        $table_online = 'online';
-        $time_curent = time();
-        $second = 10;
-        $time_in = $time_curent;
-        $time_out = $time_curent + $second;
-        $session_id = Session::getId();
-        $has_sessionId = DB::table($table_online)->where('session_id',$session_id)->count();
-        if($has_sessionId == 0){
-            DB::table($table_online)->insert(['session_id'=>$session_id,'time_in'=>$time_in,'time_out'=>$time_out,'online'=>1]);
-        }
-        DB::table($table_online)->where('session_id',$session_id)->update(['time_in'=>$time_in,'time_out'=>$time_out,'online'=>1]);
-        DB::table($table_online)->where('time_out','<',$time_curent)->update(['online'=>0]);
-        $count_online = DB::table($table_online)->where('online',1)->count();
-        echo $count_online;
-
-        $time = date('Y-m-d h:m:s');
+        $time = date("Y-m-d");
         $cookie_online = 'statistic_online';
         if(!isset($_COOKIE[$cookie_online])) {
-            setcookie($cookie_online, 1, time() + 180, "/");
-            
+            setcookie($cookie_online, 1, time() + 600, "/");            
             $count_date = DB::table($table_statistics)->where('date',$time)->count();
             if($count_date == 0){
-                
+                DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
             }
-            DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
+            else{
+                $get_view = DB::table($table_statistics)->where(['date'=>$time])->first()->view;
+                $get_view++;
+                $get_view = DB::table($table_statistics)->where(['date'=>$time])->update(['date'=>$time, 'view'=>$get_view]);
+            }
+            
         }
     }
 }

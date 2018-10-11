@@ -26,7 +26,7 @@
                         <h3 class="page-title">Like/Share</h3>
                         <div class="portlet-body form">
                             <div class="checkbox">
-                              <label><input type="checkbox" name="btn_like" > Hiển thị</label>
+                              <label><input type="checkbox" name="btn_like" @if(isset($configs_data['fb_social']['btn_like']) && isset($configs_data['fb_social']['btn_like']) == 'on') checked="checked"  @endif> Hiển thị</label>
                             </div>
                         </div>
                     </div>

@@ -8,7 +8,7 @@
 @section('og_description',$post_item['description'])
 @section('og_image', url('/') .'/uploads/posts/'.$post_item['photo'])
 @section('og_url',URL::current())
-@section('og_type','website')
+@section('og_type','article')
 {{--Style--}}
 @section('style')
 @endsection
