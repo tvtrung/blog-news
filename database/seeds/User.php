@@ -17,8 +17,8 @@ class User extends Seeder
     		[
     		'name' => 'Trung',
     		'email' => 'trungtv@kdata.vn',
-    		'password' => Hash::make('1123456'),
-            'level' => 1
+            'password' => Hash::make('1123456'),
+    		'level' => 1
     		],
     		[
     		'name' => 'Trình',
