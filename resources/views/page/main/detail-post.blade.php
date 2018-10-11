@@ -8,7 +8,7 @@
 @section('og_description',$post_item['description'])
 @section('og_image', url('/') .'/uploads/posts/'.$post_item['photo'])
 @section('og_url',URL::current())
-@section('og_type','article')
+@section('og_type','website')
 {{--Style--}}
 @section('style')
 @endsection
@@ -33,7 +33,7 @@
 				@endif
 				{{--Comment Facebook--}}
 				@if(isset($configs_data['fb_social']['fb_app_id']) && isset($configs_data['fb_social']['fb_app_id']) != null)
-				<div class="fb-comments" data-href="{{URL::current()}}" data-numposts="5" data-order-by="reverse_time" data-width="800px"></div>
+				<div class="fb-comments" data-href="{{URL::current()}}" data-numposts="5" data-order-by="reverse_time" data-width="100%"></div>
 				@endif
 				<div class="clearfix"></div><hr>
 				<div class="row">
