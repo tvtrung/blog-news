@@ -336,5 +336,8 @@ class PageController extends Controller
             }
             
         }
+        else{
+            echo 1;die;
+        }
     }
 }
