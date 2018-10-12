@@ -31,9 +31,10 @@
 				@if(isset($configs_data['fb_social']['btn_like']) && isset($configs_data['fb_social']['btn_like']) == 'on')
 				<div class="fb-like" data-href="{{URL::current()}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 				@endif
+				<div class="clearfix"></div>
 				{{--Comment Facebook--}}
 				@if(isset($configs_data['fb_social']['fb_app_id']) && isset($configs_data['fb_social']['fb_app_id']) != null)
-				<div class="fb-comments" data-href="{{URL::current()}}" data-numposts="5" data-order-by="reverse_time" data-width="100%"></div>
+				<div class="fb-comments" data-href="{{URL::current()}}" data-numposts="5" data-order-by="reverse_time"></div>
 				@endif
 				<div class="clearfix"></div><hr>
 				<div class="row">
