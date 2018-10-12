@@ -47,6 +47,6 @@
 			}
 		})
    	}
-   	setInterval(function(){ajax_show()}, 3000);
+   	//setInterval(function(){ajax_show()}, 3000);
 </script>
 {!!isset($configs_data['seo']['chat-script'])?$configs_data['seo']['chat-script']:''!!}
