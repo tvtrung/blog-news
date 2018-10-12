@@ -190,6 +190,27 @@ class PageController extends Controller
             if($c_array_slug != $c_array_parent){
                 $result = false;
             }
+
+            $table_statistics = 'statistics';
+            $time = date("Y-m-d");
+            $cookie_online = 'statistic_online';
+            if(!isset($_COOKIE[$cookie_online])) {
+                setcookie($cookie_online, 1, time() + 600, "/");            
+                $count_date = DB::table($table_statistics)->where('date',$time)->count();
+                if($count_date == 0){
+                    DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
+                }
+                else{
+                    $get_view = DB::table($table_statistics)->where(['date'=>$time])->first()->view;
+                    $get_view++;
+                    $get_view = DB::table($table_statistics)->where(['date'=>$time])->update(['date'=>$time, 'view'=>$get_view]);
+                }
+                
+            }
+            else{
+                echo 1;die;
+            }
+            
             if($result == true){
                 //Get Relative Post
                 $row_relative_post = Posts::where('cat_id',$cat_id)->where('status',1)->where('slug','<>', $end_slug)->orderBy('id','desc')->limit(10)->get();
@@ -320,24 +341,6 @@ class PageController extends Controller
         return $id_cat_of_post;
     }
     public static function statistics(){
-        $table_statistics = 'statistics';
-        $time = date("Y-m-d");
-        $cookie_online = 'statistic_online';
-        if(!isset($_COOKIE[$cookie_online])) {
-            setcookie($cookie_online, 1, time() + 600, "/");            
-            $count_date = DB::table($table_statistics)->where('date',$time)->count();
-            if($count_date == 0){
-                DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
-            }
-            else{
-                $get_view = DB::table($table_statistics)->where(['date'=>$time])->first()->view;
-                $get_view++;
-                $get_view = DB::table($table_statistics)->where(['date'=>$time])->update(['date'=>$time, 'view'=>$get_view]);
-            }
-            
-        }
-        else{
-            echo 1;die;
-        }
+
     }
 }
