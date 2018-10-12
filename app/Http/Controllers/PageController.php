@@ -16,7 +16,7 @@ use Session;
 class PageController extends Controller
 {
     public function __construct(){
-        // self::statistics();
+        self::statistics();
     }
     public function home(){
         $data_post_count = Posts::count();
@@ -190,7 +190,7 @@ class PageController extends Controller
             if($c_array_slug != $c_array_parent){
                 $result = false;
             }
-            self::statistics();die;
+            die;
             if($result == true){
                 //Get Relative Post
                 $row_relative_post = Posts::where('cat_id',$cat_id)->where('status',1)->where('slug','<>', $end_slug)->orderBy('id','desc')->limit(10)->get();
@@ -212,10 +212,10 @@ class PageController extends Controller
         }
         else{
             $row_cat = Categories::where('slug',$end_slug)->first();
-            $title_cat = $row_cat->title;
             if($row_cat == null){
                 abort(404);
             }
+            $title_cat = $row_cat->title;
             $id_row_cat = $row_cat->id;
             $array_parent_1 = unserialize($row_cat->array_parent);
             unset($array_parent_1[0]);
