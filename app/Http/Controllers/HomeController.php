@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Users;
 use Validator;
 use Hash;
+use App\Http\Controllers\PageController;
 
 class HomeController extends Controller
 {
@@ -28,9 +29,22 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //Mặc định thêm 1 view
+        $count_row_statistics = DB::table('statistics')->count();
+        if($count_row_statistics == 0){
+            $cookie_online = 'statistic_online';
+            if(isset($_COOKIE[$cookie_online])){
+                unset($_COOKIE[$cookie_online]);
+            }
+            PageController::statistics();
+        }
+        // echo $count_row_statistics;die;
         $total_view = self::count_online();
         $online_view = DB::table('online')->count();
-        $today_view = DB::table('statistics')->where('date',date('Y-m-d'))->first()->view;
+        $is_today_view = DB::table('statistics')->where('date',date('Y-m-d'))->first();
+        $is_yesterday_view = DB::table('statistics')->where('date',date('Y-m-d',strtotime("-1 days")))->first();
+        if($is_today_view == null) $today_view = 0; else $today_view = $is_today_view->view;
+        if($is_yesterday_view == null) $yesterday_view = 0; else $yesterday_view = $is_yesterday_view->view;
         $sum_view = DB::table('statistics')->sum('view');
 
         $count_admin = DB::table('users')->where('level',1)->count();
@@ -41,6 +55,7 @@ class HomeController extends Controller
                                             'total_view'=>$total_view,
                                             'online_view'=>$online_view,
                                             'today_view'=>$today_view,
+                                            'yesterday_view'=>$yesterday_view,
                                             'sum_view'=>$sum_view
                                         ]);
     }
@@ -55,10 +70,10 @@ class HomeController extends Controller
     public function count_online(){
         $table_online = 'online';
         $table_statistics = 'statistics';
-        $count_online = DB::table($table_online)->count();
         $today_date = date('Y-m-d');
         $yesterday_date = date('Y-m-d',strtotime("-1 days"));
         $data_statistics = DB::table($table_statistics)->get();
+        $stat = array();
         foreach ($data_statistics as $value) {
             $stat[intval(date('Y', strtotime($value->date)))][intval(date('m', strtotime($value->date)))][] = $value->view;
         }

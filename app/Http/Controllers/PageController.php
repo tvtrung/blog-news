@@ -319,7 +319,7 @@ class PageController extends Controller
         }
         return $id_cat_of_post;
     }
-    public function statistics(){
+    public static function statistics(){
         $table_statistics = 'statistics';
         $time = date("Y-m-d");
         $cookie_online = 'statistic_online';

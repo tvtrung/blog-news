@@ -94,6 +94,22 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat purple">
+                        <div class="visual">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                <span>{{$yesterday_view}}</span>
+                            </div>
+                            <div class="desc"> Hôm qua </div>
+                        </div>
+                        <a class="more" href=""> View more
+                            <i class="m-icon-swapright m-icon-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="dashboard-stat red">
                         <div class="visual">
                             <i class="fa fa-comments"></i>
