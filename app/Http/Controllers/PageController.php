@@ -16,7 +16,7 @@ use Session;
 class PageController extends Controller
 {
     public function __construct(){
-        self::statistics();
+        // self::statistics();
     }
     public function home(){
         $data_post_count = Posts::count();
@@ -190,6 +190,7 @@ class PageController extends Controller
             if($c_array_slug != $c_array_parent){
                 $result = false;
             }
+            self::statistics();die;
             if($result == true){
                 //Get Relative Post
                 $row_relative_post = Posts::where('cat_id',$cat_id)->where('status',1)->where('slug','<>', $end_slug)->orderBy('id','desc')->limit(10)->get();
@@ -334,7 +335,10 @@ class PageController extends Controller
                 $get_view++;
                 $get_view = DB::table($table_statistics)->where(['date'=>$time])->update(['date'=>$time, 'view'=>$get_view]);
             }
-            
+            echo "Khong co Cookie";
+        }
+        else{
+            echo "Co Cookie";
         }
     }
 }
