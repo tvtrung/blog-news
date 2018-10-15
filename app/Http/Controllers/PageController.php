@@ -325,15 +325,9 @@ class PageController extends Controller
         $cookie_online = 'statistic_online';
         if(!isset($_COOKIE[$cookie_online]) || $_COOKIE[$cookie_online] != 'on') {
             setcookie($cookie_online, 'on', time() + 900);            
-            $count_date = DB::table($table_statistics)->where('date',$time)->count();
-            if($count_date == 0){
-                DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
-            }
-            else{
-                $get_view = DB::table($table_statistics)->where(['date'=>$time])->first()->view;
-                $get_view++;
-                $get_view = DB::table($table_statistics)->where(['date'=>$time])->update(['date'=>$time, 'view'=>$get_view]);
-            }
+            $get_view = DB::table($table_statistics)->where(['date'=>$time])->first()->view;
+            $get_view++;
+            $get_view = DB::table($table_statistics)->where(['date'=>$time])->update(['date'=>$time, 'view'=>$get_view]);
         }
     }
 }
