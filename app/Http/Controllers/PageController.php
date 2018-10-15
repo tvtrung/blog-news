@@ -15,8 +15,8 @@ use Session;
 
 class PageController extends Controller
 {
-    public function __construct(Request $request){
-        self::statistics($request);
+    public function __construct(){
+        self::statistics();
     }
     public function home(){
         $data_post_count = Posts::count();
@@ -319,7 +319,7 @@ class PageController extends Controller
         }
         return $id_cat_of_post;
     }
-    public static function statistics(Request $request){
+    public static function statistics(){
         $table_statistics = 'statistics';
         $time = date("Y-m-d");
         $cookie_online = 'statistic_online';
@@ -327,15 +327,12 @@ class PageController extends Controller
         if($count_date == 0){
             DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
         }
-        $cc = $request->cookie('statistic_online');
-        echo $cc;
-        if($cc) {
+        if(!isset($_COOKIE[$cookie_online])) {
             setcookie($cookie_online, 'on', time() + 900);            
             $get_view = DB::table($table_statistics)->where(['date'=>$time])->first()->view;
             $get_view++;
             $get_view = DB::table($table_statistics)->where(['date'=>$time])->update(['date'=>$time, 'view'=>$get_view]);
             DB::table($table_statistics)->insert(['date'=>'2017-01-01 00:00:00', 'view'=>'123']);
         }
-
     }
 }
