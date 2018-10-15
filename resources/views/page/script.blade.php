@@ -49,4 +49,15 @@
    	}
    	setInterval(function(){ajax_show()}, 3000);
 </script>
+<script type="text/javascript">
+	function ajax_cc_online(){
+	   	$.ajax({
+			type:'GET',
+			url: '{{ route('cc.online') }}',
+			success: function(html){
+			}
+		})
+   	}
+   	ajax_cc_online();
+</script>
 {!!isset($configs_data['seo']['chat-script'])?$configs_data['seo']['chat-script']:''!!}

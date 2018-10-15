@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 use App\Users;
 use Validator;
 use Hash;
-use App\Http\Controllers\PageController;
 
 class HomeController extends Controller
 {
@@ -30,15 +29,13 @@ class HomeController extends Controller
     public function index()
     {
         //Mặc định thêm 1 view
-        $count_row_statistics = DB::table('statistics')->count();
-        if($count_row_statistics == 0){
-            $cookie_online = 'statistic_online';
-            if(isset($_COOKIE[$cookie_online])){
-                unset($_COOKIE[$cookie_online]);
-            }
-            PageController::statistics();
+        $table_statistics = 'statistics';
+        $time = date("Y-m-d");
+        $count_date = DB::table($table_statistics)->where('date',$time)->count();
+        if($count_date == 0){
+            DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
         }
-        // echo $count_row_statistics;die;
+
         $total_view = self::count_online();
         $online_view = DB::table('online')->count();
         $is_today_view = DB::table('statistics')->where('date',date('Y-m-d'))->first();
