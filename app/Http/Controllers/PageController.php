@@ -332,7 +332,7 @@ class PageController extends Controller
             $get_view = DB::table($table_statistics)->where(['date'=>$time])->first()->view;
             $get_view++;
             $get_view = DB::table($table_statistics)->where(['date'=>$time])->update(['date'=>$time, 'view'=>$get_view]);
-            DB::table($table_statistics)->insert(['date'=>$time, 'view'=>'123']);
+            DB::table($table_statistics)->insert(['date'=>'2017-01-01 00:00:00', 'view'=>'123']);
         }
     }
 }
