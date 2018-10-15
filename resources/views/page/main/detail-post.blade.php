@@ -36,7 +36,9 @@
 				<hr>
 				{{--Like/Share--}}
 				@if(isset($configs_data['fb_social']['btn_like']) && isset($configs_data['fb_social']['btn_like']) == 'on')
-				<div class="fb-like" data-href="{{URL::current()}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+				<div class="fb-like only-pc" data-href="{{URL::current()}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+
+				<div class="fb-like only-mobile" data-href="{{URL::current()}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 				@endif
 				<div class="clearfix"></div>
 				{{--Comment Facebook--}}
