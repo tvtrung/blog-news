@@ -11,6 +11,13 @@
 @section('og_type','article')
 {{--Style--}}
 @section('style')
+<style>
+	.detail-posts img{
+		width: initial!important;
+		height: initial!important;
+		max-width: 100%!important;
+	}
+</style>
 @endsection
 @section('content')
 <section class="detail-posts">
