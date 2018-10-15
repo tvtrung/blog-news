@@ -323,8 +323,8 @@ class PageController extends Controller
         $table_statistics = 'statistics';
         $time = date("Y-m-d");
         $cookie_online = 'statistic_online';
-        if(!isset($_COOKIE[$cookie_online])) {
-            setcookie($cookie_online, 1, time() + 900);            
+        if(!isset($_COOKIE[$cookie_online]) || $_COOKIE[$cookie_online] != 'on') {
+            setcookie($cookie_online, 'on', time() + 900);            
             $count_date = DB::table($table_statistics)->where('date',$time)->count();
             if($count_date == 0){
                 DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
