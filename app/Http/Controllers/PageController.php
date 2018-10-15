@@ -25,7 +25,6 @@ class PageController extends Controller
         if($data_post_count > 0){
             $url_post = self::url_post();
             $data_news_latest_1 = Posts::get_news_latest(0,2);
-            $data_news_latest_2 = Posts::get_news_latest(2,3);
             foreach ($data_news_latest_1 as $key => $value) {
                 $post_item_latest_1[$key]['title'] = $value->title;
                 $post_item_latest_1[$key]['title_limit'] = limit_words($value->title, 8);
@@ -34,6 +33,13 @@ class PageController extends Controller
                 $post_item_latest_1[$key]['created_at'] = $value->created_at;
                 $post_item_latest_1[$key]['view'] = $value->view;
             }
+        }
+        else{
+            $post_item_latest_1 = null;
+        }
+        if($data_post_count > 2){
+            $url_post = self::url_post();
+            $data_news_latest_2 = Posts::get_news_latest(2,3);
             foreach ($data_news_latest_2 as $key => $value) {
                 $post_item_latest_2[$key]['title'] = $value->title;
                 $post_item_latest_2[$key]['title_limit'] = limit_words($value->title, 8);
@@ -44,7 +50,6 @@ class PageController extends Controller
             }
         }
         else{
-            $post_item_latest_1 = null;
             $post_item_latest_2 = null;
         }
         //get_cat_home
