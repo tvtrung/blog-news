@@ -323,11 +323,15 @@ class PageController extends Controller
         $table_statistics = 'statistics';
         $time = date("Y-m-d");
         $cookie_online = 'statistic_online';
-        if(!isset($_COOKIE[$cookie_online]) || $_COOKIE[$cookie_online] != 'on') {
+        if(isset($_COOKIE[$cookie_online]) && $_COOKIE[$cookie_online] == 'on') {
+            return true;
+        }
+        else{
             setcookie($cookie_online, 'on', time() + 900);            
             $get_view = DB::table($table_statistics)->where(['date'=>$time])->first()->view;
             $get_view++;
             $get_view = DB::table($table_statistics)->where(['date'=>$time])->update(['date'=>$time, 'view'=>$get_view]);
+            return true;
         }
     }
 }
