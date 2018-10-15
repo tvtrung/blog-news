@@ -609,7 +609,7 @@ footer .tt-col{
 }
 .post-item-1 .des{
     color: #231f20;
-    font-size: 13px;
+    font-size: 13px!important;
     margin-bottom: 10px;
     height: 60px;
     overflow: hidden;
@@ -655,7 +655,7 @@ footer .tt-col{
 }
 .post-item-2 .des{
     color: #231f20;
-    font-size: 13px;
+    font-size: 13px!important;
     margin-bottom: 10px;
 }
 .post-item-2 .link a{
