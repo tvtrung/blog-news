@@ -198,6 +198,7 @@ class PageController extends Controller
             if($result == true){
                 //Get Relative Post
                 $row_relative_post = Posts::where('cat_id',$cat_id)->where('status',1)->where('slug','<>', $end_slug)->orderBy('id','desc')->limit(10)->get();
+                if($row_relative_post->count() == 0) $row_relative_post = null;
                 //Hiển thì view bài viết
                 $post_item['title'] = $row_post->title;
                 $post_item['description'] = $row_post->description;
