@@ -607,7 +607,7 @@ footer .tt-col{
     color: #0093d9;
     font-size: 13px;
 }
-.post-item-1 .des{
+.post-item-1 .des, .post-item-1 .des p, .post-item-1 .des span, .post-item-1 .des a{
     color: #231f20;
     font-size: 13px!important;
     margin-bottom: 10px;
@@ -653,7 +653,7 @@ footer .tt-col{
     color: #0093d9;
     font-size: 13px;
 }
-.post-item-2 .des{
+.post-item-2 .des, .post-item-2 .des p, .post-item-2 .des span, .post-item-2 .des a{{
     color: #231f20;
     font-size: 13px!important;
     margin-bottom: 10px;
