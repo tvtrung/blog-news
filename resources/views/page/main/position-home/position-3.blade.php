@@ -25,7 +25,7 @@
 							<i class="fa fa-eye" aria-hidden="true"></i> {{$item->view}}
 						</div>
 						<div class="des">
-							{{$item->description}}
+							{!!$item->description!!}
 						</div>
 						<div class="link">
 							<a href="{{$url_post[$item->id]}}">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
