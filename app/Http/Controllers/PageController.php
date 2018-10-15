@@ -327,7 +327,7 @@ class PageController extends Controller
         if($count_date == 0){
             DB::table($table_statistics)->insert(['date'=>$time,'view'=>1]);
         }
-        if(!isset($_COOKIE[$cookie_online]) || $_COOKIE[$cookie_online] != 'on') {
+        if(!isset($_COOKIE[$cookie_online])) {
             setcookie($cookie_online, 'on', time() + 900);            
             $get_view = DB::table($table_statistics)->where(['date'=>$time])->first()->view;
             $get_view++;
