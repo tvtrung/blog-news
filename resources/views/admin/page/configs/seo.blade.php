@@ -28,11 +28,11 @@
                             <div class="form-group">
                                 <label>Hỏi đáp</label>
                                	<input type="text" class="form-control" name="title-hoidap" value="{{isset($row['title-hoidap'])?$row['title-hoidap']:''}}"> 
-                            </div> --}}
+                            </div> 
                             <div class="form-group">
                                 <label>Liên hệ</label>
                                	<input type="text" class="form-control" name="title-lienhe" value="{{isset($row['title-lienhe'])?$row['title-lienhe']:''}}"> 
-                            </div>
+                            </div>--}}
                         </div>
                     </div>
                     <div class="portlet light bordered">

@@ -1,11 +1,11 @@
 {{--Meta SEO--}}
 @extends('page.index')
-@section('title',$post_item['title'])
-@section('keywords',$post_item['seo_keyword'])
-@section('description',$post_item['seo_description'])
+@section('title',strip_tags($post_item['title']))
+@section('keywords',strip_tags($post_item['seo_keyword']))
+@section('description',strip_tags($post_item['seo_description']))
 {{--Facebook Like/share--}}
-@section('og_title', $post_item['title'])
-@section('og_description',$post_item['description'])
+@section('og_title', strip_tags($post_item['title']))
+@section('og_description',strip_tags($post_item['description']))
 @section('og_image', url('/') .'/uploads/posts/'.$post_item['photo'])
 @section('og_url',URL::current())
 @section('og_type','article')
