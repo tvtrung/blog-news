@@ -1,6 +1,6 @@
 @extends('page.index')
 @section('title','Kết quả tìm kiếm-'.$q)
-@section('title',isset($configs_data['seo']['title-trangchu'])?$configs_data['seo']['title-trangchu']:'')
+{{-- @section('title',isset($configs_data['seo']['title-trangchu'])?$configs_data['seo']['title-trangchu']:'') --}}
 @section('keywords',isset($configs_data['seo']['seo-keywords'])?$configs_data['seo']['seo-keywords']:'')
 @section('description',isset($configs_data['seo']['seo-description'])?$configs_data['seo']['seo-description']:'')
 @section('style')
@@ -35,7 +35,7 @@
 								</div>
 								<div class="col-8" style="padding-left: 0">
 									<div class="title">
-										<a href="{{$url_post[$item->id]}}">{!!$item->title!!}</a>
+										<a href="{{$url_post[$item->id]}}"><h3>{!!$item->title!!}</h3></a>
 									</div>
 									<div class="info">
 										<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>

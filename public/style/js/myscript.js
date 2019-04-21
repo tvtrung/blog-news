@@ -35,10 +35,10 @@ $(document).ready(function() {
 	navigation : true,
 	autoPlay:true,
 	});
-	$('.posts-carousel .fa-angle-left').click(function() {
+	$('.posts-carousel span.btn-left').click(function() {
 	    owl.trigger('owl.prev');
 	});
-	$('.posts-carousel .fa-angle-right').click(function() {
+	$('.posts-carousel span.btn-right').click(function() {
 	    owl.trigger('owl.next');
 	})
 });

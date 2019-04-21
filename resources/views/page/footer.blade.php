@@ -38,8 +38,8 @@
 				<ul class="menu-footer">
 					<li><a href="https://kdata.vn/product/dedicated-server" target="_blank">Máy chủ riêng</a></li>
 					<li><a href="https://kdata.vn/product/colocation" target="_blank">Chỗ đặt máy chủ</a></li>
-					<li><a href="https://kdata.vn/product/cloudvps" target="_blank">Cloud VPS</a></li>
-					<li><a href="https://kdata.vn/product/hosting" target="_blank">Shared Hosting</a></li>
+					<li><a href="https://kdata.vn/product/cloudvps" target="_blank">VPS</a></li>
+					<li><a href="https://kdata.vn/product/hosting" target="_blank">Hosting</a></li>
 				</ul>
 				@if(isset($images_data['bocongthuong']))
 				@foreach($images_data['bocongthuong'] as $item)

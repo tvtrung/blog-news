@@ -1,5 +1,5 @@
 @extends('page.index')
-@section('title',isset($configs_data['seo']['title-lienhe'])?$configs_data['seo']['title-lienhe']:'')
+@section('title','Liên hệ')
 @section('keywords',isset($configs_data['seo']['seo-keywords'])?$configs_data['seo']['seo-keywords']:'')
 @section('description',isset($configs_data['seo']['seo-description'])?$configs_data['seo']['seo-description']:'')
 @section('content')

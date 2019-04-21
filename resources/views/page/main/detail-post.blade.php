@@ -69,7 +69,7 @@
 												<a href="{{$url_post[$item->id]}}"><img src="{{url('/')}}/uploads/posts/{!!$item->photo!!}" class="width100" alt=""></a>
 											</div>
 											<div class="title">
-												<a href="{{$url_post[$item->id]}}">{!!$item->title!!}</a>
+												<a href="{{$url_post[$item->id]}}"><h3>{!!$item->title!!}</h3></a>
 											</div>
 											<div class="info">
 												<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
@@ -86,8 +86,8 @@
 								</div>
 							</div>
 							<div class="pre-next text-center">
-								<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
-								<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+								<span class="btn-left"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+								<span class="btn-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
 							</div>
 						</div>
 					</div>

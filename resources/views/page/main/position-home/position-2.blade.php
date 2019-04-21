@@ -1,4 +1,4 @@
-@if($row_cat[2] != null)
+@if(count(json_decode( $list_post[2], true)) > 0)
 	<div class="col-md-6" @if($row_cat[1] != null) style="padding-left: 0" @else style="padding-right:0" @endif>
 		<div class="box-posts-cat">
 			<div class="bg-title-cat">
@@ -16,7 +16,7 @@
 						<a href="{{$url_post[$item->id]}}"><img src="{{url('uploads/posts'. '/' . $item->photo)}}" class="width100" alt="{{$item->title}}"></a>
 					</div>
 					<div class="title">
-						<a href="{{$url_post[$item->id]}}">{{$item->title}}</a>
+						<a href="{{$url_post[$item->id]}}"><h3>{{$item->title}}</h3></a>
 					</div>
 					<div class="info">
 						<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
@@ -45,7 +45,7 @@
 						</div>
 						<div class="col-md-8" style="padding-left: 0">
 							<div class="title">
-								<a href="{{$url_post[$item->id]}}">{{$item->title}}</a>
+								<a href="{{$url_post[$item->id]}}"><h3>{{$item->title}}</h3></a>
 							</div>
 							<div class="info">
 								<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
