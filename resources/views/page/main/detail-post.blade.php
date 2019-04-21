@@ -68,8 +68,8 @@
 											<div class="img">
 												<a href="{{$url_post[$item->id]}}"><img src="{{url('/')}}/uploads/posts/{!!$item->photo!!}" class="width100" alt=""></a>
 											</div>
-											<div class="title">
-												<a href="{{$url_post[$item->id]}}"><h3>{!!$item->title!!}</h3></a>
+											<div class="title" style="height: 62px">
+												<a href="{{$url_post[$item->id]}}"><h3 style="line-height: 20px">{!!$item->title!!}</h3></a>
 											</div>
 											<div class="info">
 												<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
