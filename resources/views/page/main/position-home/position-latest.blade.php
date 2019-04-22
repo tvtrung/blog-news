@@ -8,7 +8,7 @@
 				<div class="item">
 					<a href="{{$item['url']}}"><img src="{{$item['photo']}}" alt="{{$item['title']}}" class="width100"></a>
 					<div class="title">
-						<a href="{{$item['url']}}"><h2>{{$item['title_limit']}}</h2></a>
+						<h2><a href="{{$item['url']}}">{{$item['title_limit']}}</a></h2>
 					</div>
 				</div>
 			</div>
@@ -23,7 +23,7 @@
 				<div class="item">
 					<a href="{{$item['url']}}"><img src="{{$item['photo']}}" alt="{{$item['title']}}" class="width100"></a>
 					<div class="title">
-						<a href="{{$item['url']}}"><h2>{{$item['title_limit']}}</h2></a>
+						<h3><a href="{{$item['url']}}">{{$item['title_limit']}}</a></h3>
 					</div>
 				</div>
 			</div>

@@ -16,6 +16,10 @@ a h1, a h2, a h3{
     margin: 0;
     font-size: inherit!important;
 }
+.title h2, .title h3{
+    display: inline-flex;
+    margin-bottom: 0;
+}
 @media screen and (min-width: 768px){
     .only-lt-768       {display: none!important;}
 }

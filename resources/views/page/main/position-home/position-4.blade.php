@@ -16,7 +16,7 @@
 						<a href="{{$url_post[$item->id]}}"><img src="{{url('uploads/posts'. '/' . $item->photo)}}" class="width100" alt=""></a>
 					</div>
 					<div class="title">
-						<a href="{{$url_post[$item->id]}}"><h3>{{$item->title}}</h3></a>
+						<h3><a href="{{$url_post[$item->id]}}">{{$item->title}}</a></h3>
 					</div>
 					<div class="info">
 						<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
@@ -47,7 +47,7 @@
 						</div>
 						<div class="col-md-8" style="padding-left: 0">
 							<div class="title">
-								<a href="{{$url_post[$item->id]}}"><h3>{{$item->title}}</h3></a>
+								<h3><a href="{{$url_post[$item->id]}}">{{$item->title}}</a></h3>
 							</div>
 							<div class="info">
 								<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>

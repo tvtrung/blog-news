@@ -35,7 +35,7 @@
 								</div>
 								<div class="col-8" style="padding-left: 0">
 									<div class="title">
-										<a href="{{$item['url']}}"><h3>{!!$item['title']!!}</h3></a>
+										<h3><a href="{{$item['url']}}">{!!$item['title']!!}</a></h3>
 									</div>
 									<div class="info">
 										<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
