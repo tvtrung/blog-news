@@ -3,8 +3,8 @@
 <script src="/style/bootstrap-4.0.0/bootstrap.min.js"></script>
 <script src="/style/menu-mobile/js/webslidemenu.js"></script>
 <script src="/style/owl-carousel/owl.carousel.js"></script>
-{{-- <script src="/style/lazyload/lazyload.js"></script> --}}
-<script src="/style/slick/slick.js"></script>
+<script src="/style/lazyload/lazyload.js"></script>
+{{-- <script src="/style/slick/slick.js"></script> --}}
 <script src="/style/js/myscript.js"></script>
 @else
 <script type="text/javascript">
@@ -12,8 +12,8 @@
 {!! file_get_contents(public_path('/style/bootstrap-4.0.0/bootstrap.min.js')) !!}
 {!! file_get_contents(public_path('/style/menu-mobile/js/webslidemenu.js')) !!}
 {!! file_get_contents(public_path('/style/owl-carousel/owl.carousel.js')) !!}
-{{-- {!! file_get_contents(public_path('/style/lazyload/lazyload.js')) !!}
-{!! file_get_contents(public_path('/style/slick/slick.js')) !!} --}}
+{!! file_get_contents(public_path('/style/lazyload/lazyload.js')) !!}
+{{-- {!! file_get_contents(public_path('/style/slick/slick.js')) !!} --}}
 {!! file_get_contents(public_path('/style/js/myscript.js')) !!}
 </script>
 @endif
@@ -59,5 +59,15 @@
 		})
    	}
    	ajax_cc_online();
+</script>
+<script type="text/javascript">
+	$(window).load(function(){
+	    $("img.lazyload").lazyload({
+	    	effect : "fadeIn"
+	    	// threshold: 100,
+	    	// event : "mouseover"
+	    });
+	});
+	
 </script>
 {!!isset($configs_data['seo']['chat-script'])?$configs_data['seo']['chat-script']:''!!}

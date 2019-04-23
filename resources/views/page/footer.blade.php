@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-xl-3 tt-col">
 				<div class="logo">
-					<a href="#"><img src="/uploads/configs/{{isset($configs_data['header']['logo'])?$configs_data['header']['logo']:''}}"></a>
+					<a href="#"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="/uploads/configs/{{isset($configs_data['header']['logo'])?$configs_data['header']['logo']:''}}" class="lazyload"></a>
 				</div>
 				<div class="address">
 					<ul>
@@ -44,7 +44,7 @@
 				@if(isset($images_data['bocongthuong']))
 				@foreach($images_data['bocongthuong'] as $item)
 				<div class="bocongthuong">
-					<img src="/uploads/images/{{$item->photo}}" alt="{{$item->title}}">
+					<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="/uploads/images/{{$item->photo}}" alt="{{$item->title}}" class="lazyload">
 				</div>
 				@endforeach
 				@endif
@@ -66,7 +66,7 @@
 						<div class="clearfix"></div>
 						<!--Show list pay-->
 						@foreach($images_data['thanhtoan'] as $item)
-						<a href="#" class="checkout-img"><img class="lazy" data-src="uploads/images/{{$item->photo}}" alt="{{$item->title}}"></a>
+						<a href="#" class="checkout-img"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="uploads/images/{{$item->photo}}" alt="{{$item->title}}" class="lazyload"></a>
 						@endforeach
 						<!--End show list pay-->
 					</li>

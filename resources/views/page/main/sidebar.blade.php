@@ -6,13 +6,15 @@
 		@endforeach
 		@endif
 	</div>
-	<div class="box-posts-cat">
-		<div class="bg-title-cat">
-			<div class="title-category">
-				Social
+	@if(isset($configs_data['fanpage']['iframe-fanpage']))
+		<div class="box-posts-cat">
+			<div class="bg-title-cat">
+				<div class="title-category">
+					Social
+				</div>
 			</div>
 		</div>
-	</div>
+	@endif
 	<div>{!!isset($configs_data['fanpage']['iframe-fanpage'])?$configs_data['fanpage']['iframe-fanpage']:''!!}</div>
 	<div class="banner-sidebar">
 		@if(isset($images_data['banner_sidebar_2']))

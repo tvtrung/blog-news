@@ -13,7 +13,7 @@
 			<div class="box-post-item">
 				<div class="post-item-1">
 					<div class="img">
-						<a href="{{$url_post[$item->id]}}"><img src="{{url('uploads/posts'. '/' . $item->photo)}}" class="width100" alt="{{$item->title}}"></a>
+						<a href="{{$url_post[$item->id]}}"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="{{url('uploads/posts'. '/' . $item->photo)}}" class="width100 lazyload" alt="{{$item->title}}"></a>
 					</div>
 					<div class="title">
 						<h3><a href="{{$url_post[$item->id]}}">{{$item->title}}</a></h3>
@@ -40,7 +40,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="img">
-								<a href="{{$url_post[$item->id]}}"><img src="{{url('uploads/posts'. '/' . $item->photo)}}" class="width100" alt="{{$item->title}}"></a>
+								<a href="{{$url_post[$item->id]}}"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="{{url('uploads/posts'. '/' . $item->photo)}}" class="width100 lazyload" alt="{{$item->title}}"></a>
 							</div>
 						</div>
 						<div class="col-md-8" style="padding-left: 0">
