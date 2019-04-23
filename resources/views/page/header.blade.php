@@ -9,7 +9,11 @@
 				</div>
 				<div class="col-lg-8">
 					<div class="banner-top">
-						<img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="/uploads/configs/{{isset($configs_data['header']['banner-top'])?$configs_data['header']['banner-top']:''}}" alt="Banner" class="lazyload">
+						<img class="b-lazy"
+							src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+							data-src="/uploads/configs/{{isset($configs_data['header']['banner-top'])?$configs_data['header']['banner-top']:''}}"
+							data-src-small="/uploads/configs/{{isset($configs_data['header']['banner-top'])?$configs_data['header']['banner-top']:''}}"
+							alt="Banner" />
 					</div>
 				</div>
 			</div>

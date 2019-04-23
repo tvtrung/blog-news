@@ -61,13 +61,20 @@
    	ajax_cc_online();
 </script>
 <script type="text/javascript">
-	$(window).load(function(){
-	    $("img.lazyload").lazyload({
-	    	effect : "fadeIn"
-	    	// threshold: 100,
-	    	// event : "mouseover"
-	    });
-	});
-	
+	 var bLazy = new Blazy({
+        breakpoints: [{
+	    width: 420 // Max-width
+          , src: 'data-src-small'
+	}]
+      , success: function(element){
+	    setTimeout(function(){
+		// We want to remove the loader gif now.
+		// First we find the parent container
+		// then we remove the "loading" class which holds the loader image
+		var parent = element.parentNode;
+		parent.className = parent.className.replace(/\bloading\b/,'');
+	    }, 200);
+        }
+   });
 </script>
 {!!isset($configs_data['seo']['chat-script'])?$configs_data['seo']['chat-script']:''!!}

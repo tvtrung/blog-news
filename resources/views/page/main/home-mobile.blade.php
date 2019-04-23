@@ -16,7 +16,13 @@
 				<div class="row">
 					<div class="col-4">
 						<div class="img">
-							<a href="{{$item['url']}}"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="{{$item['photo']}}" class="width100 lazyload" alt="{{$item['title']}}"></a>
+							<a href="{{$item['url']}}">
+								<img class="b-lazy"
+									src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+									data-src="{{$item['photo']}}"
+									data-src-small="{{$item['photo']}}"
+									alt="{{$item['title']}}" />
+							</a>
 						</div>
 					</div>
 					<div class="col-8" style="padding-left: 0">
@@ -41,7 +47,13 @@
 				<div class="row">
 					<div class="col-4">
 						<div class="img">
-							<a href="{{$item['url']}}"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="{{$item['photo']}}" class="width100 lazyload" alt="{{$item['title']}}"></a>
+							<a href="{{$item['url']}}">
+								<img class="b-lazy"
+									src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+									data-src="{{$item['photo']}}"
+									data-src-small="{{$item['photo']}}"
+									alt="{{$item['title']}}" />
+							</a>
 						</div>
 					</div>
 					<div class="col-8" style="padding-left: 0">
@@ -76,7 +88,13 @@
 				<div class="row">
 					<div class="col-4">
 						<div class="img">
-							<a href="{{$url_post[$item->id]}}"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="{{url('uploads/posts'. '/' . $item->photo)}}" class="width100 lazyload" alt="{{$item->title}}"></a>
+							<a href="{{$url_post[$item->id]}}">
+								<img class="b-lazy"
+									src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+									data-src="{{url('uploads/posts'. '/' . $item->photo)}}"
+									data-src-small="{{url('uploads/posts'. '/' . $item->photo)}}"
+									alt="{{$item->title}}" />
+							</a>
 						</div>
 					</div>
 					<div class="col-8" style="padding-left: 0">

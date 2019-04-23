@@ -30,7 +30,13 @@
 							<div class="row">
 								<div class="col-4">
 									<div class="img">
-										<a href="{{$item['url']}}"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="{{$item['photo']}}" class="width100 lazyload" alt="{{$item['title']}}"></a>
+										<a href="{{$item['url']}}">
+											<img class="b-lazy"
+												src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+												data-src="{{$item['photo']}}"
+												data-src-small="{{$item['photo']}}"
+												alt="{{$item['title']}}" />
+										</a>
 									</div>
 								</div>
 								<div class="col-8" style="padding-left: 0">

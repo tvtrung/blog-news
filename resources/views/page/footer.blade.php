@@ -3,7 +3,13 @@
 		<div class="row">
 			<div class="col-xl-3 tt-col">
 				<div class="logo">
-					<a href="#"><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-original="/uploads/configs/{{isset($configs_data['header']['logo'])?$configs_data['header']['logo']:''}}" class="lazyload"></a>
+					<a href="{{url('/')}}">
+						<img class="b-lazy"
+							src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+							data-src="/uploads/configs/{{isset($configs_data['header']['logo'])?$configs_data['header']['logo']:''}}"
+							data-src-small="/uploads/configs/{{isset($configs_data['header']['logo'])?$configs_data['header']['logo']:''}}"
+							alt="logo" />
+					</a>
 				</div>
 				<div class="address">
 					<ul>
