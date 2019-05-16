@@ -1,7 +1,7 @@
 <section class="html-mobile">
 	<br>
 	<div class="container-fluid">
-		@if($post_item_latest_1 != null || $post_item_latest_2 != null)
+		{{-- @if($post_item_latest_1 != null || $post_item_latest_2 != null)
 		<div class="box-posts-cat">
 			<div class="bg-title-cat">
 				<div class="title-category">
@@ -71,7 +71,7 @@
 		</div>
 		@endforeach
 		@endif
-		@endif
+		@endif --}}
 
 		@for($i = 1; $i <= 5; $i++)
 		@if($row_cat[$i] != null)

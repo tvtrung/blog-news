@@ -1,4 +1,4 @@
-@include('page.main.position-home.position-latest')
+{{-- @include('page.main.position-home.position-latest') --}}
 <section class="block-posts">
 	<div class="container">
 		<div class="row">
