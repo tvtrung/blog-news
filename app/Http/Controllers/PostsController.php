@@ -91,7 +91,7 @@ class PostsController extends Controller
         ];
         $input = array_merge($input_img, $input_filename_size, $input_data);
         Posts::update_data($input, $id);
-        SitemapController::update_sitemap();
+        // SitemapController::update_sitemap();
         return redirect()->route('admin.posts.edit',['id'=>$id])->with('success','Chỉnh sửa dữ liệu thành công');
     }
     public function create(){
@@ -153,7 +153,7 @@ class PostsController extends Controller
         ];
         $input = array_merge($input_img, $input_filename_size, $input_data);
         Posts::store_data($input);
-        SitemapController::update_sitemap();
+        // SitemapController::update_sitemap();
         return redirect()->route('admin.posts.index')->with('success','Thêm dữ liệu thành công');
     }
     public function delete($id){
