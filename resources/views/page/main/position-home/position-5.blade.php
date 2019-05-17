@@ -18,7 +18,7 @@
 						<div class="box-post-item-carousel">
 							<div class="post-item-1">
 								<div class="img">
-									<a href="{{$url_post[$item->id]}}"><img src="{{url('uploads/posts'. '/' . $item->photo)}}" class="width100" alt=""></a>
+									<a href="{{$url_post[$item->id]}}"><img src="{{url('uploads/posts'. '/' . img_size($item->photo, $item->photo_resize, 333, 187))}}" class="width100" alt=""></a>
 								</div>
 								<div class="title">
 									<h3><a href="{{$url_post[$item->id]}}">{{$item->title}}</a></h3>

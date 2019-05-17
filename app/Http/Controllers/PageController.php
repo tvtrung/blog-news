@@ -22,36 +22,36 @@ class PageController extends Controller
         $data_post_count = Posts::count();
         $data_cat_count = Categories::count();
         //get_news_latest
-        if($data_post_count > 0){
-            $url_post = self::url_post();
-            $data_news_latest_1 = Posts::get_news_latest(0,2);
-            foreach ($data_news_latest_1 as $key => $value) {
-                $post_item_latest_1[$key]['title'] = $value->title;
-                $post_item_latest_1[$key]['title_limit'] = limit_words($value->title, 8);
-                $post_item_latest_1[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
-                $post_item_latest_1[$key]['url'] = $url_post[$value->id];
-                $post_item_latest_1[$key]['created_at'] = $value->created_at;
-                $post_item_latest_1[$key]['view'] = $value->view;
-            }
-        }
-        else{
-            $post_item_latest_1 = null;
-        }
-        if($data_post_count > 2){
-            $url_post = self::url_post();
-            $data_news_latest_2 = Posts::get_news_latest(2,3);
-            foreach ($data_news_latest_2 as $key => $value) {
-                $post_item_latest_2[$key]['title'] = $value->title;
-                $post_item_latest_2[$key]['title_limit'] = limit_words($value->title, 8);
-                $post_item_latest_2[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
-                $post_item_latest_2[$key]['url'] = $url_post[$value->id];
-                $post_item_latest_2[$key]['created_at'] = $value->created_at;
-                $post_item_latest_2[$key]['view'] = $value->view;
-            }
-        }
-        else{
-            $post_item_latest_2 = null;
-        }
+        // if($data_post_count > 0){
+        //     $url_post = self::url_post();
+        //     $data_news_latest_1 = Posts::get_news_latest(0,2);
+        //     foreach ($data_news_latest_1 as $key => $value) {
+        //         $post_item_latest_1[$key]['title'] = $value->title;
+        //         $post_item_latest_1[$key]['title_limit'] = limit_words($value->title, 8);
+        //         $post_item_latest_1[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
+        //         $post_item_latest_1[$key]['url'] = $url_post[$value->id];
+        //         $post_item_latest_1[$key]['created_at'] = $value->created_at;
+        //         $post_item_latest_1[$key]['view'] = $value->view;
+        //     }
+        // }
+        // else{
+        //     $post_item_latest_1 = null;
+        // }
+        // if($data_post_count > 2){
+        //     $url_post = self::url_post();
+        //     $data_news_latest_2 = Posts::get_news_latest(2,3);
+        //     foreach ($data_news_latest_2 as $key => $value) {
+        //         $post_item_latest_2[$key]['title'] = $value->title;
+        //         $post_item_latest_2[$key]['title_limit'] = limit_words($value->title, 8);
+        //         $post_item_latest_2[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
+        //         $post_item_latest_2[$key]['url'] = $url_post[$value->id];
+        //         $post_item_latest_2[$key]['created_at'] = $value->created_at;
+        //         $post_item_latest_2[$key]['view'] = $value->view;
+        //     }
+        // }
+        // else{
+        //     $post_item_latest_2 = null;
+        // }
         //get_cat_home
         if($data_cat_count > 0 && $data_post_count > 0){
             $url_post = self::url_post();
@@ -86,8 +86,8 @@ class PageController extends Controller
             $row_cat = null;
         }
     	return view('page.main.main',[
-                                    'post_item_latest_1'=>$post_item_latest_1,
-                                    'post_item_latest_2'=>$post_item_latest_2,
+                                    // 'post_item_latest_1'=>$post_item_latest_1,
+                                    // 'post_item_latest_2'=>$post_item_latest_2,
                                     'row_cat'=>$row_cat,
                                     'list_post'=>$list_post,
                                     'url_post'=>$url_post
@@ -205,6 +205,7 @@ class PageController extends Controller
                 $post_item['content'] = $row_post->content;
                 $post_item['view'] = $row_post->view;
                 $post_item['photo'] = $row_post->photo;
+                $post_item['photo_resize'] = $row_post->photo_resize;
                 $post_item['seo_keyword'] = $row_post->seo_keyword;
                 $post_item['seo_description'] = $row_post->seo_description;
                 $post_item['seo_content'] = $row_post->seo_content;
@@ -246,7 +247,8 @@ class PageController extends Controller
                         $post_item[$key]['title'] = $value->title;
                         $post_item[$key]['description'] = $value->description;
                         $post_item[$key]['content'] = $value->content;
-                        $post_item[$key]['photo'] = url('uploads/posts') . '/' . $value->photo;
+                        $post_item[$key]['photo'] = $value->photo;
+                        $post_item[$key]['photo_resize'] = $value->photo_resize;
                         $post_item[$key]['view'] = $value->view;
                         $post_item[$key]['seo_keyword'] = $value->seo_keyword;
                         $post_item[$key]['seo_description'] = $value->seo_description;

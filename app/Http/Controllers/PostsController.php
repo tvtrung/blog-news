@@ -37,26 +37,46 @@ class PostsController extends Controller
     	return view('admin.page.posts.edit',['row'=>$row,'html_option'=>$html_option]);
     }
     public function update(PostsRequest $request, $id){
+        $size_image = [
+            ["x"=>331,"y"=>185],
+            ["x"=>90,"y"=>50],
+            ["x"=>333,"y"=>187],
+            ["x"=>212,"y"=>118],
+            ["x"=>207,"y"=>116]
+        ];
     	if($request->get('status') == 'on'){
             $status = 1;
         }else{
             $status = 0;
         }
-        $current_photo_name = $request->get('photo_name');
+        $row = Posts::find($id);
+        $current_photo = $row->photo;
+        $current_photo_resize = $row->photo_resize;
         $dir = 'uploads/posts/';
+        $input_filename_size = [];
         if($request->hasFile('photo')){
             $file = $request->file('photo');
-            $filename = time() . str_random(5) . '.' . $file->getClientOriginalExtension();
+            $name_random = time() . str_random(5);
+            $filename = $name_random . '.' . $file->getClientOriginalExtension();
             if (!File::exists($dir)) {
                 File::makeDirectory($dir, $mode = 0777, true, true);
             }
             $path = $dir . $filename;
             Image::make($file)->save(($path));
-    		File::delete(public_path($dir . $current_photo_name));
+            $filename_size = [];
+            foreach ($size_image as $item) {
+                $file_size = $request->file('photo');
+                $filename_size['size_' . $item['x'] . 'x' . $item['y']] = $name_random . "-" . $item['x'] . "x" . $item['y'] . "." . $file->getClientOriginalExtension();
+                $path_size = $dir . $filename_size['size_' . $item['x'] . 'x' . $item['y']];
+                Image::make($file_size)->fit($item['x'], $item['y'])->save(public_path($path_size));
+            }
+            $json_filename_size = json_encode($filename_size);
     		$input_img = ['photo' => $filename];
+            $input_filename_size = ['photo_resize' => $json_filename_size];
         }
         else{
-        	$input_img = ['photo' => $current_photo_name];
+        	$input_img = ['photo' => $current_photo];
+            $input_filename_size = ['photo_resize' => $current_photo_resize];
         }
         $input_data = [
             'title' => $request->get('title'),
@@ -69,7 +89,7 @@ class PostsController extends Controller
             'seo_content' => $request->get('seo_content'),
             'status' => $status,
         ];
-        $input = array_merge($input_img, $input_data);
+        $input = array_merge($input_img, $input_filename_size, $input_data);
         Posts::update_data($input, $id);
         SitemapController::update_sitemap();
         return redirect()->route('admin.posts.edit',['id'=>$id])->with('success','Chỉnh sửa dữ liệu thành công');
@@ -80,6 +100,13 @@ class PostsController extends Controller
     	return view('admin.page.posts.create',['html_option'=>$html_option]);
     }
     public function store(PostsRequest $request){
+        $size_image = [
+            ["x"=>331,"y"=>185],
+            ["x"=>90,"y"=>50],
+            ["x"=>333,"y"=>187],
+            ["x"=>212,"y"=>118],
+            ["x"=>207,"y"=>116]
+        ];
     	if($request->get('status') == 'on'){
             $status = 1;
         }else{
@@ -87,19 +114,30 @@ class PostsController extends Controller
         }
         $current_photo_name = '';
         $dir = 'uploads/posts/';
+        $input_filename_size = [];
         if($request->hasFile('photo')){
             $file = $request->file('photo');
-            $filename = time() . str_random(5) . '.' . $file->getClientOriginalExtension();
+            $name_random = time() . str_random(5);
+            $filename = $name_random . '.' . $file->getClientOriginalExtension();
+            $path = $dir . $filename;
             if (!File::exists($dir)) {
                 File::makeDirectory($dir, $mode = 0777, true, true);
             }
-            $path = $dir . $filename;
             Image::make($file)->save(($path));
-    		File::delete(public_path($dir . $current_photo_name));
+            $filename_size = [];
+            foreach ($size_image as $item) {
+                $file_size = $request->file('photo');
+                $filename_size['size_' . $item['x'] . 'x' . $item['y']] = $name_random . "-" . $item['x'] . "x" . $item['y'] . "." . $file->getClientOriginalExtension();
+                $path_size = $dir . $filename_size['size_' . $item['x'] . 'x' . $item['y']];
+                Image::make($file_size)->fit($item['x'], $item['y'])->save(public_path($path_size));
+            }
+            $json_filename_size = json_encode($filename_size);
     		$input_img = ['photo' => $filename];
+            $input_filename_size = ['photo_resize' => $json_filename_size];
         }
         else{
         	$input_img = ['photo' => $current_photo_name];
+            $input_filename_size = ['photo_resize' => null];
         }
         $input_data = [
             'title' => $request->get('title'),
@@ -111,9 +149,9 @@ class PostsController extends Controller
             'seo_keyword' => $request->get('seo_keyword'),
             'seo_description' => $request->get('seo_description'),
             'seo_content' => $request->get('seo_content'),
-            'status' => $status,
+            'status' => $status
         ];
-        $input = array_merge($input_img, $input_data);
+        $input = array_merge($input_img, $input_filename_size, $input_data);
         Posts::store_data($input);
         SitemapController::update_sitemap();
         return redirect()->route('admin.posts.index')->with('success','Thêm dữ liệu thành công');

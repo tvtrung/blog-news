@@ -33,8 +33,8 @@
 										<a href="{{$item['url']}}">
 											<img class="b-lazy"
 												src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-												data-src="{{$item['photo']}}"
-												data-src-small="{{$item['photo']}}"
+												data-src="{{url('uploads/posts'. '/' . img_size($item['photo'], $item['photo_resize'], 212, 118))}}"
+												data-src-small="{{url('uploads/posts'. '/' . img_size($item['photo'], $item['photo_resize'], 212, 118))}}"
 												alt="{{$item['title']}}" />
 										</a>
 									</div>

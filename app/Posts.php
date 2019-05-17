@@ -18,7 +18,8 @@ class Posts extends Model
     	$row->seo_keyword = $input['seo_keyword'];
     	$row->seo_description = $input['seo_description'];
     	$row->seo_content = $input['seo_content'];
-    	$row->status = $input['status'];
+        $row->status = $input['status'];
+        $row->photo_resize = $input['photo_resize'];
     	$row->save();
     }
     public static function store_data($input){
@@ -34,6 +35,7 @@ class Posts extends Model
     	$row->seo_description = $input['seo_description'];
     	$row->seo_content = $input['seo_content'];
     	$row->status = $input['status'];
+        $row->photo_resize = $input['photo_resize'];
     	$row->save();
     }
     public static function detail($id) {

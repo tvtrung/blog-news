@@ -16,8 +16,8 @@
 						<a href="{{$url_post[$item->id]}}">
 							<img class="b-lazy"
 								src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-								data-src="{{url('uploads/posts'. '/' . $item->photo)}}"
-								data-src-small="{{url('uploads/posts'. '/' . $item->photo)}}"
+								data-src="{{url('uploads/posts'. '/' . img_size($item->photo, $item->photo_resize, 331, 185))}}"
+								data-src-small="{{url('uploads/posts'. '/' . img_size($item->photo, $item->photo_resize, 331, 185))}}"
 								alt="{{$item->title}}" />
 						</a>
 					</div>
@@ -49,15 +49,15 @@
 								<a href="{{$url_post[$item->id]}}">
 									<img class="b-lazy"
 										src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-										data-src="{{url('uploads/posts'. '/' . $item->photo)}}"
-										data-src-small="{{url('uploads/posts'. '/' . $item->photo)}}"
+										data-src="{{url('uploads/posts'. '/' . img_size($item->photo, $item->photo_resize, 90, 50))}}"
+										data-src-small="{{url('uploads/posts'. '/' . img_size($item->photo, $item->photo_resize, 90, 50))}}"
 										alt="{{$item->title}}" />
 								</a>
 							</div>
 						</div>
 						<div class="col-md-8" style="padding-left: 0">
 							<div class="title">
-								<h3><a href="{{$url_post[$item->id]}}">{{$item->title}}</a></h3>
+								<h3><a href="{{$url_post[$item->id]}}">{{$item->title}}1</a></h3>
 							</div>
 							<div class="info">
 								<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
