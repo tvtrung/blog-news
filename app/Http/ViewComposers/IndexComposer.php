@@ -26,7 +26,6 @@ class IndexComposer {
         $no_page = [
             'https://tech.kdata.vn',
             'http://tech.kdata.vn',
-            'http://tech.local.vn',
             'tech.kdata.vn',
         ];
         $curent_url = route('page.home');
