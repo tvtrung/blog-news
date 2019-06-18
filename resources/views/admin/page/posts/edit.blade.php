@@ -83,7 +83,7 @@
 			                            </div>
 			                            <div class="form-group">
 			                                <label>Mô tả</label>
-			                                <textarea name="text-description" class="form-control m-input ckeditor">{{$row->description}}</textarea>
+			                                <textarea name="text-description" class="form-control m-input" rows="5">{{$row->description}}</textarea>
 			                            </div>
 			                            <div class="form-group">
 			                                <label>Nội dung</label>

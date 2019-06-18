@@ -27,6 +27,7 @@ class PostsRequest extends FormRequest
         return [
             'title' => 'bail|required|unique:posts,title,' . $request->get('id'),
             'slug' => 'bail|required|unique:posts,slug,' . $request->get('id'),
+            'text-description' => 'bail|required'
         ];
     }
     /**
@@ -40,7 +41,8 @@ class PostsRequest extends FormRequest
             'title.required' => 'Bạn chưa nhập Tiêu đề',
             'slug.required' => 'Bạn chưa nhập Slug',
             'title.unique' => 'Tiêu đề bị trùng',
-            'slug.unique' => 'Slug bị trùng'
+            'slug.unique' => 'Slug bị trùng',
+            'text-description.required' => 'Bạn chưa nhập mô tả'
         ];
     }
 }
