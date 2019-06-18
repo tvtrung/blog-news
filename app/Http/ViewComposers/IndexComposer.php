@@ -5,7 +5,7 @@ namespace App\Http\ViewComposers;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Categories;
-use Illuminate\Support\Facades\URL;
+use Illuminate\Http\Request;
 
 class IndexComposer {
     
@@ -22,21 +22,21 @@ class IndexComposer {
      * @param  SystemRepository  $newletter
      * @return void
      */
-    public function __construct() {
-       
-    }
-    
-    public function compose(View $view) {
+    public function __construct(Request $request) {
         $no_page = [
             'https://tech.kdata.vn',
             'http://tech.kdata.vn',
+            'http://tech.local.vn',
             'tech.kdata.vn',
         ];
         $curent_url = route('page.home');
-        if(in_array($curent_url,$no_page)){
+        if(in_array($curent_url,$no_page) && !$request->is('admink*')){
             echo "Kdata";
             die;   
         }
+    }
+    
+    public function compose(View $view) {
         //congigs
         $data = DB::table('configs')->get();
         if($data->count() > 0){
