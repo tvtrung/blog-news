@@ -97,6 +97,10 @@
 			                                <label>SEO Description</label>
 			                                <textarea name="seo_description" class="form-control m-input">{{$row->seo_description}}</textarea>
 			                            </div>
+			                            <div class="form-group">
+			                                <label>Link</label>
+			                                <input type="text" class="form-control" placeholder="Link" name="link" value="{{$row->link}}" autocomplete="off"> 
+			                            </div>
 			                            {{-- <div class="form-group">
 			                                <label>SEO Content</label>
 			                                <textarea name="seo_content" class="form-control m-input">{{$row->seo_content}}</textarea> 

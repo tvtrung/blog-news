@@ -88,6 +88,7 @@ class PostsController extends Controller
             'seo_description' => $request->get('seo_description'),
             'seo_content' => $request->get('seo_content'),
             'status' => $status,
+            'link' => $request->get('link'),
         ];
         $input = array_merge($input_img, $input_filename_size, $input_data);
         Posts::update_data($input, $id);
@@ -149,7 +150,8 @@ class PostsController extends Controller
             'seo_keyword' => $request->get('seo_keyword'),
             'seo_description' => $request->get('seo_description'),
             'seo_content' => $request->get('seo_content'),
-            'status' => $status
+            'status' => $status,
+            'link' => $request->get('link'),
         ];
         $input = array_merge($input_img, $input_filename_size, $input_data);
         Posts::store_data($input);

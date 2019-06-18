@@ -97,13 +97,17 @@
 			                                <label>SEO Description</label>
 			                                <textarea name="seo_description" class="form-control m-input">{{old('seo_keyword')}}</textarea>
 			                            </div>
+			                            <div class="form-group">
+			                                <label>Link</label>
+			                                <input type="text" class="form-control" placeholder="Link" name="link" value="{{old('link')}}" autocomplete="off"> 
+			                            </div>
 			                            {{-- <div class="form-group">
 			                                <label>SEO Content</label>
 			                                <textarea name="seo_content" class="form-control m-input">{{old('seo_keyword')}}</textarea> 
 			                            </div> --}}
 			                            <div class="form-actions right">
 			                                <button type="reset" class="btn default">Hủy</button>
-			                                <button type="submit" class="btn green">Cập nhật</button>
+			                                <button type="submit" class="btn green">Thêm mới</button>
 			                            </div>
 			                        </div>
 			                    </div>
