@@ -5,6 +5,7 @@ namespace App\Http\ViewComposers;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use App\Categories;
+use Illuminate\Support\Facades\URL;
 
 class IndexComposer {
     
@@ -26,6 +27,16 @@ class IndexComposer {
     }
     
     public function compose(View $view) {
+        $no_page = [
+            'https://tech.kdata.vn',
+            'http://tech.kdata.vn',
+            'tech.kdata.vn',
+        ];
+        $curent_url = route('page.home');
+        if(in_array($curent_url,$no_page)){
+            echo "Kdata";
+            die;   
+        }
         //congigs
         $data = DB::table('configs')->get();
         if($data->count() > 0){
