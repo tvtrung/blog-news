@@ -29,7 +29,7 @@ class IndexComposer {
             'tech.kdata.vn',
         ];
         $curent_url = route('page.home');
-        if(in_array($curent_url,$no_page) && !$request->is('admink*')){
+        if(in_array($curent_url,$no_page) && !$request->is('admink*') && !$request->is('doupload*')){
             echo "Kdata";
             die;   
         }
