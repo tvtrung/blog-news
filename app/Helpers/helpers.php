@@ -35,6 +35,12 @@ function img_size($photo, $photo_resize, $x, $y){
 }
 
 function get_domain($domain){
-	$url = explode('/',explode('//',$domain)[1])[0];
+	$bits = explode('/', $domain);
+	if ($bits[0]=='http:' || $bits[0]=='https:'){
+		$domainb= $bits[2];
+	}else{
+		$domainb= $bits[0];
+	}
+	$url = explode('/',$domainb)[0];
 	return $url;
 }
