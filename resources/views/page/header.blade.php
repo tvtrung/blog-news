@@ -9,11 +9,13 @@
 				</div>
 				<div class="col-lg-8">
 					<div class="banner-top">
+						<a href="{{isset($configs_data['header']['link-banner'])?$configs_data['header']['link-banner']:''}}" target="_blank">
 						<img class="b-lazy"
 							src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
 							data-src="/uploads/configs/{{isset($configs_data['header']['banner-top'])?$configs_data['header']['banner-top']:''}}"
 							data-src-small="/uploads/configs/{{isset($configs_data['header']['banner-top'])?$configs_data['header']['banner-top']:''}}"
 							alt="Banner" />
+						</a>
 					</div>
 				</div>
 			</div>

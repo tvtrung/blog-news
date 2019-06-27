@@ -38,6 +38,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="">
+                                <div class="portlet-body form">
+                                    <div class="form-group">
+                                        <label>Link banner</label>
+                                        <input type="text" class="form-control" name="link-banner" value="{{isset($row['link-banner'])?$row['link-banner']:''}}"> 
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>

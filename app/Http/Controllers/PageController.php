@@ -257,8 +257,6 @@ class PageController extends Controller
                         $post_item[$key]['seo_content'] = $value->seo_content;
                         $post_item[$key]['created_at'] = $value->created_at;
                         $post_item[$key]['url'] = $url_post[$value->id];
-                        $post_item[$key]['link'] = $url_post[$value->link];
-                        $post_item[$key]['description'] = $url_post[$value->description];
                     }
                     return view('page.main.list-posts',['post_item'=>$post_item,'title_cat'=>$title_cat,'data_post'=>$data_post]);
                 }
