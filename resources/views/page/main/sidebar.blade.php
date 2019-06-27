@@ -2,7 +2,7 @@
 	<div class="banner-sidebar">
 		@if(isset($images_data['banner_sidebar_1']))
 		@foreach($images_data['banner_sidebar_1'] as $item)
-		<a href="{{$item->link}}" rel="nofollow">
+		<a href="{{$item->link}}" rel="nofollow" target="_blank">
 			<img class="b-lazy"
 				src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
 				data-src="/uploads/images/{{$item->photo}}"
@@ -25,7 +25,7 @@
 	<div class="banner-sidebar">
 		@if(isset($images_data['banner_sidebar_2']))
 		@foreach($images_data['banner_sidebar_2'] as $item)
-		<a href="{{$item->link}}" rel="nofollow">
+		<a href="{{$item->link}}" rel="nofollow" target="_blank">
 			<img class="b-lazy"
 				src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
 				data-src="/uploads/images/{{$item->photo}}"
