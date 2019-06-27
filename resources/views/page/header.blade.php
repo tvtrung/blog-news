@@ -40,7 +40,7 @@
 										?>
 										<li class="title {{ setActive($str, 'active') }}"><a href="{{route('page.posts',['slug'=>$item['url']])}}">{{$item['title']}}</a></li>
 										@endforeach
-										<li class="title"><a href="{{url('lien-he')}}">Liên hệ</a></li>
+										{{-- <li class="title"><a href="{{url('lien-he')}}">Liên hệ</a></li> --}}
 										<li class="menu-search only-mobile">
 	                                        <a href="#" class="last-menu"><i class="fa fa-search" aria-hidden="true"></i> <span class="only-mobile">Tìm kiếm</span></a>
 	                                        <div class="megamenu halfdiv">

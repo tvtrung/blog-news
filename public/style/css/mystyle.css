@@ -697,11 +697,12 @@ footer .tt-col{
     display: none!important;
 }
 .box-post-item-carousel{
-    padding: 0 5px;
+    /*padding: 0 5px;*/
 }
 .posts-carousel .post-item-1{
-    background-color: #f6f7f7;
-    padding: 15px;
+    margin-bottom: 15px;
+    /*background-color: #f6f7f7;
+    padding: 15px;*/
 }
 .html-mobile{
     margin-bottom: 20px;

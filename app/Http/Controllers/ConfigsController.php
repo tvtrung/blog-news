@@ -96,7 +96,7 @@ class ConfigsController extends Controller
     		case 'footer':
 	    		$data = $request->except(['_token','type']);
 		    	foreach ($data as $key => $value) {
-			        $array_data[$key] = $value;
+			        $array_data[$key] = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $value);
 	    		}
 	    		$json_data = json_encode($array_data);
 	    		DB::table($this->_table)->where('key',$type)->update(['value'=>$json_data]);

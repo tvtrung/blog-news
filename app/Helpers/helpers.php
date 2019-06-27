@@ -33,3 +33,8 @@ function img_size($photo, $photo_resize, $x, $y){
 		return isset($arr_photo['size_'. $x . 'x' . $y]) ? $arr_photo['size_'. $x . 'x' . $y] : $photo;
 	}
 }
+
+function get_domain($domain){
+	$url = explode('/',explode('//',$domain)[1])[0];
+	return $url;
+}

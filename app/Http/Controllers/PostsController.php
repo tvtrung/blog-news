@@ -42,7 +42,8 @@ class PostsController extends Controller
             ["x"=>90,"y"=>50],
             ["x"=>333,"y"=>187],
             ["x"=>212,"y"=>118],
-            ["x"=>207,"y"=>116]
+            ["x"=>207,"y"=>116],
+            ["x"=>223,"y"=>125]
         ];
     	if($request->get('status') == 'on'){
             $status = 1;
@@ -106,7 +107,8 @@ class PostsController extends Controller
             ["x"=>90,"y"=>50],
             ["x"=>333,"y"=>187],
             ["x"=>212,"y"=>118],
-            ["x"=>207,"y"=>116]
+            ["x"=>207,"y"=>116],
+            ["x"=>223,"y"=>125]
         ];
     	if($request->get('status') == 'on'){
             $status = 1;

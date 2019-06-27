@@ -6,6 +6,7 @@
         <form action="" method="post" enctype="multipart/form-data" id="submit-form-configs">
 	        <div class="row">
 	        	<div class="col-md-12">
+                    {{-- 
 	        		<div class="portlet light bordered">
 	        			<h3>Trụ sở chính</h3>
                         <div class="portlet-body form">
@@ -48,6 +49,28 @@
                                         <i class="fa fa-pencil"></i>
                                     </span>
                                     <input type="text" class="form-control" name="phone-2" value="{{isset($row['addr-2'])?$row['addr-2']:''}}"> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     --}}
+                    <div class="portlet light bordered">
+                        <div class="portlet-body form">
+                            <div class="form-group">
+                                <label>Footer Information</label>
+                                <textarea rows="15" class="form-control" name="footer-info">{{isset($row['footer-info'])?$row['footer-info']:''}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet light bordered">
+                        <div class="portlet-body form">
+                            <div class="form-group">
+                                <label>Copy right</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-pencil"></i>
+                                    </span>
+                                    <input type="text" class="form-control" name="copy-right" value="{{isset($row['copy-right'])?$row['copy-right']:''}}"> 
                                 </div>
                             </div>
                         </div>

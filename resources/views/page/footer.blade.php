@@ -1,3 +1,4 @@
+@if(false)
 <footer>
 	<div class="container">
 		<div class="row">
@@ -121,3 +122,21 @@
         </div>
     </div>
 </div>
+@endif
+{{-- New============= --}}
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div style="color: #FFF">
+					{!!isset($configs_data['footer']['footer-info'])?$configs_data['footer']['footer-info']:''!!}
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div style="color: #FFF;text-align: center;margin: 5px 0;">
+					{!!isset($configs_data['footer']['copy-right'])?$configs_data['footer']['copy-right']:''!!}
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

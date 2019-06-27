@@ -30,9 +30,12 @@
 					<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y', strtotime($post_item['created_at']))}}<span style="margin: 0 5px;">|</span>
 					<i class="fa fa-eye" aria-hidden="true"></i> {!!$post_item['view']!!}
 				</div>
-				<div class="content-posts">
+				<div class="content-posts" style="font-size: 15px;">
+					<div style="font-weight: bold;">{!!$post_item['description']!!}</div>
+					<div class="clearfix"></div>
 					{!!$post_item['content']!!}
 				</div>
+				<div><a href="{!!$post_item['link']!!}">{!!get_domain($post_item['link'])!!}</a></div>
 				<hr>
 				{{--Like/Share--}}
 				@if(isset($configs_data['fb_social']['btn_like']) && isset($configs_data['fb_social']['btn_like']) == 'on')
@@ -58,6 +61,42 @@
 						</div>
 					</div>
 					<div class="col-md-12">
+						<div class="posts-carousel">
+							<div class="row">
+								@php $i = 0; @endphp
+								@foreach($row_relative_post as $item)
+								@php 
+								$i++; 
+								if($i > 6){
+									break;
+								}
+								@endphp
+								<div class="col-md-4">
+									<div class="item">
+										<div class="box-post-item-carousel">
+											<div class="post-item-1">
+												<div class="img">
+													<a href="{{$url_post[$item->id]}}"><img src="{{url('uploads/posts'. '/' . img_size($item->photo, $item->photo_resize, 223, 125))}}" class="width100" alt=""></a>
+												</div>
+												<div class="title" style="height: 62px">
+													<h3 style="line-height: 20px"><a href="{{$url_post[$item->id]}}">{!!$item->title!!}</a></h3>
+												</div>
+												<div class="info">
+													<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
+													<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y',strtotime($item->created_at))}}<span style="margin: 0 5px;">|</span>
+													<i class="fa fa-eye" aria-hidden="true"></i> {{$item->view}}
+												</div>
+												{{-- <div class="link">
+													<a href="{{$url_post[$item->id]}}">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+												</div> --}}
+											</div>
+										</div>
+									</div>
+								</div>
+								@endforeach
+							</div>
+						</div>
+						@if(false)
 						<div class="posts-carousel">
 							<div class="row" style="margin-left: -5px;margin-right: -5px;">
 								<div class="owl-carousel owl-carousel-1">
@@ -90,6 +129,7 @@
 								<span class="btn-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
 							</div>
 						</div>
+						@endif
 					</div>
 				</div>
 				@endif

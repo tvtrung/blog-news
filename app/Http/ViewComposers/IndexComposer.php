@@ -23,16 +23,6 @@ class IndexComposer {
      * @return void
      */
     public function __construct(Request $request) {
-        $no_page = [
-            'https://tech.kdata.vn',
-            'http://tech.kdata.vn',
-            'tech.kdata.vn',
-        ];
-        $curent_url = route('page.home');
-        if(in_array($curent_url,$no_page) && !$request->is('admink*') && !$request->is('doupload*')){
-            echo "Kdata";
-            die;   
-        }
     }
     
     public function compose(View $view) {
