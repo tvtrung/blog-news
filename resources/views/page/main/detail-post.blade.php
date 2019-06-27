@@ -35,7 +35,9 @@
 					<div class="clearfix"></div>
 					{!!$post_item['content']!!}
 				</div>
+				@if(isset($post_item['link'] && $post_item['link']!= ''))
 				<div><a href="{!!$post_item['link']!!}" target="_blank">{!!get_domain($post_item['link'])!!}</a></div>
+				@endif
 				<hr>
 				{{--Like/Share--}}
 				@if(isset($configs_data['fb_social']['btn_like']) && isset($configs_data['fb_social']['btn_like']) == 'on')
