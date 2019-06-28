@@ -332,8 +332,7 @@ header .header-top .text span.space{
 footer{
     padding: 40px 0;
     padding-bottom: 0;
-    background-image: url(../images/bg-footer.jpg);
-    background-size: cover;
+    background: #323232;
 }
 footer .logo {
     width: 58%;

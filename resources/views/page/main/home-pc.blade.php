@@ -63,7 +63,7 @@
 											</div>
 											<div class="item-text">
 												<div class="title">
-													<h3><a href="{{route('page.posts',['slug'=>$item['slug'] . '/' . $post['slug']])}}">{{$post['title']}}</a></h3>
+													<h3 style="line-height: 20px;"><a href="{{route('page.posts',['slug'=>$item['slug'] . '/' . $post['slug']])}}">{{$post['title']}}</a></h3>
 												</div>
 												<div class="info">
 													<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
