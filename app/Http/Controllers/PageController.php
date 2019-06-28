@@ -21,7 +21,7 @@ class PageController extends Controller
     public function home(){
         $data_cat = Categories::where('status',1)->orderBy('order')->get()->toArray();
         foreach($data_cat as $index => $item){
-            $data_post = Posts::where('status',1)->where('cat_id',$item['id'])->orderBy('id','desc')->limit(6)->get()->toArray();
+            $data_post = Posts::where('status',1)->where('cat_id',$item['id'])->orderBy('id','desc')->limit(8)->get()->toArray();
             foreach($data_post as $post){
                 $data_cat[$index]['post'][] = $post;
             }
