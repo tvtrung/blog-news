@@ -4,8 +4,7 @@
 @section('description',isset($configs_data['seo']['seo-description'])?$configs_data['seo']['seo-description']:'')
 @section('content')
 <main>
-	<div class="only-pc">@include('page.main.home-pc')</div>
-	<div class="only-mobile">@include('page.main.home-mobile')</div>
+	@include('page.main.home-pc')
 </main>
 @endsection
 @section('style')

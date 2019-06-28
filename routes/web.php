@@ -21,7 +21,7 @@ Route::get('gioi-thieu','PageController@introduce')->name('page.introduce');
 Route::get('bang-gia','PageController@price')->name('page.price');
 Route::get('huong-dan','PageController@guide')->name('page.guide');
 Route::get('hoi-dap','PageController@faq')->name('page.faq');
-// Route::get('lien-he','PageController@contact')->name('page.contact');
+Route::get('lien-he','PageController@contact')->name('page.contact');
 Route::get('noscript','PageController@no_script')->name('page.noscript');
 Route::get('post/{slug?}','PageController@posts')->name('page.posts')->where('slug', '.+');
 Route::get('search','PageController@search')->name('page.search');

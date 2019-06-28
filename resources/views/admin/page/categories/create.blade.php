@@ -41,7 +41,7 @@
 			                                    <input type="text" class="form-control" placeholder="Slug" name="slug" readonly="readonly" value="{{old('slug')}}"> 
 			                                </div>
 			                            </div>
-			                            <div class="form-group">
+			                            {{-- <div class="form-group">
 			                                <label>Chọn vị trí</label>
 			                                <select class="bs-select form-control" name="position">
 			                                <option value="{{time()}}">Bỏ chọn</option>
@@ -49,7 +49,7 @@
 			                                <option value="{{$i}}">Vị trí {{$i}}</option>
 			                                @endfor
                                             </select>
-			                            </div>
+			                            </div> --}}
 			                            {{--
 			                            <div class="form-group">
 			                                <label>Chọn cấp danh mục</label>

@@ -40,7 +40,7 @@
                                     <tr>
                                         <th style="width: 50px;"> STT </th>
                                         <th> Tên danh mục </th>
-                                        <th style="width: 50px;" class="text-center"> Vị trí </th>
+                                        {{-- <th style="width: 50px;" class="text-center"> Vị trí </th> --}}
                                         <th style="width: 50px;" class="text-center"> Trạng thái </th>
                                         <th style="width: 120px;">  </th>
                                     </tr>

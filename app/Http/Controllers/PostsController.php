@@ -38,7 +38,7 @@ class PostsController extends Controller
     }
     public function update(PostsRequest $request, $id){
         $size_image = [
-            ["x"=>331,"y"=>185],
+            ["x"=>251,"y"=>140],
             ["x"=>90,"y"=>50],
             ["x"=>333,"y"=>187],
             ["x"=>212,"y"=>118],
@@ -103,7 +103,7 @@ class PostsController extends Controller
     }
     public function store(PostsRequest $request){
         $size_image = [
-            ["x"=>331,"y"=>185],
+            ["x"=>251,"y"=>140],
             ["x"=>90,"y"=>50],
             ["x"=>333,"y"=>187],
             ["x"=>212,"y"=>118],

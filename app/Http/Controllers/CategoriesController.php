@@ -181,7 +181,7 @@ class CategoriesController extends Controller
 	            $html .= '<tr>';
 	            $html .= '<td><input type="number" name="order" class="ajax-order" value="' . $item->order . '" min="0" data-link="' . route('admin.cats.ajax_order',['id'=>$item->id]) . '" style="width: 50px;"></td>';
                 $html .= '<td>' . $char . $item->title . '</td>';
-	            $html .= '<td class="text-center">' . $position . '</td>';
+	            // $html .= '<td class="text-center">' . $position . '</td>';
 	            $html .= '<td class="text-center"><input type="checkbox" name="" class="ajax-switch" data-link="' . route('admin.cats.ajax_switch',['id'=>$item->id]) . '"' . $isCheck . '></td>';
 	            $html .= '<td class="text-center">';
 	            $html .= '<a href="#" class="click-to-view" data-link="' .  route('admin.cats.ajax_view',['id'=>$item->id]) . '"><span class="label label-sm label-success"><i class="fa fa-eye"></i></span></a>&nbsp;';

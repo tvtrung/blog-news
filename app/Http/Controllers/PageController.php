@@ -19,8 +19,19 @@ class PageController extends Controller
 
     }
     public function home(){
-        $data_post_count = Posts::count();
-        $data_cat_count = Categories::count();
+        $data_cat = Categories::where('status',1)->orderBy('order')->get()->toArray();
+        foreach($data_cat as $index => $item){
+            $data_post = Posts::where('status',1)->where('cat_id',$item['id'])->orderBy('id','desc')->limit(6)->get()->toArray();
+            foreach($data_post as $post){
+                $data_cat[$index]['post'][] = $post;
+            }
+        }
+        // echo "<pre>";
+        // var_dump($data_cat);die;
+        return view('page.main.main',['data_cat'=>$data_cat]);
+        
+        // $data_post_count = Posts::count();
+        // $data_cat_count = Categories::count();
         //get_news_latest
         // if($data_post_count > 0){
         //     $url_post = self::url_post();

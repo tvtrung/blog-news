@@ -566,6 +566,7 @@ footer .tt-col{
     font-size: 21px;
     font-weight: bold;
     text-transform: uppercase;
+    padding-left: 0;
 }
 .box-posts-cat .title-category a{
     color: #231f20;
@@ -577,13 +578,16 @@ footer .tt-col{
 }
 .box-post-item{
     border: 2px solid #e6e7e8;
+    margin-bottom: 20px;
+}
+.box-post-item .item-text{
     padding: 15px;
-    border-bottom: none;
 }
 .border-bottom-orange{
     width: 100%;
     height: 7px;
     background-color: #f68b1e;
+    margin-bottom: 20px;
 }
 .block-1, .block-2{
     margin-bottom: 10px;
