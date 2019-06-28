@@ -82,6 +82,11 @@ a h1, a h2, a h3{
     .p-auto-0          {padding: 0;}
     .only-pc           {display: none!important;}
 }
+@media only screen and (max-width: 1200px){
+    .img-home-page{
+        width: 100%;
+    }
+}
 /*----------------------------------------------*/
 /*---------END.GENERAL--------------------------*/
 /*----------------------------------------------*/

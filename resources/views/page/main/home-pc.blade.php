@@ -54,7 +54,7 @@
 										<div class="post-item-1">
 											<div class="img">
 												<a href="{{route('page.posts',['slug'=>$item['slug'] . '/' . $post['slug']])}}">
-													<img class="b-lazy"
+													<img class="b-lazy img-home-page"
 														src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
 														data-src="{{url('uploads/posts'. '/' . img_size($post['photo'], $post['photo_resize'], 251, 140))}}"
 														data-src-small="{{url('uploads/posts'. '/' . img_size($post['photo'], $post['photo_resize'], 251, 140))}}"
