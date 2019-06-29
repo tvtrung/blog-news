@@ -28,19 +28,20 @@
 					<div class="box-post-item">
 						<div class="post-item-2">
 							<div class="row">
-								<div class="col-4">
+								<div class="col-6 col-md-4">
 									<div class="img">
-										<a href="{{$url_post[$item->id]}}"><img src="{{url('/')}}/uploads/posts/{{$item->photo}}" class="width100" alt=""></a>
+										<a href="{{$url_post[$item->id]}}"><img src="{{url('uploads/posts'. '/' . img_size($item['photo'], $item['photo_resize'], 212, 118))}}" class="img-home-page" alt=""></a>
 									</div>
 								</div>
-								<div class="col-8" style="padding-left: 0">
+								<div class="col-6 col-md-8" style="padding-left: 0">
 									<div class="title">
 										<a href="{{$url_post[$item->id]}}"><h3>{!!$item->title!!}</h3></a>
 									</div>
 									<div class="info">
 										<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
-										<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y', strtotime($item->created_at))}}<span style="margin: 0 5px;">|</span>
-										<i class="fa fa-eye" aria-hidden="true"></i> {!!$item->view!!}
+										<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y', strtotime($item->created_at))}}<span style="margin: 0 5px;">
+										{{-- |</span>
+										<i class="fa fa-eye" aria-hidden="true"></i> {!!$item->view!!} --}}
 									</div>
 									<div class="des only-pc">
 										{!!$item->description!!}
