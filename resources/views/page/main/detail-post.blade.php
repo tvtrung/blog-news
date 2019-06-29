@@ -49,9 +49,10 @@
 				{{--Comment Facebook--}}
 				@if(isset($configs_data['fb_social']['fb_app_id']) && isset($configs_data['fb_social']['fb_app_id']) != null)
 				<div class="fb-comments" data-href="{{URL::current()}}" data-numposts="5" data-order-by="reverse_time"></div>
+				<div class="clearfix"></div><hr>
 				@endif
 				@if(isset($row_relative_post) && $row_relative_post != null)
-				<div class="clearfix"></div><hr>
+				<div class="clearfix"></div>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="box-posts-cat">
