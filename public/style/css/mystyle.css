@@ -221,7 +221,7 @@ a h1, a h2, a h3{
 @media only screen and (max-width: 780px){
     .wsmenu > .wsmenu-list > li > a ,
     .wsmenu > .wsmenu-list > li > a .fa {
-        color: #666666;
+        color: #FFF;
     }
     .wsmenu > .wsmenu-list > li > a:hover ,
     .wsmenu > .wsmenu-list > li > a .fa:hover {
@@ -231,6 +231,14 @@ a h1, a h2, a h3{
 @media only screen and (max-width: 780px){
     .wsmenu .wsmenu-list {
         z-index: 999;
+    }
+}
+@media only screen and (max-width: 992px){
+    .wsmenu .wsmenu-list {
+        height: 100%;
+        overflow-y: auto;
+        display: block !important;
+        background: #2c2c2c;
     }
 }
 header .header-menu-fixed{
@@ -616,7 +624,7 @@ footer .tt-col{
 }
 .post-item-1 .info{
     font-size: 13px;
-    color: #231f20;
+    color: #8c8788;
     margin-bottom: 5px;
 }
 .post-item-1 .info .fa{
