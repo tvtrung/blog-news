@@ -33,8 +33,8 @@
 							<div class="header">
 								<!--Main Menu HTML Code-->
 								<nav id="" class="wsmenu clearfix">
-									<ul class="mobile-sub wsmenu-list ul-1">
-										<li class="title icon-home @if(url()->current() == url('/')) active @endif""><a href="{{url('/')}}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+									<ul class="mobile-sub wsmenu-list ul-1" >
+										<li style="padding: 0;" class="title icon-home @if(url()->current() == url('/')) active @endif""><a style="padding: 0 15px;line-height: 55px;line-height: 55px;" href="{{url('/')}}"><img style="height: 20px;" src="{{asset('style/images/img-icon/icon-home.png')}}" alt=""></a></li>
 										@foreach($get_cat as $item)
 										<?php 
 											$get_url = $item['url']; 
@@ -44,7 +44,7 @@
 										@endforeach
 										{{-- <li class="title"><a href="{{url('lien-he')}}">Liên hệ</a></li> --}}
 										<li class="menu-search only-mobile">
-	                                        <a href="#" class="last-menu"><i class="fa fa-search" aria-hidden="true"></i> <span class="only-mobile">Tìm kiếm</span></a>
+	                                        <a href="#" class="last-menu" style="padding: 0 15px;line-height: 55px;line-height: 55px;"><img style="height: 20px;" src="{{asset('style/images/img-icon/icon-search.png')}}" alt=""> <span class="only-mobile">Tìm kiếm</span></a>
 	                                        <div class="megamenu halfdiv">
 	                                            <form class="menu_form" method="get" action="{{route('page.search')}}">
 	                                                <input type="text" name="q" placeholder="Nhập nội dung tìm kiếm..." autocomplete="off">
@@ -54,8 +54,8 @@
 	                                    </li>
 									</ul>
 									<ul class="mobile-sub wsmenu-list ul-2">
-										<li class="menu-search">
-	                                        <a href="#" class="last-menu"><i class="fa fa-search" aria-hidden="true"></i> <span class="only-mobile">Tìm kiếm</span></a>
+										<li class="menu-search" style="padding: 0;">
+	                                        <a href="#" class="last-menu" style="padding: 0 15px;line-height: 55px;line-height: 55px;"><img style="height: 20px;" src="{{asset('style/images/img-icon/icon-search.png')}}" alt=""> <span class="only-mobile">Tìm kiếm</span></a>
 	                                        <div class="megamenu halfdiv">
 	                                            <form class="menu_form" method="get" action="{{route('page.search')}}">
 	                                                <input type="text" name="q" placeholder="Nhập nội dung tìm kiếm..." autocomplete="off">

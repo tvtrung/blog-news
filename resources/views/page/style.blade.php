@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 @if(!isset($configs_data['optimize']['css-js-inpage']) || $configs_data['optimize']['css-js-inpage'] == 0 || $configs_data['optimize']['css-js-inpage'] == null)
 <link rel="stylesheet" type="text/css" href="/style/bootstrap-4.0.0/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/style/font-awesome-4.7.0/css/font-awesome.min.css">
+{{-- <link rel="stylesheet" type="text/css" href="/style/font-awesome-4.7.0/css/font-awesome.min.css"> --}}
 {{-- <link rel="stylesheet" type="text/css" href="/style/font-family/Roboto/font.css" > --}}
 <link rel="stylesheet" type="text/css" href="/style/menu-mobile/css/webslidemenu.css">
 <link rel="stylesheet" type="text/css" href="/style/menu-mobile/css/tree-menu.css">
@@ -45,7 +45,7 @@
 @else
 <style>
 {!! file_get_contents(public_path('/style/bootstrap-4.0.0/bootstrap.min.css')) !!}
-{!! str_replace('../', '/style/font-awesome-4.7.0/', file_get_contents(public_path('/style/font-awesome-4.7.0/css/font-awesome.min.css'))) !!}
+{{-- {!! str_replace('../', '/style/font-awesome-4.7.0/', file_get_contents(public_path('/style/font-awesome-4.7.0/css/font-awesome.min.css'))) !!} --}}
 {{-- {!! str_replace('font/', '/style/font-family/Roboto/font/', file_get_contents(public_path('/style/font-family/Roboto/font.css'))) !!} --}}
 {!! str_replace('../', '/style/menu-mobile/', file_get_contents(public_path('/style/menu-mobile/css/webslidemenu.css'))) !!}
 {!! str_replace('../', '/style/menu-mobile/', file_get_contents(public_path('/style/menu-mobile/css/tree-menu.css'))) !!}

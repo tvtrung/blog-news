@@ -25,9 +25,10 @@
 			<div class="col-md-8">
 				<h1>{!!$post_item['title']!!}</h1>
 				<div class="info">
-					<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
+					<span>(<i>Ngày: {{date('d/m/Y', strtotime($post_item['created_at']))}}</i>)</span>
+					{{-- <i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
 					<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y', strtotime($post_item['created_at']))}}<span style="margin: 0 5px;">|</span>
-					<i class="fa fa-eye" aria-hidden="true"></i> {!!$post_item['view']!!}
+					<i class="fa fa-eye" aria-hidden="true"></i> {!!$post_item['view']!!} --}}
 				</div>
 				<div class="content-posts" style="font-size: 15px;">
 					<div style="font-weight: bold;">{!!$post_item['description']!!}</div>
@@ -83,9 +84,10 @@
 													<h3 style="line-height: 20px"><a href="{{$url_post[$item->id]}}">{!!$item->title!!}</a></h3>
 												</div>
 												<div class="info">
-													<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
+													<span>(<i>Ngày: {{date('d/m/Y',strtotime($item->created_at))}}</i>)</span>
+													{{-- <i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
 													<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y',strtotime($item->created_at))}}<span style="margin: 0 5px;">|</span>
-													<i class="fa fa-eye" aria-hidden="true"></i> {{$item->view}}
+													<i class="fa fa-eye" aria-hidden="true"></i> {{$item->view}} --}}
 												</div>
 												{{-- <div class="link">
 													<a href="{{$url_post[$item->id]}}">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
@@ -112,9 +114,10 @@
 												<h3 style="line-height: 20px"><a href="{{$url_post[$item->id]}}">{!!$item->title!!}</a></h3>
 											</div>
 											<div class="info">
-												<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
+												<span>(<i>Ngày: {{date('d/m/Y',strtotime($item->created_at))}}</i>)</span>
+												{{-- <i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
 												<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y',strtotime($item->created_at))}}<span style="margin: 0 5px;">|</span>
-												<i class="fa fa-eye" aria-hidden="true"></i> {{$item->view}}
+												<i class="fa fa-eye" aria-hidden="true"></i> {{$item->view}} --}}
 											</div>
 											{{-- <div class="link">
 												<a href="{{$url_post[$item->id]}}">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>

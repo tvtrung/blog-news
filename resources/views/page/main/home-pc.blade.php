@@ -66,8 +66,7 @@
 													<h3 style="line-height: 20px;"><a href="{{route('page.posts',['slug'=>$item['slug'] . '/' . $post['slug']])}}">{{$post['title']}}</a></h3>
 												</div>
 												<div class="info">
-													<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
-													<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y',strtotime($post['created_at']))}}
+													<span>(<i>Ngày: {{date('d/m/Y',strtotime($post['created_at']))}}</i>)</span>
 													{{-- <span style="margin: 0 5px;">|</span>
 													<i class="fa fa-eye" aria-hidden="true"></i> {{$post['view']}} --}}
 												</div>
@@ -75,7 +74,7 @@
 													{!!strip_tags($post['description'])!!}
 												</div>
 												<div class="link">
-													<a href="{{route('page.posts',['slug'=>$item['slug'] . '/' . $post['slug']])}}">Xem thêm <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+													<a href="{{route('page.posts',['slug'=>$item['slug'] . '/' . $post['slug']])}}">Xem thêm &#xbb;</a>
 												</div>
 											</div>
 										</div>

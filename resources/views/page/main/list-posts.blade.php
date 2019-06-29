@@ -44,8 +44,10 @@
 										<h3><a href="{{$item['url']}}">{!!$item['title']!!}</a></h3>
 									</div>
 									<div class="info">
-										<i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
-										<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y', strtotime($item['created_at']))}}<span style="margin: 0 5px;">
+										<span>(<i>Ngày: {{date('d/m/Y', strtotime($item['created_at']))}}</i>)</span>
+										
+										{{-- <i class="fa fa-user" aria-hidden="true"></i> Admin<span style="margin: 0 5px;">|</span>
+										<i class="fa fa-calendar" aria-hidden="true"></i> Ngày {{date('d/m/Y', strtotime($item['created_at']))}}<span style="margin: 0 5px;"> --}}
 										{{-- |</span>
 										<i class="fa fa-eye" aria-hidden="true"></i> {!!$item['view']!!} --}}
 									</div>
