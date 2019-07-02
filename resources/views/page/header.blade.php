@@ -34,7 +34,7 @@
 								<!--Main Menu HTML Code-->
 								<nav id="" class="wsmenu clearfix">
 									<ul class="mobile-sub wsmenu-list ul-1" >
-										<li style="padding: 0;" class="title icon-home @if(url()->current() == url('/')) active @endif""><a style="padding: 0 15px;line-height: 55px;line-height: 55px;" href="{{url('/')}}"><img style="height: 20px;" src="{{asset('style/images/img-icon/icon-home.png')}}" alt=""></a></li>
+										<li style="padding: 0;" class="title icon-home @if(url()->current() == url('/')) active @endif""><a style="padding: 0 15px;line-height: 55px;line-height: 55px;" href="{{url('/')}}"><img style="height: 20px;" src="{{asset('style/images/img-icon/home.svg')}}" alt=""></a></li>
 										@foreach($get_cat as $item)
 										<?php 
 											$get_url = $item['url']; 
