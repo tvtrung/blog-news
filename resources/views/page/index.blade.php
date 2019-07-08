@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="vi">
 <head>
-	<noscript>
+	{{-- <noscript>
 	   <meta http-equiv="refresh" content="0;url={{route('page.noscript')}}">
-	</noscript>
+	</noscript> --}}
 	@include('page.style')
 </head>
 <body>
