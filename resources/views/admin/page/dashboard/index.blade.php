@@ -125,7 +125,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-12">
+                {{-- <div class="col-md-12">
                     <div class="portlet-body">
                         <div class="table-scrollable">
                             <table class="table table-bordered table-hover">
@@ -136,9 +136,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for($i = 2018; $i >= 2018; $i--)
+                                    @for($i = date('Y'); $i >= 2018; $i--)
                                     @for($j = 12; $j >= 1; $j--)
-                                    @php if($total_view[$i][$j] == 0) continue; @endphp
+                                    @php 
+                                        if($total_view[$i][$j] == 0) 
+                                            continue; 
+                                    @endphp
                                     <tr>
                                         <td>{{$j}}/{{$i}}</td>
                                         <td class="text-right">{{ $total_view[$i][$j] }}</td>
@@ -149,7 +152,7 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <!-- END CONTENT BODY -->
